@@ -1,4 +1,5 @@
 import commonjs from '@rollup/plugin-commonjs';
+import image from '@rollup/plugin-image';
 import resolve from '@rollup/plugin-node-resolve';
 import css from 'rollup-plugin-css-only';
 import livereload from 'rollup-plugin-livereload';
@@ -42,6 +43,7 @@ export default {
         file: 'public/build/bundle.js',
     },
     plugins: [
+        image(),
         svelte({
             preprocess: sveltePreprocess({
                 sourceMap: !production,

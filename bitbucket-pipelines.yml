@@ -17,3 +17,4 @@ pipelines:
             variables:
               FIREBASE_TOKEN: $FIREBASE_TOKEN
               EXTRA_ARGS: '--only hosting'
+              DEBUG: 'true'

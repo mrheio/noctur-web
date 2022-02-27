@@ -1,5 +1,3 @@
-image: note:lts
-
 pipelines:
   default:
     - step:

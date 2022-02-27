@@ -1,4 +1,4 @@
-image:node:lts
+image: note:lts
 
 pipelines:
   default:

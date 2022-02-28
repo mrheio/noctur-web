@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import gamesDbService from './gamesDbService';
+import gamesDbService from './data/gamesDbService';
 
 export const gamesStore = writable({
     isLoading: false,

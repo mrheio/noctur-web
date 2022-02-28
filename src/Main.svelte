@@ -10,6 +10,6 @@
 
 <style>
     main {
-        @apply mx-12 my-6;
+        @apply mx-4 my-6;
     }
 </style>

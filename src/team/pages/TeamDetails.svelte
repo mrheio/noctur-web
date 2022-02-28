@@ -8,7 +8,7 @@
         PlayersDisplay,
         SeverityDisplay,
     } from '../../common/components';
-    import detailedTeamService from '../detailedTeamService';
+    import detailedTeamService from '../data/detailedTeamService';
     import { deleteTeam, joinTeam, quitTeam, teamsStore } from '../teamsStore';
 
     export let id;

@@ -26,10 +26,12 @@
     },
     "dependencies": {
         "firebase": "^9.6.7",
+        "fullpage.js": "^3.1.2",
         "rxfire": "^6.0.3",
         "rxjs": "^7.5.4",
         "sirv-cli": "^2.0.2",
         "svelte-forms": "^2.2.1",
+        "svelte-fullpage": "^0.3.1",
         "svelte-routing": "^1.6.0",
         "tailwindcss-animation-delay": "^1.0.7"
     }

@@ -1,9 +1,9 @@
 <script>
     import { onDestroy } from 'svelte';
     import { Btn, Form, InputField, Loading } from '../../common/components';
-    import gamesDbService from '../gamesDbService';
+    import { GamesList } from '../components';
+    import { gamesDbService } from '../data';
     import { gamesStore, getGames$ } from '../gamesStore';
-    import GamesList from './GamesList.svelte';
 
     $: ({ isLoading, error } = $gamesStore);
 
@@ -34,8 +34,11 @@
 </script>
 
 <Loading condition={isLoading || addStatus.isLoading}>
-    <div class="text-center mb-8">
+    <div
+        class="bg-secondary-800 bg-opacity-30 pt-8 pb-16 px-2 shadow-sm max-w-lg mx-auto mb-8"
+    >
         <Form on:submit={handleAddGame}>
+            <h2 class="font-bold mb-4">Adauga un joc</h2>
             <InputField name="name" label="Nume joc" bind:value={game.name} />
             <InputField
                 name="maxTeam"

@@ -1,7 +1,6 @@
 import { get, writable } from 'svelte/store';
 import { authStore } from '../auth/authStore';
-import detailedTeamService from './detailedTeamService';
-import teamsDbService from './teamsDbService';
+import { detailedTeamService, teamsDbService } from './data';
 
 export const teamsStore = writable({
     isLoading: false,

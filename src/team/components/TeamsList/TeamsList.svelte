@@ -9,6 +9,7 @@
     const sub = getDetailedTeams$();
 
     onDestroy(() => {
+        console.log('destroyed');
         sub.unsubscribe();
     });
 </script>

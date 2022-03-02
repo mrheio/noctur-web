@@ -3,27 +3,36 @@
     export let neededPlayers = 0;
 </script>
 
-<span class="flex gap-1 flex-wrap max-w-[240px]">
+<span class="PlayersDisplay">
     {#each new Array(currentPlayers) as _}
-        <i class="icon filled" />
+        <i class="icon filled-player" />
     {/each}
     {#each new Array(neededPlayers - currentPlayers) as _}
-        <i class="icon notFilled" />
+        <i class="icon notFilled-player" />
     {/each}
 </span>
 
 <style>
+    .PlayersDisplay {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
     .icon {
         display: inline-block;
         width: 24px;
         height: 24px;
-        mask-size: cover;
-        @apply bg-secondary-300;
+        background: var(--clr-primary-30);
     }
-    .filled {
-        mask: url('../assets/svg/player.svg');
+
+    .filled-player {
+        -webkit-mask-image: url('../assets/svg/player.svg');
+        mask-image: url('../assets/svg/player.svg');
     }
-    .notFilled {
-        mask: url('../assets/svg/nofill_player.svg');
+
+    .notFilled-player {
+        -webkit-mask-image: url('../assets/svg/nofill_player.svg');
+        mask-image: url('../assets/svg/nofill_player.svg');
     }
 </style>

@@ -1,5 +1,6 @@
 <script>
     import { authStore } from '../../auth/authStore';
+    import { Card, Grid } from '../../common/components';
     import { deleteGame, gamesStore } from '../gamesStore';
 
     $: ({ loggedUser } = $authStore);
@@ -10,27 +11,38 @@
     };
 </script>
 
-<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+<Grid>
     {#each games as game}
-        <div
-            class="relative px-6 py-4 bg-secondary-700 border-2 border-secondary-600 rounded-2xl"
-        >
-            <h5 class="font-bold text-accent-main">{game.name}</h5>
-            <p>
-                Capacitate maxima echipa: <span
-                    class="text-accent-main font-bold"
-                >
+        <Card>
+            <h2>{game.name}</h2>
+            <h3>
+                Capacitate maxima echipa: <span>
                     {game.maxTeam}
                 </span>
-            </p>
+            </h3>
             {#if loggedUser.isAdmin}
                 <button
-                    class="absolute top-2 right-2 border-none"
+                    class="top-right"
                     on:click={() => handleDeleteGame(game.id)}
                 >
                     ❌
                 </button>
             {/if}
-        </div>
+        </Card>
     {/each}
-</div>
+</Grid>
+
+<style>
+    .top-right {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        background: none;
+        border: none;
+        outline: none;
+    }
+
+    span {
+        color: var(--clr-secondary-50);
+    }
+</style>

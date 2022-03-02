@@ -1,6 +1,6 @@
 <script>
     import { onDestroy } from 'svelte';
-    import { Loading } from '../../../common/components';
+    import { Grid, Loading } from '../../../common/components';
     import { getDetailedTeams$, teamsStore } from '../../teamsStore';
     import TeamCard from './TeamCard.svelte';
 
@@ -15,9 +15,12 @@
 </script>
 
 <Loading condition={isLoading}>
-    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+    <Grid>
         {#each teams as team}
             <TeamCard {team} />
         {/each}
-    </div>
+    </Grid>
 </Loading>
+
+<style>
+</style>

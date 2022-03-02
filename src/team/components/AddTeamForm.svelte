@@ -63,11 +63,9 @@
 </script>
 
 <Loading condition={gamesLoading || addStatus.isLoading}>
-    <div
-        class="bg-secondary-800 bg-opacity-30 pt-8 pb-16 px-2 shadow-sm max-w-lg mx-auto mb-8"
-    >
+    <div>
         <Form on:submit={handleAddTeam}>
-            <h2 class="font-bold mb-4">Creeaza o echipa</h2>
+            <h2>Creeaza o echipa</h2>
             <InputField
                 name="name"
                 label="Nume echipa"
@@ -87,7 +85,7 @@
                     optionValueTransformer={(option) => option.name}
                     optionDisplayTransformer={(option) => option.name}
                 />
-                <span class="cursor-pointer" on:click={handleNavigateToGames}>
+                <span on:click={handleNavigateToGames}>
                     *Daca jocul dorit nu exista poti sa il adaugi
                 </span>
             </div>
@@ -105,7 +103,7 @@
                 optionDisplayTransformer={(option) => option.display}
             />
             <Btn>Creeaza echipa</Btn>
-            <div class="h-6">
+            <div>
                 {#if addStatus.error}
                     {addStatus.error.message}
                 {/if}

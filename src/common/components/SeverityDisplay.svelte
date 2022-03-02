@@ -11,8 +11,8 @@
 
 <style>
     .dot {
-        height: 16px;
-        width: 16px;
+        max-height: 16px;
+        min-width: 16px;
         border-radius: 50%;
         display: inline-block;
     }

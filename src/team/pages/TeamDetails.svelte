@@ -48,9 +48,9 @@
 
 <Loading condition={isLoading || teamLoading}>
     {#if team}
-        <div class="flex gap-2 items-center mb-4">
+        <div>
             <SeverityDisplay severity={team.severity} />
-            <h2 class="text-accent-main font-bold">
+            <h2>
                 {team.gameName} - {team.name}
             </h2>
         </div>
@@ -58,13 +58,11 @@
             currentPlayers={team.usersIds.length}
             neededPlayers={team.neededPlayers}
         />
-        <div class="mt-6 min-h-[48px] mb-6">{team.description}</div>
-        <h3 class="mb-2">Jucatori in echipa:</h3>
-        <div class="max-w-xl flex flex-col gap-2">
+        <div>{team.description}</div>
+        <h3>Jucatori in echipa:</h3>
+        <div>
             {#each team.users as user}
-                <div
-                    class="flex items-center justify-center h-12 bg-secondary-700 rounded-lg"
-                >
+                <div>
                     <h5>{user.username}</h5>
                 </div>
             {/each}

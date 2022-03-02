@@ -35,12 +35,10 @@
 </script>
 
 <Loading condition={status.isloading}>
-    <div
-        class="bg-secondary-800 bg-opacity-30 pt-8 pb-16 px-2 shadow-sm max-w-lg mx-auto"
-    >
+    <div class="centered fullscreen">
         <Form on:submit={handleRegister}>
-            <h2 class="font-bold">Inregistrare</h2>
-            <h6 class="mb-4">Pentru a crea un cont completeaza datele</h6>
+            <h1>Inregistrare</h1>
+            <h3>Pentru a crea un cont completeaza datele</h3>
             <InputField label="Email" name="email" bind:value={user.email} />
             <InputField
                 label="Username"
@@ -57,7 +55,7 @@
             <Btn type="button" on:click={handleNavigateToLogin}>
                 Intra in cont
             </Btn>
-            <div class="h-6">
+            <div class="Register__error">
                 {#if status.error}
                     {status.error.message}
                 {/if}
@@ -65,3 +63,11 @@
         </Form>
     </div>
 </Loading>
+
+<style>
+    .Register__error {
+        margin-top: var(--spacing-s);
+        height: 2rem;
+        color: var(--clr-secondary-10);
+    }
+</style>

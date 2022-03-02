@@ -1,14 +1,8 @@
 <script>
-    import { authStore } from '../../auth/authStore';
-    import { AddTeamForm, TeamsList } from '../components';
-    import { teamsStore } from '../teamsStore';
-
-    $: ({ loggedUser } = $authStore);
-    $: ({ isLoading: teamsLoading } = $teamsStore);
+    import { TeamsList } from '../components';
 </script>
 
-{#if loggedUser}
-    <AddTeamForm />
-{/if}
-
-<TeamsList />
+<div class="header-offset margin-inline--s">
+    <h2>Echipe in cautare de playeri</h2>
+    <TeamsList />
+</div>

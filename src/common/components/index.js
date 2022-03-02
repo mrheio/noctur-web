@@ -1,5 +1,7 @@
 export { default as Btn } from './Btn.svelte';
+export { default as Card } from './Card.svelte';
 export { default as Form } from './Form.svelte';
+export { default as Grid } from './Grid.svelte';
 export { default as InputField } from './InputField.svelte';
 export { default as Loading } from './Loading.svelte';
 export { default as PlayersDisplay } from './PlayersDisplay.svelte';

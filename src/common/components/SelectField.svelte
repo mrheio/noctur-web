@@ -8,19 +8,35 @@
 </script>
 
 <div>
-    <label class="text-lg" for={name}>{label}</label>
-    <select
-        class="h-12 w-full px-1 bg-transparent border-2 border-secondary-600 rounded-md outline-none hover:border-secondary-400 focus:border-secondary-300 transition-all duration-300 ease-in-out"
-        bind:value
-        {name}
-    >
+    <label for={name}>{label}</label>
+    <select bind:value {name}>
         {#each options as option}
-            <option
-                class="bg-secondary-800 hover:bg-secondary-700"
-                value={optionValueTransformer(option)}
-            >
+            <option value={optionValueTransformer(option)}>
                 {optionDisplayTransformer(option)}
             </option>
         {/each}
     </select>
 </div>
+
+<style>
+    div {
+        text-align: start;
+    }
+
+    label {
+        display: block;
+        font-size: var(--fs-h-s);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    select {
+        display: block;
+        width: 100%;
+        background: var(--clr-primary-80);
+        color: var(--clr-txt);
+        border: none;
+        border-radius: 4px;
+        outline: none;
+        padding: var(--spacing-s);
+    }
+</style>

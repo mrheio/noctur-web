@@ -11,10 +11,10 @@
     };
 </script>
 
-<div>
-    <label class="text-lg" for={name}>{label}</label>
+<div class="InputField">
+    <label class="InputField__label" for={name}>{label}</label>
     <input
-        class="h-12 w-full px-1 bg-transparent border-2 border-secondary-600 rounded-md outline-none hover:border-secondary-400 focus:border-secondary-300 transition-all duration-300 ease-in-out"
+        class="InputField__input"
         {name}
         title={label}
         {type}
@@ -22,3 +22,35 @@
         on:input={handleInput}
     />
 </div>
+
+<style>
+    .InputField {
+        text-align: start;
+    }
+
+    .InputField__label {
+        display: block;
+        font-size: var(--fs-h-s);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .InputField__input {
+        display: block;
+        width: 100%;
+        background: var(--clr-primary-80);
+        color: var(--clr-txt);
+        border: none;
+        border-radius: 4px;
+        outline: none;
+        padding: var(--spacing-s);
+    }
+
+    .InputField__input:-webkit-autofill,
+    .InputField__input:-webkit-autofill:hover,
+    .InputField__input:-webkit-autofill:focus,
+    .InputField__input:-webkit-autofill:active {
+        -webkit-text-fill-color: var(--clr-txt);
+        -webkit-box-shadow: 0 0 0px 1000px var(--clr-primary-80) inset !important;
+        box-shadow: 0 0 0px 1000px var(--clr-primary-80) inset !important;
+    }
+</style>

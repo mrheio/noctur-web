@@ -159,31 +159,11 @@
     }
 
     .wtransition {
-        transition: all 250ms ease-in-out;
+        transition: all 225ms ease-in-out;
     }
 
     .bold {
         font-weight: 700;
-    }
-
-    .btn {
-        color: var(--clr-txt) !important;
-        background: var(--clr-primary-50);
-        cursor: pointer;
-        padding: var(--spacing-s) var(--spacing-m);
-        margin: var(--spacing-xs);
-        border: none;
-        border-radius: 8px;
-        outline: none;
-        font-weight: 600;
-    }
-
-    .btn:hover {
-        background: var(--clr-primary-40);
-    }
-
-    .btn:active {
-        background: var(--clr-primary-60) !important;
     }
 
     .header-offset {

@@ -1,8 +1,37 @@
 <script>
+    import {
+        Btn,
+        Floating,
+        Overlay,
+        PageWrapper,
+    } from '../../common/components';
     import { TeamsList } from '../components';
+
+    let overlayComponent;
 </script>
 
-<div class="header-offset margin-inline--s">
+<PageWrapper>
     <h2>Echipe in cautare de playeri</h2>
     <TeamsList />
-</div>
+</PageWrapper>
+
+<Floating>
+    <Btn circle on:click={overlayComponent.openOverlay}>
+        <i class="icon" />
+    </Btn>
+</Floating>
+
+<Overlay bind:this={overlayComponent}>
+    <div>Text de test</div>
+</Overlay>
+
+<style>
+    .icon {
+        -webkit-mask: url('../assets/svg/team.svg') no-repeat center/cover;
+        mask: url('../assets/svg/team.svg') no-repeat center/cover;
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background: var(--clr-primary-100);
+    }
+</style>

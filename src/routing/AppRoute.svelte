@@ -11,10 +11,11 @@
         <PrivateGuard>
             <svelte:component this={route.component} {...params} />
         </PrivateGuard>
-    {/if}
-    {#if route.notAuthed}
+    {:else if route.notAuthed}
         <NoAuthGuard>
             <svelte:component this={route.component} {...params} />
         </NoAuthGuard>
+    {:else}
+        <svelte:component this={route.component} {...params} />
     {/if}
 </Route>

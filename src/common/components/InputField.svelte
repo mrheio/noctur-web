@@ -31,7 +31,7 @@
     .InputField__label {
         display: block;
         font-size: var(--fs-h-s);
-        margin-bottom: var(--spacing-xs);
+        margin-bottom: var(--spacing-s);
     }
 
     .InputField__input {

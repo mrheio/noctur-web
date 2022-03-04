@@ -35,7 +35,7 @@
 </script>
 
 <Loading condition={status.isloading}>
-    <div class="centered fullscreen">
+    <div class="fullscreen centered">
         <Form on:submit={handleRegister}>
             <h1>Inregistrare</h1>
             <h3>Pentru a crea un cont completeaza datele</h3>

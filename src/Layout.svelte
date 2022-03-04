@@ -62,10 +62,6 @@
         justify-content: space-between;
     }
 
-    main {
-        min-height: 100vh;
-    }
-
     .nav-group {
         display: flex;
         gap: 8px;

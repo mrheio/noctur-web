@@ -6,7 +6,7 @@ import { TeamDetails, TeamsHome } from '../team/pages';
 const homeRoute = {
     path: '/',
     private: false,
-    notAuthed: true,
+    notAuthed: false,
     component: Home,
 };
 

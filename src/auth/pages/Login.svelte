@@ -1,7 +1,7 @@
 <script>
-    import { navigate } from 'svelte-routing';
     import { Btn, Form, InputField, Loading } from '../../common/components';
-    import { authService } from '../data';
+    import { registerRoute } from '../../routing/routes';
+    import { authService, validateLogin } from '../data';
 
     let user = { email: '', password: '' };
     let status = {
@@ -9,29 +9,24 @@
         error: null,
     };
 
-    const handleLogIn = async () => {
+    const logIn = async () => {
         try {
+            validateLogin();
+
             status = { ...status, isLoading: true, error: null };
 
-            await authService.logInWithEmailAndPassword(
-                user.email,
-                user.password
-            );
+            await authService.logInWithEmailAndPassword(user);
 
             status = { ...status, isLoading: false };
         } catch (error) {
             status = { ...status, isLoading: false, error };
         }
     };
-
-    const handleNavigateToRegister = () => {
-        navigate('register');
-    };
 </script>
 
 <Loading condition={status.isLoading}>
     <div class="fullscreen centered">
-        <Form on:submit={handleLogIn}>
+        <Form on:submit={logIn}>
             <h1>Autentificare</h1>
             <h3 class="Login__details">
                 Pentru a intra in cont completeaza datele
@@ -44,9 +39,7 @@
                 bind:value={user.password}
             />
             <Btn>Intra in cont</Btn>
-            <Btn type="button" on:click={handleNavigateToRegister}>
-                Creeaza cont
-            </Btn>
+            <Btn type="button" on:click={registerRoute.goTo}>Creeaza cont</Btn>
             <div class="Login__error">
                 {#if status.error}
                     {status.error.message}

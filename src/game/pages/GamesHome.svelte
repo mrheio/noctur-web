@@ -2,31 +2,12 @@
     import {
         Btn,
         Floating,
-        Form,
-        InputField,
-        Loading,
         Overlay,
         PageWrapper,
     } from '../../common/components';
-    import { GamesList } from '../components';
-    import { gamesDbService } from '../data';
+    import { AddGameForm, GamesList } from '../components';
 
     let overlayComponent;
-    let game = { name: '', maxTeam: '' };
-    let submitStatus = { loading: false, error: null };
-
-    const addGame = async () => {
-        try {
-            submitStatus = { loading: true, error: null };
-
-            await gamesDbService.addGame(game);
-
-            game = { name: '', maxTeam: '' };
-            submitStatus = { loading: false, error: null };
-        } catch (error) {
-            submitStatus = { loading: false, error };
-        }
-    };
 </script>
 
 <PageWrapper>
@@ -41,23 +22,7 @@
 </Floating>
 
 <Overlay bind:this={overlayComponent}>
-    <Loading condition={submitStatus.loading}>
-        <Form on:submit={addGame}>
-            <InputField name="name" label="Nume joc" bind:value={game.name} />
-            <InputField
-                name="maxTeam"
-                label="Capacitate maxima echipa"
-                bind:value={game.maxTeam}
-            />
-            <Btn>Adauga joc</Btn>
-            <Btn type="button" on:click={overlayComponent.closeOverlay}>
-                Anuleaza
-            </Btn>
-            <div>
-                {submitStatus.error?.message || ''}
-            </div>
-        </Form>
-    </Loading>
+    <AddGameForm {overlayComponent} />
 </Overlay>
 
 <style>

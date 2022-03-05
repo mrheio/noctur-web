@@ -1,3 +1,3 @@
 export { default as detailedTeamService } from './detailedTeamService';
-export { default as teamsDbService } from './teamsDbService';
+export { default as teamsDbService } from './teamService';
 export * from './teamUtils';

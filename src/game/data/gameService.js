@@ -1,25 +1,33 @@
-import { Err } from '../../common/err';
-import FirestoreService from '../../common/firebase/FirestoreService';
+import { where } from 'firebase/firestore';
+import { FirestoreService } from '../../common/firebase';
+import { Err, replaceSpacesWithUnderscores } from '../../common/utils';
 import { teamsDbService } from '../../team/data';
-import { createGame, validateGameData } from './gameUtils';
+import { createGame } from './gameUtils';
 
-const createGamesDbService = (dbService) => ({
+const createGameService = (dbService) => ({
     getGames$() {
         return dbService.getAll$();
+    },
+
+    getGameById(gameId) {
+        return dbService.getById(replaceSpacesWithUnderscores(gameId));
     },
 
     getGameById$(gameId) {
         return dbService.getById$(gameId);
     },
 
+    getGameByName(gameName) {
+        return dbService.getWhere(where('name', '==', gameName))[0];
+    },
+
     async addGame(gameData) {
-        validateGameData(gameData);
         const game = createGame(gameData);
         try {
             return await dbService.add(game);
         } catch (error) {
             if (error.code === 'already-exists') {
-                throw Err.gameAlreadyExists(game);
+                throw Err.alreadyExists(`Jocul ${game.name} exista deja`);
             }
             throw error;
         }
@@ -35,6 +43,6 @@ const createGamesDbService = (dbService) => ({
     },
 });
 
-const gamesDbService = createGamesDbService(new FirestoreService('games'));
+const gameService = createGameService(new FirestoreService('games'));
 
-export default gamesDbService;
+export default gameService;

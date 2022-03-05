@@ -5,7 +5,7 @@
         Overlay,
         PageWrapper,
     } from '../../common/components';
-    import { TeamsList } from '../components';
+    import { AddTeamForm, TeamsList } from '../components';
 
     let overlayComponent;
 </script>
@@ -22,7 +22,7 @@
 </Floating>
 
 <Overlay bind:this={overlayComponent}>
-    <div>Text de test</div>
+    <AddTeamForm {overlayComponent} />
 </Overlay>
 
 <style>

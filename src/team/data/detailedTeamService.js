@@ -1,21 +1,21 @@
 import { combineLatest, of, switchMap } from 'rxjs';
-import { usersDbService } from '../../auth/data';
-import { Err } from '../../common/err';
-import teamsDbService from './teamsDbService';
+import { userService } from '../../auth/data';
+import { Err } from '../../common/utils';
+import teamsDbService from './teamService';
 
 const createDetailedTeamService = () => ({
     getDetailedTeamById$(teamId) {
         const team$ = teamsDbService.getTeamById$(teamId);
         const users$ = team$.pipe(
             switchMap((team) =>
-                team ? usersDbService.getUsersByIds$(team.usersIds) : of([])
+                team ? userService.getUsersByIds$(team.usids) : of([])
             )
         );
         return combineLatest([team$, users$], (team, users) => {
             if (team) {
                 return { ...team, users };
             }
-            throw Err.teamNotFound(teamId);
+            throw Err.notFound(`Echipa cu id ${teamId} nu exista`);
         });
     },
 

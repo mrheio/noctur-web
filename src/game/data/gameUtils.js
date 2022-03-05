@@ -1,27 +1,19 @@
-import { replaceSpacesWithUnderscores } from '../../common/basicUtils';
-import { Err } from '../../common/err';
-import Validator, { isNumeric, notEmpty } from '../../common/Validator';
+import { replaceSpacesWithUnderscores, Validator } from '../../common/utils';
 
 export const createGame = (data) => ({
     id: replaceSpacesWithUnderscores(data.name),
     name: data.name,
-    maxTeam: parseInt(data.maxTeam),
+    capacity: parseInt(data.capacity),
 });
 
-const gameDataValidator = {
-    name: [{ checker: notEmpty, error: Err.emptyField('Nume joc') }],
-    maxTeam: [
-        {
-            checker: notEmpty,
-            error: Err.emptyField('Capacitate maxima echipa'),
-        },
-        {
-            checker: isNumeric,
-            error: Err.invalidNumber('Capacitate maxima echipa'),
-        },
-    ],
+const validators = {
+    name: new Validator().required('Nume joc trebuie completat'),
+    capacity: new Validator()
+        .required('Capacitate maxima echipa trebuie completata')
+        .numeric('Capacitate maxima echipa trebuie sa fie numar'),
 };
 
 export const validateGameData = (gameData) => {
-    Validator.validate(gameData, gameDataValidator);
+    validators.name.validate(gameData.name);
+    validators.capacity.validate(gameData.capacity);
 };

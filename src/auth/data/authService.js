@@ -5,24 +5,33 @@ import {
 } from 'firebase/auth';
 import { authState } from 'rxfire/auth';
 import { of, switchMap } from 'rxjs';
-import { AuthErr } from '../../common/err';
-import { firebaseAuth } from '../../common/firebase/firebase.config';
-import usersDbService from './usersDbService';
-import { createUser, validateLogin, validateUserData } from './userUtils';
+import { createUser } from '.';
+import { firebaseAuth } from '../../common/firebase';
+import { AuthErr } from '../../common/utils/';
+import {
+    default as usersDbService,
+    default as userService,
+} from './userService';
 
 const authService = {
     getLoggedUser$() {
         return authState(firebaseAuth).pipe(
-            switchMap((user) =>
-                user ? usersDbService.getUserById$(user.uid) : of(null)
-            )
+            switchMap((user) => {
+                if (user) {
+                    return usersDbService.getUserById$(user.uid);
+                }
+                return of(null);
+            })
         );
     },
 
-    async logInWithEmailAndPassword(email, password) {
+    async logInWithEmailAndPassword(data) {
         try {
-            validateLogin(email, password);
-            await signInWithEmailAndPassword(firebaseAuth, email, password);
+            await signInWithEmailAndPassword(
+                firebaseAuth,
+                data.email,
+                data.password
+            );
         } catch (error) {
             throw AuthErr.maybeConvert(error);
         }
@@ -36,17 +45,20 @@ const authService = {
         }
     },
 
-    async register(email, username, password) {
+    async register(data) {
+        const { email, username, password } = data;
         try {
-            validateUserData(email, username, password);
             const creds = await createUserWithEmailAndPassword(
                 firebaseAuth,
                 email,
                 password
             );
-            const res = await usersDbService.addUser(
-                createUser(creds.user.uid, email, username, password)
-            );
+            const user = createUser({
+                id: creds.user.uid,
+                email,
+                username,
+            });
+            const res = userService.addUser(user);
             return res;
         } catch (error) {
             throw AuthErr.maybeConvert(error);

@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import gamesDbService from './data/gamesDbService';
+import { gameService } from './data';
 
 export const gamesStore = writable({
     isLoading: false,
@@ -31,7 +31,7 @@ const setError = (error) =>
 
 export const getGames$ = () => {
     setLoading();
-    return gamesDbService.getGames$().subscribe((games) => {
+    return gameService.getGames$().subscribe((games) => {
         setGames(games);
     });
 };
@@ -40,7 +40,7 @@ export const addGame = async (gameData) => {
     try {
         setLoading();
 
-        await gamesDbService.addGame(gameData);
+        await gameService.addGame(gameData);
     } catch (error) {
         setError(error);
     }
@@ -50,7 +50,7 @@ export const deleteGame = async (gameId) => {
     try {
         setLoading();
 
-        await gamesDbService.deleteGameById(gameId);
+        await gameService.deleteGameById(gameId);
     } catch (error) {
         setError(error);
     }

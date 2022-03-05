@@ -49,16 +49,6 @@ export const getDetailedTeams$ = () => {
     });
 };
 
-export const addTeam = async (teamData) => {
-    try {
-        setLoading();
-
-        await teamsDbService.addTeam(teamData);
-    } catch (error) {
-        setError(error);
-    }
-};
-
 export const deleteTeam = async (team) => {
     try {
         setLoading();

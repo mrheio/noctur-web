@@ -7,59 +7,43 @@ export class Err extends Error {
         this.code = code;
     }
 
-    static emptyField(fieldName) {
+    static empty(message) {
         return new Err(
             STATUS_CODES.CLIENT_ERROR.UNPROCESSABLE,
-            'empty-field',
-            `${fieldName} trebuie completat`
+            'required-empty',
+            message
         );
     }
 
-    static invalidNumber(fieldName) {
+    static NaN(message) {
         return new Err(
             STATUS_CODES.CLIENT_ERROR.UNPROCESSABLE,
-            'invalid-number',
-            `${fieldName} trebuie sa fie numar`
+            'required-number',
+            message
         );
     }
 
-    static alreadyExists(id) {
+    static alreadyExists(message) {
         return new Err(
             STATUS_CODES.CLIENT_ERROR.CONFLICT,
             'already-exists',
-            `A document with id ${id} already exists`
+            message
         );
     }
 
-    static gameAlreadyExists(game) {
-        return new Err(
-            STATUS_CODES.CLIENT_ERROR.CONFLICT,
-            'already-exists',
-            `Jocul ${game.name} exista deja`
-        );
-    }
-
-    static teamAlreadyExists(team) {
-        return new Err(
-            STATUS_CODES.CLIENT_ERROR.CONFLICT,
-            'already-exists',
-            `Ai deja o echipa pentru jocul ${team.gameName}`
-        );
-    }
-
-    static teamNotFound(teamId) {
+    static notFound(message) {
         return new Err(
             STATUS_CODES.CLIENT_ERROR.NOT_FOUND,
             'not-found',
-            `Echipa cu id ${teamId} nu exista`
+            message
         );
     }
 
-    static teamCapacityOverflow(game) {
+    static capacityOverflow(message) {
         return new Err(
-            STATUS_CODES.CLIENT_ERROR.UNPROCESSABLE,
+            STATUS_CODES.CLIENT_ERROR.CONFLICT,
             'capacity-overflow',
-            `Jocul are echipe de maxim ${game.maxTeam} jucatori`
+            message
         );
     }
 }

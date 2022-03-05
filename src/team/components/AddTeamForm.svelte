@@ -1,6 +1,5 @@
 <script>
     import { onDestroy, onMount } from 'svelte';
-    import { navigate } from 'svelte-routing';
     import { authStore } from '../../auth/authStore';
     import {
         Btn,
@@ -9,105 +8,92 @@
         Loading,
         SelectField,
     } from '../../common/components';
+    import { resetObj } from '../../common/utils/basicUtils';
     import { gamesStore, getGames$ } from '../../game/gamesStore';
+    import { gamesHomeRoute } from '../../routing/routes';
     import { severities, teamsDbService } from '../data';
+
+    export let overlayComponent;
 
     $: ({ loggedUser } = $authStore);
     $: ({ isLoading: gamesLoading, games } = $gamesStore);
-
-    const gamesSub = getGames$();
-
     let team = {
         name: '',
-        neededPlayers: '',
-        gameName: '',
+        capacity: '',
+        game: '',
         description: '',
         severity: 'low',
     };
-    let addStatus = {
+    let status = {
         isLoading: false,
         error: null,
     };
 
+    const gamesSub = getGames$();
+
     onMount(() => {
-        team = { ...team, userId: loggedUser.id };
+        team = { ...team, uid: loggedUser.id };
     });
 
     onDestroy(() => {
         gamesSub.unsubscribe();
     });
 
-    const handleAddTeam = async () => {
+    const addTeam = async () => {
         try {
-            addStatus = { ...addStatus, isLoading: true, error: null };
+            status = { isLoading: true, error: null };
 
             await teamsDbService.addTeam(team);
 
-            team = {
-                ...team,
-                name: '',
-                neededPlayers: '',
-                gameName: '',
-                description: '',
-                severity: 'low',
-            };
-            addStatus = { ...addStatus, isLoading: false };
+            team = resetObj(team, { uid: loggedUser.id, need: 'low' });
+            status = { isLoading: false, error: null };
         } catch (error) {
-            addStatus = { ...addStatus, isLoading: false, error };
+            status = { isLoading: false, error };
         }
-    };
-
-    const handleNavigateToGames = () => {
-        navigate('games');
     };
 </script>
 
-<Loading condition={gamesLoading || addStatus.isLoading}>
-    <div>
-        <Form on:submit={handleAddTeam}>
-            <h2>Creeaza o echipa</h2>
-            <InputField
-                name="name"
-                label="Nume echipa"
-                bind:value={team.name}
-            />
-            <InputField
-                name="neededPlayers"
-                label="Capacitate echipa"
-                bind:value={team.neededPlayers}
-            />
-            <div>
-                <SelectField
-                    name="gameName"
-                    label="Joc"
-                    bind:value={team.gameName}
-                    options={games}
-                    optionValueTransformer={(option) => option.name}
-                    optionDisplayTransformer={(option) => option.name}
-                />
-                <span on:click={handleNavigateToGames}>
-                    *Daca jocul dorit nu exista poti sa il adaugi
-                </span>
-            </div>
-            <InputField
-                name="description"
-                label="Descriere"
-                bind:value={team.description}
-            />
+<Loading condition={gamesLoading || status.isLoading}>
+    <Form on:submit={addTeam}>
+        <h2>Creeaza o echipa</h2>
+        <InputField name="name" label="Nume echipa" bind:value={team.name} />
+        <InputField
+            name="capacity"
+            label="Capacitate echipa"
+            bind:value={team.capacity}
+        />
+        <div>
             <SelectField
-                name="severity"
-                label="Cat de disperat esti?"
-                bind:value={team.severity}
-                options={severities}
-                optionValueTransformer={(option) => option.value}
-                optionDisplayTransformer={(option) => option.display}
+                name="game"
+                label="Joc"
+                bind:value={team.game}
+                options={games}
+                optionValueTransformer={(option) => option.name}
+                optionDisplayTransformer={(option) => option.name}
             />
-            <Btn>Creeaza echipa</Btn>
-            <div>
-                {#if addStatus.error}
-                    {addStatus.error.message}
-                {/if}
-            </div>
-        </Form>
-    </div>
+            <span on:click={gamesHomeRoute.goTo}>
+                *Daca jocul dorit nu exista poti sa il adaugi
+            </span>
+        </div>
+        <InputField
+            name="description"
+            label="Descriere"
+            bind:value={team.description}
+        />
+        <SelectField
+            name="severity"
+            label="Cat de disperat esti?"
+            bind:value={team.need}
+            options={severities}
+            optionValueTransformer={(option) => option.value}
+            optionDisplayTransformer={(option) => option.display}
+        />
+        <Btn>Creeaza echipa</Btn>
+        <Btn on:click={overlayComponent.closeOverlay}>Anuleaza</Btn>
+        <div>
+            {#if status.error}
+                {status.error.message}
+            {/if}
+        </div>
+    </Form>
 </Loading>

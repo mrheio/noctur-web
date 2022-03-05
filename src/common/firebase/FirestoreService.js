@@ -9,7 +9,7 @@ import {
     updateDoc,
 } from 'firebase/firestore';
 import { collectionData, docData } from 'rxfire/firestore';
-import { Err } from '../err';
+import { Err } from '../utils';
 import { firestore } from './firebase.config';
 
 export default class FirestoreService {
@@ -21,8 +21,18 @@ export default class FirestoreService {
         return collectionData(this.collection);
     }
 
+    async getById(id) {
+        return (await getDoc(doc(this.collection, id))).data();
+    }
+
     getById$(id) {
         return docData(doc(this.collection, id));
+    }
+
+    async getWhere(...where) {
+        return (await getDocs(query(this.collection, ...where))).docs.map(
+            (doc) => doc.data()
+        );
     }
 
     getWhere$(...where) {
@@ -32,7 +42,9 @@ export default class FirestoreService {
     async add(data) {
         const docShot = await getDoc(doc(this.collection, data.id));
         if (docShot.exists()) {
-            throw Err.alreadyExists(docShot.id);
+            throw Err.alreadyExists(
+                `Un document cu idul ${data.id} exista deja`
+            );
         }
         await setDoc(doc(this.collection, data.id), data);
         return data.id;

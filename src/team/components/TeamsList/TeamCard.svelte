@@ -24,16 +24,13 @@
 <Card on:click={loggedUser ? handleNavigateToDetails : null}>
     <h2 class="TeamCard__title bold">{team.name}</h2>
     <h3 class="TeamCard__game">
-        Joc: <span>{team.gameName}</span>
+        Joc: <span>{team.game}</span>
     </h3>
     <div class="TeamCard__bottom">
-        <PlayersDisplay
-            currentPlayers={team.usersIds.length}
-            neededPlayers={team.neededPlayers}
-        />
+        <PlayersDisplay filled={team.usids.length} capacity={team.capacity} />
         <SeverityDisplay severity={team.severity} />
     </div>
-    {#if loggedUser?.isAdmin || team.userId === loggedUser?.id}
+    {#if loggedUser?.isAdmin || team.uid === loggedUser?.id}
         <button class="TeamCard__top-left" on:click={handleDeleteTeam}>
             ❌
         </button>

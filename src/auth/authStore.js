@@ -5,7 +5,7 @@ export const authStore = writable({
     isLoading: false,
     success: null,
     error: null,
-    loggedUser: null,
+    user: null,
 });
 const { update } = authStore;
 
@@ -17,24 +17,23 @@ const setLoading = () =>
         error: null,
     }));
 
-const setLoggedUser = (loggedUser) =>
+const setLoggedUser = (user) =>
     update((state) => ({
         ...state,
         isLoading: false,
         success: 'yes',
         error: null,
-        loggedUser,
+        user,
     }));
 
 export const getLoggedUser$ = () => {
     setLoading();
-    return authService.getLoggedUser$().subscribe((loggedUser) => {
-        setLoggedUser(loggedUser);
+    return authService.getLoggedUser$().subscribe((user) => {
+        setLoggedUser(user);
     });
 };
 
 export const logOut = async () => {
     setLoading();
-
     await authService.logOut();
 };

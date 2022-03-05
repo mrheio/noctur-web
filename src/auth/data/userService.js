@@ -1,7 +1,7 @@
 import { where } from 'firebase/firestore';
-import FirestoreService from '../../common/firebase/FirestoreService';
+import { FirestoreService } from '../../common/firebase';
 
-const createUserDbService = (dbService) => ({
+const createUserService = (dbService) => ({
     getUsers$() {
         return dbService.getAll$();
     },
@@ -27,6 +27,6 @@ const createUserDbService = (dbService) => ({
     },
 });
 
-const usersDbService = createUserDbService(new FirestoreService('users'));
+const userService = createUserService(new FirestoreService('users'));
 
-export default usersDbService;
+export default userService;

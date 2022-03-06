@@ -1,11 +1,9 @@
 <script>
-    import { authStore } from '../../auth/authStore';
+    import { isAdmin } from '../../auth/authStore';
     import { Card } from '../../common/components';
     import { deleteGame } from '../gamesStore';
 
     export let game;
-
-    $: ({ user } = $authStore);
 </script>
 
 <Card>
@@ -15,7 +13,7 @@
             {game.capacity}
         </span>
     </h3>
-    {#if user.roles.admin}
+    {#if isAdmin()}
         <button class="top-right" on:click={() => deleteGame(game.id)}>
             ❌
         </button>

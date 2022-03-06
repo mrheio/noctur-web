@@ -3,7 +3,7 @@
     import { authStore, logOut } from './auth/authStore';
     import { AppRoute, routes } from './routing';
 
-    $: ({ loggedUser } = $authStore);
+    $: ({ user } = $authStore);
 
     const handleLogOut = async () => {
         await logOut();
@@ -20,14 +20,14 @@
 <header>
     <nav>
         <div class="nav-group">
-            <Link to="/">Acasa</Link>
-            {#if loggedUser}
+            <Link to="/" {getProps}>Acasa</Link>
+            {#if user}
                 <Link to="teams" {getProps}>Echipe</Link>
                 <Link to="games" {getProps}>Jocuri</Link>
             {/if}
         </div>
         <div>
-            {#if loggedUser}
+            {#if user}
                 <button class="link" type="button" on:click={handleLogOut}>
                     Iesi din cont
                 </button>
@@ -50,7 +50,7 @@
         top: 0;
         left: 0;
         right: 0;
-        z-index: 2;
+        z-index: 200;
         height: var(--size-s);
         padding: 0 var(--spacing-s);
     }
@@ -65,5 +65,9 @@
     .nav-group {
         display: flex;
         gap: 8px;
+    }
+
+    .active {
+        color: var(--clr-secondary-50);
     }
 </style>

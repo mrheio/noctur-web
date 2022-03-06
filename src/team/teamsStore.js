@@ -1,6 +1,5 @@
-import { get, writable } from 'svelte/store';
-import { authStore } from '../auth/authStore';
-import { detailedTeamService, teamsDbService } from './data';
+import { writable } from 'svelte/store';
+import teamService from './data/teamService';
 
 export const teamsStore = writable({
     isLoading: false,
@@ -44,7 +43,7 @@ const setTeams = (teams) => {
 
 export const getDetailedTeams$ = () => {
     setLoading();
-    return detailedTeamService.getDetailedTeams$().subscribe((teams) => {
+    return teamService.getDetailedTeams$().subscribe((teams) => {
         setTeams(teams);
     });
 };
@@ -53,37 +52,7 @@ export const deleteTeam = async (team) => {
     try {
         setLoading();
 
-        await teamsDbService.deleteTeamById(team.id);
-
-        setSuccess();
-    } catch (error) {
-        setError(error);
-    }
-};
-
-export const joinTeam = async (team) => {
-    try {
-        setLoading();
-
-        const { loggedUser } = get(authStore);
-        await teamsDbService.updateTeam(team.id, {
-            usersIds: [...team.usersIds, loggedUser.id],
-        });
-
-        setSuccess();
-    } catch (error) {
-        setError(error);
-    }
-};
-
-export const quitTeam = async (team) => {
-    try {
-        setLoading();
-
-        const { loggedUser } = get(authStore);
-        await teamsDbService.updateTeam(team.id, {
-            usersIds: team.usersIds.filter((id) => id !== loggedUser.id),
-        });
+        await teamService.deleteById(team.id);
 
         setSuccess();
     } catch (error) {

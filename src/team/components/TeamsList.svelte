@@ -1,7 +1,7 @@
 <script>
     import { onDestroy } from 'svelte';
-    import { Grid, Loading } from '../../../common/components';
-    import { getDetailedTeams$, teamsStore } from '../../teamsStore';
+    import { Grid, Loading } from '../../common/components';
+    import { getDetailedTeams$, teamsStore } from '../teamsStore';
     import TeamCard from './TeamCard.svelte';
 
     $: ({ isLoading, teams } = $teamsStore);

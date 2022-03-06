@@ -1,61 +1,48 @@
-import { navigate } from 'svelte-routing';
 import { Login, Register } from '../auth/pages';
 import { GamesHome } from '../game/pages';
 import Home from '../Home.svelte';
 import { TeamDetails, TeamsHome } from '../team/pages';
 
 class Route {
-    constructor({ path, authRequired, notLoggedInRequired, component }) {
+    constructor({ path, access, component }) {
         this.path = path;
-        this.authRequired = authRequired;
-        this.notLoggedIn = notLoggedInRequired;
+        this.access = access;
         this.component = component;
     }
-
-    goTo() {
-        navigate(this.path);
-    }
 }
-
-export const homeRoute = new Route({
+const homeRoute = new Route({
     path: '/',
-    authRequired: false,
-    notLoggedInRequired: false,
+    access: 'public',
     component: Home,
 });
 
-export const loginRoute = new Route({
+const loginRoute = new Route({
     path: 'login',
-    authRequired: false,
-    notLoggedInRequired: true,
+    access: 'notLoggedIn',
     component: Login,
 });
 
-export const registerRoute = new Route({
+const registerRoute = new Route({
     path: 'register',
-    authRequired: false,
-    notLoggedInRequired: true,
+    access: 'notLoggedIn',
     component: Register,
 });
 
-export const teamsHomeRoute = new Route({
+const teamsHomeRoute = new Route({
     path: 'teams',
-    authRequired: true,
-    notLoggedInRequired: false,
+    access: 'private',
     component: TeamsHome,
 });
 
-export const teamDetailsRoute = new Route({
+const teamDetailsRoute = new Route({
     path: 'teams/:id',
-    authRequired: true,
-    notLoggedInRequired: false,
+    access: 'private',
     component: TeamDetails,
 });
 
-export const gamesHomeRoute = new Route({
+const gamesHomeRoute = new Route({
     path: 'games',
-    authRequired: true,
-    notLoggedInRequired: false,
+    access: 'private',
     component: GamesHome,
 });
 

@@ -42,12 +42,9 @@ export default class FirestoreService {
     async add(data) {
         const docShot = await getDoc(doc(this.collection, data.id));
         if (docShot.exists()) {
-            throw Err.alreadyExists(
-                `Un document cu idul ${data.id} exista deja`
-            );
+            throw Err.alreadyExists(`A doc with id ${data.id} already exists`);
         }
         await setDoc(doc(this.collection, data.id), data);
-        return data.id;
     }
 
     async deleteById(id) {
@@ -63,6 +60,5 @@ export default class FirestoreService {
 
     async update(id, newData) {
         await updateDoc(doc(this.collection, id), newData);
-        return id;
     }
 }

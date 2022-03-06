@@ -1,37 +1,33 @@
 <script>
     import { navigate } from 'svelte-routing';
-    import { authStore } from '../../../auth/authStore';
+    import { authStore } from '../../auth/authStore';
     import {
         Card,
         PlayersDisplay,
         SeverityDisplay,
-    } from '../../../common/components';
-    import { deleteTeam } from '../../teamsStore';
+    } from '../../common/components';
+    import { deleteTeam } from '../teamsStore';
 
     export let team;
 
-    $: ({ loggedUser } = $authStore);
-
-    const handleDeleteTeam = async () => {
-        await deleteTeam(team);
-    };
+    $: ({ user } = $authStore);
 
     const handleNavigateToDetails = () => {
         navigate(`/teams/${team.id}`);
     };
 </script>
 
-<Card on:click={loggedUser ? handleNavigateToDetails : null}>
+<Card on:click={user ? handleNavigateToDetails : null}>
     <h2 class="TeamCard__title bold">{team.name}</h2>
     <h3 class="TeamCard__game">
         Joc: <span>{team.game}</span>
     </h3>
     <div class="TeamCard__bottom">
         <PlayersDisplay filled={team.usids.length} capacity={team.capacity} />
-        <SeverityDisplay severity={team.severity} />
+        <SeverityDisplay need={team.need} />
     </div>
-    {#if loggedUser?.isAdmin || team.uid === loggedUser?.id}
-        <button class="TeamCard__top-left" on:click={handleDeleteTeam}>
+    {#if user?.isAdmin || team.uid === user?.id}
+        <button class="TeamCard__top-left" on:click={() => deleteTeam(team)}>
             ❌
         </button>
     {/if}

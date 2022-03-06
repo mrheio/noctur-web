@@ -12,7 +12,7 @@
     }
 
     div:hover {
-        transform: scale(101%);
+        transform: scale(100.5%);
         background: var(--clr-primary-80);
     }
 </style>

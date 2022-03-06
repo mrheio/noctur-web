@@ -1,6 +1,6 @@
 <script>
-    import { onDestroy, onMount } from 'svelte';
-    import { authStore } from '../../auth/authStore';
+    import { onDestroy } from 'svelte';
+    import { navigate } from 'svelte-routing';
     import {
         Btn,
         Form,
@@ -8,92 +8,73 @@
         Loading,
         SelectField,
     } from '../../common/components';
-    import { resetObj } from '../../common/utils/basicUtils';
+    import { createForm } from '../../common/utils';
     import { gamesStore, getGames$ } from '../../game/gamesStore';
-    import { gamesHomeRoute } from '../../routing/routes';
-    import { severities, teamsDbService } from '../data';
+    import teamService from '../data/teamService';
+    import { needLevels, validateTeamData } from '../data/teamUtils';
 
     export let overlayComponent;
 
-    $: ({ loggedUser } = $authStore);
     $: ({ isLoading: gamesLoading, games } = $gamesStore);
-    let team = {
-        name: '',
-        capacity: '',
-        game: '',
-        description: '',
-        severity: 'low',
-    };
-    let status = {
-        isLoading: false,
-        error: null,
-    };
 
     const gamesSub = getGames$();
 
-    onMount(() => {
-        team = { ...team, uid: loggedUser.id };
-    });
+    let { data, status, submit } = createForm(
+        {
+            name: '',
+            game: '',
+            capacity: '',
+            description: '',
+            need: 'low',
+        },
+        teamService.add,
+        validateTeamData
+    );
 
     onDestroy(() => {
         gamesSub.unsubscribe();
     });
-
-    const addTeam = async () => {
-        try {
-            status = { isLoading: true, error: null };
-
-            await teamsDbService.addTeam(team);
-
-            team = resetObj(team, { uid: loggedUser.id, need: 'low' });
-            status = { isLoading: false, error: null };
-        } catch (error) {
-            status = { isLoading: false, error };
-        }
-    };
 </script>
 
-<Loading condition={gamesLoading || status.isLoading}>
-    <Form on:submit={addTeam}>
+<Loading condition={gamesLoading || $status.isLoading}>
+    <Form on:submit={submit}>
         <h2>Creeaza o echipa</h2>
-        <InputField name="name" label="Nume echipa" bind:value={team.name} />
-        <InputField
-            name="capacity"
-            label="Capacitate echipa"
-            bind:value={team.capacity}
-        />
+        <InputField name="name" label="Nume echipa" bind:value={$data.name} />
         <div>
             <SelectField
                 name="game"
                 label="Joc"
-                bind:value={team.game}
+                bind:value={$data.game}
                 options={games}
                 optionValueTransformer={(option) => option.name}
                 optionDisplayTransformer={(option) => option.name}
             />
-            <span on:click={gamesHomeRoute.goTo}>
+            <span on:click={() => navigate('games')}>
                 *Daca jocul dorit nu exista poti sa il adaugi
             </span>
         </div>
         <InputField
+            name="capacity"
+            label="Capacitate echipa"
+            bind:value={$data.capacity}
+        />
+        <InputField
             name="description"
             label="Descriere"
-            bind:value={team.description}
+            bind:value={$data.description}
         />
         <SelectField
             name="severity"
             label="Cat de disperat esti?"
-            bind:value={team.need}
-            options={severities}
+            bind:value={$data.need}
+            options={needLevels}
             optionValueTransformer={(option) => option.value}
             optionDisplayTransformer={(option) => option.display}
         />
         <Btn>Creeaza echipa</Btn>
         <Btn on:click={overlayComponent.closeOverlay}>Anuleaza</Btn>
         <div>
-            {#if status.error}
-                {status.error.message}
-            {/if}
+            {$status.error?.message ?? ''}
         </div>
     </Form>
 </Loading>

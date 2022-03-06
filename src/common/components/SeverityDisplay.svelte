@@ -1,11 +1,11 @@
 <script>
-    export let severity;
+    export let need;
 </script>
 
 <span
     class="dot"
     style={`background: ${
-        severity === 'low' ? 'lime' : severity === 'medium' ? 'yellow' : 'red'
+        need === 'low' ? 'lime' : need === 'medium' ? 'yellow' : 'red'
     }`}
 />
 

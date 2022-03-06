@@ -7,15 +7,17 @@
 </script>
 
 <Route path={route.path} let:params>
-    {#if route.private}
+    {#if route.access === 'private'}
         <PrivateGuard>
             <svelte:component this={route.component} {...params} />
         </PrivateGuard>
-    {:else if route.notAuthed}
+    {/if}
+    {#if route.access === 'notLoggedIn'}
         <NoAuthGuard>
             <svelte:component this={route.component} {...params} />
         </NoAuthGuard>
-    {:else}
+    {/if}
+    {#if route.access === 'public'}
         <svelte:component this={route.component} {...params} />
     {/if}
 </Route>

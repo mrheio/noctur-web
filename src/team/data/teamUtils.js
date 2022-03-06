@@ -12,16 +12,26 @@ export const needLevels = [
     },
 ];
 
-export const createTeam = (teamData) => ({
-    id: `${teamData.game}_${teamData.uid}`,
-    name: teamData.name,
-    game: teamData.game,
-    capacity: parseInt(teamData.capacity),
-    description: teamData.description,
-    need: teamData.need,
-    uid: teamData.uid,
-    usids: teamData.usids || [teamData.uid],
-});
+export const createTeam = ({
+    name,
+    game,
+    capacity,
+    description,
+    need,
+    uid,
+    usids,
+}) => {
+    return {
+        id: `${game}__${uid}`,
+        name,
+        game,
+        capacity: parseInt(capacity),
+        description,
+        need,
+        uid,
+        usids: usids || [uid],
+    };
+};
 
 const validator = {
     name: new Validator().required('Nume echipa trebuie completat'),

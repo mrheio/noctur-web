@@ -1,9 +1,9 @@
 import { replaceSpacesWithUnderscores, Validator } from '../../common/utils';
 
-export const createGame = (data) => ({
-    id: replaceSpacesWithUnderscores(data.name),
-    name: data.name,
-    capacity: parseInt(data.capacity),
+export const createGame = ({ name, capacity }) => ({
+    id: replaceSpacesWithUnderscores(name),
+    name,
+    capacity: parseInt(capacity),
 });
 
 const validators = {

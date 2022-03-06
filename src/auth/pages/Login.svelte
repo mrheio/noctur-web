@@ -1,49 +1,38 @@
 <script>
+    import { navigate } from 'svelte-routing';
     import { Btn, Form, InputField, Loading } from '../../common/components';
-    import { registerRoute } from '../../routing/routes';
-    import { authService, validateLogin } from '../data';
+    import { createForm } from '../../common/utils';
+    import authService from '../data/authService';
+    import { validateLogin } from '../data/userUtils';
 
-    let user = { email: '', password: '' };
-    let status = {
-        isLoading: false,
-        error: null,
-    };
-
-    const logIn = async () => {
-        try {
-            validateLogin();
-
-            status = { ...status, isLoading: true, error: null };
-
-            await authService.logInWithEmailAndPassword(user);
-
-            status = { ...status, isLoading: false };
-        } catch (error) {
-            status = { ...status, isLoading: false, error };
-        }
-    };
+    let { data, status, submit } = createForm(
+        { email: '', password: '' },
+        (data) =>
+            authService.logInWithEmailAndPassword(data.email, data.password),
+        validateLogin
+    );
 </script>
 
-<Loading condition={status.isLoading}>
+<Loading condition={$status.isLoading}>
     <div class="fullscreen centered">
-        <Form on:submit={logIn}>
+        <Form on:submit={submit}>
             <h1>Autentificare</h1>
             <h3 class="Login__details">
                 Pentru a intra in cont completeaza datele
             </h3>
-            <InputField label="Email" name="email" bind:value={user.email} />
+            <InputField label="Email" name="email" bind:value={$data.email} />
             <InputField
                 label="Parola"
                 name="password"
                 type="password"
-                bind:value={user.password}
+                bind:value={$data.password}
             />
             <Btn>Intra in cont</Btn>
-            <Btn type="button" on:click={registerRoute.goTo}>Creeaza cont</Btn>
+            <Btn type="button" on:click={() => navigate('register')}>
+                Creeaza cont
+            </Btn>
             <div class="Login__error">
-                {#if status.error}
-                    {status.error.message}
-                {/if}
+                {$status.error?.message ?? ''}
             </div>
         </Form>
     </div>

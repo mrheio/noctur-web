@@ -2,15 +2,15 @@
     import { navigate } from 'svelte-routing';
     import { authStore } from '../auth/authStore';
 
-    $: ({ loggedUser } = $authStore);
+    $: ({ user } = $authStore);
 
     $: {
-        if (loggedUser) {
-            navigate('/teams', { replace: true });
+        if (user) {
+            navigate('/', { replace: true });
         }
     }
 </script>
 
-{#if !loggedUser}
+{#if !user}
     <slot />
 {/if}

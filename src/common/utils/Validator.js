@@ -13,7 +13,7 @@ const numericRule = (message) => (val) => {
 };
 
 export default class Validator {
-    constructor(rules) {
+    constructor(rules = []) {
         this.rules = rules;
     }
 

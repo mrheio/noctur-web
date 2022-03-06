@@ -1,53 +1,82 @@
-import { where } from 'firebase/firestore';
-import { FirestoreService } from '../../common/firebase';
+import { combineLatest, of, switchMap } from 'rxjs';
+import authService from '../../auth/data/authService';
+import userRepo from '../../auth/data/userRepo';
 import { Err } from '../../common/utils';
-import {} from '../../common/utils/basicUtils';
-import { gameService } from '../../game/data';
-import { createTeam } from './teamUtils';
+import gameRepo from '../../game/data/gameRepo';
+import teamRepo from './teamRepo';
+import { createTeam, validateTeamData } from './teamUtils';
 
-const createTeamService = (dbService) => ({
-    getTeams$() {
-        return dbService.getAll$();
-    },
-
-    getTeamById$(teamId) {
-        return dbService.getById$(teamId);
-    },
-
-    async addTeam(teamData) {
-        const game = await gameService.getGameById(teamData.game);
-        if (teamData.capacity > game.capacity) {
-            throw Err.capacityOverflow(
-                `Jocul ${game.name} are echipa de maxim ${game.capacity} jucatori`
-            );
-        }
-
-        const team = createTeam(teamData);
+const createTeamService = () => {
+    const add = async (team) => {
         try {
-            return await dbService.add(team);
+            validateTeamData(team);
+            const game = await gameRepo.getByName(team.game);
+            if (team.capacity > game.capacity) {
+                throw Err.capacityOverflow(
+                    `Jocul ${game.name} poate avea maxim ${game.capacity} jucatori in echipa`
+                );
+            }
+            const user = await authService.getLoggedUser();
+            await teamRepo.add(createTeam({ ...team, uid: user.uid }));
         } catch (error) {
             if (error.code === 'already-exists') {
                 throw Err.alreadyExists(
-                    `Ai deja o echipa pentru jocul ${teamData.game}`
+                    `Ai deja o echipa pentru jocul ${team.game}`
                 );
             }
             throw error;
         }
-    },
+    };
 
-    async deleteTeamById(teamId) {
-        await dbService.deleteById(teamId);
-    },
+    const addUserToTeam = async (user, team) => {
+        await teamRepo.update(team.id, { usids: [...team.usids, user.id] });
+    };
 
-    async deleteTeamsByGameName(gameName) {
-        await dbService.deleteWhere(where('gameName', '==', gameName));
-    },
+    const removeUserFromTeam = async (user, team) => {
+        await teamRepo.update(team.id, {
+            usids: team.usids.filter((uid) => uid !== user.id),
+        });
+    };
 
-    updateTeam(teamId, newTeamData) {
-        return dbService.update(teamId, newTeamData);
-    },
-});
+    const getDetailedTeamById$ = (teamId) => {
+        const team$ = teamRepo.getById$(teamId);
+        const users$ = team$.pipe(
+            switchMap((team) => {
+                if (team) {
+                    return userRepo.getByIds$(team.usids);
+                }
+                return of([]);
+            })
+        );
+        return combineLatest([team$, users$], (team, users) => {
+            if (team) {
+                return { ...team, users };
+            }
+            throw Err.notFound(`Nu exista echipa cu id ${teamId}`);
+        });
+    };
 
-const teamService = createTeamService(new FirestoreService('teams'));
+    const getDetailedTeams$ = () => {
+        return teamRepo.getAll$().pipe(
+            switchMap((teams) => {
+                if (teams && teams.length) {
+                    return combineLatest(
+                        teams.map((team) => getDetailedTeamById$(team.id))
+                    );
+                }
+                return of([]);
+            })
+        );
+    };
 
-export default teamService;
+    return {
+        ...teamRepo,
+        add,
+        addUserToTeam,
+        removeUserFromTeam,
+        getDetailedTeamById$,
+        getDetailedTeams$,
+    };
+};
+
+export default createTeamService();

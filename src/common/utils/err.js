@@ -57,6 +57,13 @@ export class AuthErr extends Err {
                 'Email incorect'
             );
         }
+        if (error.code === 'auth/email-already-in-use') {
+            return new Err(
+                STATUS_CODES.CLIENT_ERROR.UNPROCESSABLE,
+                'email-already-in-use',
+                'Exista un cont cu acest email'
+            );
+        }
         if (error.code === 'auth/weak-password') {
             return new Err(
                 STATUS_CODES.CLIENT_ERROR.UNPROCESSABLE,

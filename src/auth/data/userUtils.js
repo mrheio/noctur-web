@@ -1,16 +1,24 @@
 import { Validator } from '../../common/utils';
 
-export const createUser = (data) => ({
-    id: data.id,
-    email: data.email,
-    username: data.username,
-    roles: data.roles ?? { admin: false },
-});
+export const createUser = (data) => {
+    const { id, email, username, roles } = data;
+    return {
+        id,
+        email,
+        username,
+        roles: roles ?? { admin: false },
+    };
+};
 
 const validator = {
     email: new Validator().required('Emailul trebuie completat'),
     username: new Validator().required('Usernameul trebuie completat'),
     password: new Validator().required('Parola trebuie completata'),
+};
+
+export const validateUserData = (data) => {
+    validator.email.validate(data.email);
+    validator.username.validate(data.username);
 };
 
 export const validateLogin = (data) => {

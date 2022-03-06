@@ -4,7 +4,7 @@
     import { authStore } from './auth/authStore';
     import { TeamsList } from './team/components';
 
-    $: ({ loggedUser } = $authStore);
+    $: ({ user } = $authStore);
 </script>
 
 <Fullpage>
@@ -25,14 +25,14 @@
                     </p>
                 </div>
 
-                {#if !loggedUser}
+                {#if !user}
                     <div>
-                        <Link class="btn wtransition" to="login"
-                            >Intra in cont</Link
-                        >
-                        <Link class="btn wtransition" to="register"
-                            >Creeaza cont</Link
-                        >
+                        <Link class="btn wtransition" to="login">
+                            Intra in cont
+                        </Link>
+                        <Link class="btn wtransition" to="register">
+                            Creeaza cont
+                        </Link>
                     </div>
                 {/if}
             </div>

@@ -111,7 +111,7 @@
     a,
     .link {
         cursor: pointer;
-        color: var(--clr-txt);
+        color: var(--clr-txt) !important;
         text-decoration: none;
         background: none;
         border: none;
@@ -124,11 +124,15 @@
     a:hover,
     .link:hover {
         text-decoration: none;
-        color: var(--clr-secondary-50);
+        color: var(--clr-secondary-50) !important;
     }
 
     .link:active {
         background: none !important;
+    }
+
+    .active {
+        color: var(--clr-secondary-50) !important;
     }
 
     h1 {

@@ -1,32 +1,22 @@
-import { where } from 'firebase/firestore';
-import { FirestoreService } from '../../common/firebase';
+import { Err } from '../../common/utils';
+import userRepo from './userRepo';
+import { createUser, validateUserData } from './userUtils';
 
-const createUserService = (dbService) => ({
-    getUsers$() {
-        return dbService.getAll$();
-    },
+const createUserService = () => {
+    const add = async (user) => {
+        console.log(user);
+        try {
+            validateUserData(user);
+            await userRepo.add(createUser(user));
+        } catch (error) {
+            if (error?.code === 'already-exists') {
+                throw Err.alreadyExists(`Un user cu aceste date exista deja`);
+            }
+            throw error;
+        }
+    };
 
-    getUserById$(userId) {
-        return dbService.getById$(userId);
-    },
+    return { ...userRepo, add };
+};
 
-    getUsersByIds$(usersIds) {
-        return dbService.getWhere$(where('id', 'in', usersIds));
-    },
-
-    addUser(userData) {
-        return dbService.add(userData);
-    },
-
-    async deleteUserById(userId) {
-        await dbService.deleteById(userId);
-    },
-
-    async updateUser(userId, newUserData) {
-        return dbService.update(userId, newUserData);
-    },
-});
-
-const userService = createUserService(new FirestoreService('users'));
-
-export default userService;
+export default createUserService();

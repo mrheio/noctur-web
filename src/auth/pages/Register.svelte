@@ -1,56 +1,40 @@
 <script>
+    import { navigate } from 'svelte-routing';
     import { Btn, Form, InputField, Loading } from '../../common/components';
-    import { loginRoute } from '../../routing/routes';
-    import { authService, validateRegister } from '../data';
+    import { createForm } from '../../common/utils';
+    import authService from '../data/authService';
+    import { validateRegister } from '../data/userUtils';
 
-    let user = {
-        email: '',
-        username: '',
-        password: '',
-    };
-    let status = {
-        isloading: false,
-        error: null,
-    };
-
-    const register = async () => {
-        try {
-            validateRegister();
-
-            status = { ...status, isloading: true, error: null };
-
-            await authService.register(user);
-
-            status = { ...status, isloading: false };
-        } catch (error) {
-            status = { ...status, isloading: false, error };
-        }
-    };
+    let { data, status, submit } = createForm(
+        { email: '', username: '', password: '' },
+        authService.register,
+        validateRegister
+    );
 </script>
 
-<Loading condition={status.isloading}>
+<Loading condition={$status.isLoading}>
     <div class="fullscreen centered">
-        <Form on:submit={register}>
+        <Form on:submit={submit}>
             <h1>Inregistrare</h1>
             <h3>Pentru a crea un cont completeaza datele</h3>
-            <InputField label="Email" name="email" bind:value={user.email} />
+            <InputField label="Email" name="email" bind:value={$data.email} />
             <InputField
                 label="Username"
                 name="username"
-                bind:value={user.username}
+                bind:value={$data.username}
             />
             <InputField
                 label="Parola"
                 name="password"
-                bind:value={user.password}
+                bind:value={$data.password}
                 type="password"
             />
             <Btn>Inregistrare</Btn>
-            <Btn type="button" on:click={loginRoute.goTo}>Intra in cont</Btn>
+            <Btn type="button" on:click={() => navigate('login')}>
+                Intra in cont
+            </Btn>
             <div class="Register__error">
-                {#if status.error}
-                    {status.error.message}
-                {/if}
+                {$status.error?.message ?? ''}
             </div>
         </Form>
     </div>

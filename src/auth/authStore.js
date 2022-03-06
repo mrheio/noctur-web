@@ -1,39 +1,42 @@
-import { writable } from 'svelte/store';
-import { authService } from './data';
+import { get, writable } from 'svelte/store';
+import authService from './data/authService';
 
 export const authStore = writable({
     isLoading: false,
-    success: null,
     error: null,
+    success: null,
     user: null,
 });
 const { update } = authStore;
 
-const setLoading = () =>
+export const isAdmin = () => {
+    return get(authStore).user?.roles.admin;
+};
+
+export const getLoggedUser$ = () => {
     update((state) => ({
         ...state,
         isLoading: true,
+        error: null,
         success: null,
-        error: null,
     }));
-
-const setLoggedUser = (user) =>
-    update((state) => ({
-        ...state,
-        isLoading: false,
-        success: 'yes',
-        error: null,
-        user,
-    }));
-
-export const getLoggedUser$ = () => {
-    setLoading();
     return authService.getLoggedUser$().subscribe((user) => {
-        setLoggedUser(user);
+        update((state) => ({
+            ...state,
+            isLoading: false,
+            error: null,
+            success: true,
+            user,
+        }));
     });
 };
 
 export const logOut = async () => {
-    setLoading();
+    update((state) => ({
+        ...state,
+        isLoading: true,
+        error: null,
+        success: null,
+    }));
     await authService.logOut();
 };

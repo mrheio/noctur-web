@@ -40,5 +40,6 @@
     .content {
         height: 100%;
         position: relative;
+        margin: 0 var(--spacing-m);
     }
 </style>

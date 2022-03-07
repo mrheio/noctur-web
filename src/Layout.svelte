@@ -11,7 +11,7 @@
 
     const getProps = ({ href, isCurrent }) => {
         if (isCurrent) {
-            return { class: 'active' };
+            return { class: 'active-link' };
         }
         return {};
     };
@@ -65,11 +65,16 @@
 
     .nav-group {
         display: flex;
-        gap: 8px;
+        gap: 12px;
     }
 
     .username {
         color: var(--clr-tertiary-50);
         font-weight: bold;
+    }
+
+    main {
+        padding-top: var(--size-s);
+        margin: 0 var(--spacing-m);
     }
 </style>

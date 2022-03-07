@@ -7,12 +7,12 @@
 </script>
 
 <Card>
-    <h2>{game.name}</h2>
-    <h3>
+    <h3>{game.name}</h3>
+    <h4>
         Capacitate maxima echipa: <span>
             {game.capacity}
         </span>
-    </h3>
+    </h4>
     {#if isAdmin()}
         <button class="top-right" on:click={() => deleteGame(game.id)}>
             ❌
@@ -31,7 +31,13 @@
         outline: none;
     }
 
+    h4 {
+        color: var(--clr-txt-gray);
+        font-weight: normal;
+    }
+
     span {
-        color: var(--clr-secondary-50);
+        /* color: var(--clr-secondary-50); */
+        font-weight: bold;
     }
 </style>

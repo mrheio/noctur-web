@@ -45,6 +45,10 @@
         padding: var(--spacing-s);
     }
 
+    .InputField__input:active {
+        background: var(--clr-primary-70);
+    }
+
     .InputField__input:-webkit-autofill,
     .InputField__input:-webkit-autofill:hover,
     .InputField__input:-webkit-autofill:focus,

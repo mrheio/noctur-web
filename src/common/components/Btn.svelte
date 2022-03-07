@@ -1,14 +1,18 @@
 <script>
     export let type = 'submit';
     export let circle = false;
+    export let color = 'primary';
+
+    const chooseClass = () => {
+        return circle ? 'circle' : 'btn';
+    };
 </script>
 
-<button class={`${circle ? 'circle' : 'btn'}`} {type} on:click><slot /></button>
+<button class={`${chooseClass()} ${color}`} {type} on:click><slot /></button>
 
 <style>
     .btn {
         color: var(--clr-txt) !important;
-        background: var(--clr-primary-50);
         cursor: pointer;
         padding: var(--spacing-s) var(--spacing-m);
         margin: var(--spacing-xs);
@@ -18,16 +22,7 @@
         font-weight: 600;
     }
 
-    .btn:hover {
-        background: var(--clr-primary-40);
-    }
-
-    .btn:active {
-        background: var(--clr-primary-60) !important;
-    }
-
     .circle {
-        background: var(--clr-secondary-50);
         cursor: pointer;
         width: 56px;
         height: 56px;
@@ -36,11 +31,39 @@
         outline: none;
     }
 
-    .circle:hover {
-        background: var(--clr-secondary-40);
+    .primary {
+        background: var(--clr-primary-50);
     }
 
-    .circle:active {
-        background: var(--clr-secondary-60) !important;
+    .primary:hover {
+        background: var(--clr-primary-40);
+    }
+
+    .primary:active {
+        background: var(--clr-primary-60);
+    }
+
+    .secondary {
+        background: var(--clr-secondary-50);
+    }
+
+    .secondary:hover {
+        background: var(--clr-secondary-30);
+    }
+
+    .secondary:active {
+        background: var(--clr-secondary-60);
+    }
+
+    .tertiary {
+        background: var(--clr-tertiary-50);
+    }
+
+    .tertiary:hover {
+        background: var(--clr-tertiary-40);
+    }
+
+    .tertiary:active {
+        background: var(--clr-tertiary-60);
     }
 </style>

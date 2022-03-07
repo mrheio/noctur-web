@@ -9,7 +9,6 @@
     const sub = getGames$();
 
     onDestroy(() => {
-        console.log('games list destroyed');
         sub.unsubscribe();
     });
 </script>

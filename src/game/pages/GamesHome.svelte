@@ -1,19 +1,12 @@
 <script>
-    import {
-        Btn,
-        Floating,
-        Overlay,
-        PageWrapper,
-    } from '../../common/components';
+    import { Btn, Floating, Overlay } from '../../common/components';
     import { AddGameForm, GamesList } from '../components';
 
     let overlayComponent;
 </script>
 
-<PageWrapper>
-    <h2>Jocuri disponibile</h2>
-    <GamesList />
-</PageWrapper>
+<h2>Jocuri disponibile</h2>
+<GamesList />
 
 <Floating>
     <Btn circle on:click={overlayComponent.openOverlay}>

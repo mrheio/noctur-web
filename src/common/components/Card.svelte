@@ -8,7 +8,7 @@
         cursor: default;
         background: var(--clr-primary-90);
         border-radius: 8px;
-        padding: var(--spacing-s);
+        padding: var(--spacing-s) var(--spacing-m);
     }
 
     div:hover {

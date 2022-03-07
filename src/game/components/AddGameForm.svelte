@@ -22,7 +22,11 @@
             bind:value={$data.capacity}
         />
         <Btn>Adauga joc</Btn>
-        <Btn type="button" on:click={overlayComponent.closeOverlay}>
+        <Btn
+            type="button"
+            color="secondary"
+            on:click={overlayComponent.closeOverlay}
+        >
             Anuleaza
         </Btn>
         <div>

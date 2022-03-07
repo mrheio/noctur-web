@@ -1,7 +1,8 @@
 <script>
     import { Fullpage, FullpageSection } from 'svelte-fullpage';
-    import { Link } from 'svelte-routing';
+    import { navigate } from 'svelte-routing';
     import { authStore } from './auth/authStore';
+    import { Btn } from './common/components';
     import { TeamsList } from './team/components';
 
     $: ({ user } = $authStore);
@@ -27,12 +28,12 @@
 
                 {#if !user}
                     <div>
-                        <Link class="btn wtransition" to="login">
+                        <Btn on:click={() => navigate('login')}>
                             Intra in cont
-                        </Link>
-                        <Link class="btn wtransition" to="register">
+                        </Btn>
+                        <Btn on:click={() => navigate('register')}>
                             Creeaza cont
-                        </Link>
+                        </Btn>
                     </div>
                 {/if}
             </div>

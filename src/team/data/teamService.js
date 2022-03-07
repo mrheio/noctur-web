@@ -32,10 +32,21 @@ const createTeamService = () => {
         await teamRepo.update(team.id, { usids: [...team.usids, user.id] });
     };
 
+    const addLoggedUserToTeam = async (team) => {
+        const user = await authService.getLoggedUser();
+        console.log(user);
+        await addUserToTeam(user, team);
+    };
+
     const removeUserFromTeam = async (user, team) => {
         await teamRepo.update(team.id, {
             usids: team.usids.filter((uid) => uid !== user.id),
         });
+    };
+
+    const removeLoggedUserFromTeam = async (team) => {
+        const user = await authService.getLoggedUser();
+        await removeUserFromTeam(user, team);
     };
 
     const getDetailedTeamById$ = (teamId) => {
@@ -73,7 +84,9 @@ const createTeamService = () => {
         ...teamRepo,
         add,
         addUserToTeam,
+        addLoggedUserToTeam,
         removeUserFromTeam,
+        removeLoggedUserFromTeam,
         getDetailedTeamById$,
         getDetailedTeams$,
     };

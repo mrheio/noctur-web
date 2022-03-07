@@ -1,3 +1,5 @@
+import { get } from 'svelte/store';
+import { authStore } from '../../auth/authStore';
 import { Validator } from '../../common/utils';
 
 export const needLevels = [
@@ -47,4 +49,18 @@ export const validateTeamData = (teamData) => {
     validator.game.validate(teamData.game);
     validator.capacity.validate(teamData.capacity);
     validator.need.validate(teamData.need);
+};
+
+export const isTeamOwner = (team) => {
+    const { user } = get(authStore);
+    return user.id === team.uid;
+};
+
+export const isInTeam = (team) => {
+    const { user } = get(authStore);
+    return team.usids.some((uid) => uid === user.id);
+};
+
+export const isTeamFull = (team) => {
+    return team.usids.length === team.capacity;
 };

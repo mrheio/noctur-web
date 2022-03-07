@@ -26,8 +26,9 @@
                 <Link to="games" {getProps}>Jocuri</Link>
             {/if}
         </div>
-        <div>
+        <div class="nav-group">
             {#if user}
+                <span class="username margin-inline--s">{user.username}</span>
                 <button class="link" type="button" on:click={handleLogOut}>
                     Iesi din cont
                 </button>
@@ -67,7 +68,8 @@
         gap: 8px;
     }
 
-    .active {
-        color: var(--clr-secondary-50);
+    .username {
+        color: var(--clr-tertiary-50);
+        font-weight: bold;
     }
 </style>

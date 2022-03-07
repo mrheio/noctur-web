@@ -24,7 +24,7 @@ const createAuthService = (auth) => {
         },
 
         getLoggedUser() {
-            return firstValueFrom(authState(auth));
+            return firstValueFrom(this.getLoggedUser$());
         },
 
         async logInWithEmailAndPassword(email, password) {

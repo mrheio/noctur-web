@@ -41,17 +41,17 @@
         --clr-secondary-90: #2c151d;
         --clr-secondary-100: #160b0f;
 
-        --clr-tertiary-0: #f0fcf8;
-        --clr-tertiary-10: #d2f5e9;
-        --clr-tertiary-20: #b5eeda;
-        --clr-tertiary-30: #97e7cb;
-        --clr-tertiary-40: #79e0bc;
-        --clr-tertiary-50: #6addb4;
-        --clr-tertiary-60: #55b190;
-        --clr-tertiary-70: #458d72;
-        --clr-tertiary-80: #2e614f;
-        --clr-tertiary-90: #152c24;
-        --clr-tertiary-100: #0b1612;
+        --clr-tertiary-0: #f5e6f9;
+        --clr-tertiary-10: #e2b4ee;
+        --clr-tertiary-20: #cf82e2;
+        --clr-tertiary-30: #bc50d6;
+        --clr-tertiary-40: #b237d1;
+        --clr-tertiary-50: #9f05c5;
+        --clr-tertiary-60: #8f05b1;
+        --clr-tertiary-70: #6f048a;
+        --clr-tertiary-80: #500363;
+        --clr-tertiary-90: #30013b;
+        --clr-tertiary-100: #200127;
 
         --clr-txt: #fff;
         --clr-txt-gray: #e0e0e0;
@@ -139,7 +139,7 @@
     a,
     .link {
         cursor: pointer;
-        color: var(--clr-txt);
+        color: var(--clr-txt) !important;
         text-decoration: none;
         background: none;
         border: none;
@@ -152,7 +152,7 @@
     a:hover,
     .link:hover {
         text-decoration: none;
-        color: var(--clr-secondary-50);
+        color: var(--clr-secondary-50) !important;
     }
 
     .link:active {
@@ -160,7 +160,7 @@
     }
 
     .active-link {
-        color: var(--clr-secondary-50);
+        color: var(--clr-secondary-50) !important;
     }
 
     .wtransition {

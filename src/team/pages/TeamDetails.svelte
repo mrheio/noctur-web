@@ -1,12 +1,7 @@
 <script>
     import { onDestroy } from 'svelte';
     import { navigate } from 'svelte-routing';
-    import {
-        Btn,
-        Loading,
-        PageWrapper,
-        PlayersDisplay,
-    } from '../../common/components';
+    import { Btn, Loading, PlayersDisplay } from '../../common/components';
     import teamService from '../data/teamService';
     import { isInTeam, isTeamFull, isTeamOwner } from '../data/teamUtils';
 
@@ -46,27 +41,25 @@
 </script>
 
 <Loading condition={isLoading}>
-    <PageWrapper>
-        <h1>{team.name}</h1>
-        <h2>Joc: {team.game}</h2>
-        <PlayersDisplay filled={team.usids.length} capacity={team.capacity} />
-        <p>{team.description}</p>
-        <h3 class="players">Players:</h3>
-        <div class="player-card-container">
-            {#each team.users as user}
-                <div class="player-card bold">{user.username}</div>
-            {/each}
-        </div>
-        {#if isTeamOwner(team)}
-            <Btn on:click={deleteTeam}>Sterge echipa</Btn>
-        {/if}
-        {#if !isTeamOwner(team) && !isInTeam(team) && !isTeamFull(team)}
-            <Btn on:click={joinTeam}>Intra in echipa</Btn>
-        {/if}
-        {#if !isTeamOwner(team) && isInTeam(team)}
-            <Btn on:click={quitTeam}>Iesi din echipa</Btn>
-        {/if}
-    </PageWrapper>
+    <h1>{team.name}</h1>
+    <h2>Joc: {team.game}</h2>
+    <PlayersDisplay filled={team.usids.length} capacity={team.capacity} />
+    <p>{team.description}</p>
+    <h3 class="players">Players:</h3>
+    <div class="player-card-container">
+        {#each team.users as user}
+            <div class="player-card bold">{user.username}</div>
+        {/each}
+    </div>
+    {#if isTeamOwner(team)}
+        <Btn on:click={deleteTeam}>Sterge echipa</Btn>
+    {/if}
+    {#if !isTeamOwner(team) && !isInTeam(team) && !isTeamFull(team)}
+        <Btn on:click={joinTeam}>Intra in echipa</Btn>
+    {/if}
+    {#if !isTeamOwner(team) && isInTeam(team)}
+        <Btn on:click={quitTeam}>Iesi din echipa</Btn>
+    {/if}
 </Loading>
 
 <style>

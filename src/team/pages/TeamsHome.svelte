@@ -1,19 +1,12 @@
 <script>
-    import {
-        Btn,
-        Floating,
-        Overlay,
-        PageWrapper,
-    } from '../../common/components';
+    import { Btn, Floating, Overlay } from '../../common/components';
     import { AddTeamForm, TeamsList } from '../components';
 
     let overlayComponent;
 </script>
 
-<PageWrapper>
-    <h2>Echipe in cautare de playeri</h2>
-    <TeamsList />
-</PageWrapper>
+<h2>Echipe in cautare de playeri</h2>
+<TeamsList />
 
 <Floating>
     <Btn circle on:click={overlayComponent.openOverlay}>

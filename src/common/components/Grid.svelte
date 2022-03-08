@@ -6,6 +6,17 @@
     div {
         display: grid;
         gap: 12px;
-        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    }
+
+    @media only screen and (min-width: 768px) {
+        div {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media only screen and (min-width: 1280px) {
+        div {
+            grid-template-columns: repeat(4, 1fr);
+        }
     }
 </style>

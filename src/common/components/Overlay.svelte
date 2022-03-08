@@ -23,6 +23,7 @@
 
 <style global>
     .wrapper {
+        padding-top: var(--size-s);
         background-color: rgba(0, 0, 0, 0.6);
         height: 100%;
         width: 100%;

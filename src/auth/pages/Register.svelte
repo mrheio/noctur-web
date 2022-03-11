@@ -13,37 +13,29 @@
 </script>
 
 <Loading condition={$status.isLoading}>
-    <div class="fullscreen centered">
+    <div class="fullscreen centered header-offset">
         <Form on:submit={submit}>
             <h2>Inregistrare</h2>
-            <div class="inputs">
-                <InputField
-                    label="Email"
-                    name="email"
-                    bind:value={$data.email}
-                />
-                <InputField
-                    label="Username"
-                    name="username"
-                    bind:value={$data.username}
-                />
-                <InputField
-                    label="Parola"
-                    name="password"
-                    bind:value={$data.password}
-                    type="password"
-                />
-            </div>
-            <div class="buttons">
-                <Btn>Inregistrare</Btn>
-                <Btn
-                    type="button"
-                    color="tertiary"
-                    on:click={() => navigate('login')}
-                >
-                    Intra in cont
-                </Btn>
-            </div>
+            <InputField label="Email" name="email" bind:value={$data.email} />
+            <InputField
+                label="Username"
+                name="username"
+                bind:value={$data.username}
+            />
+            <InputField
+                label="Parola"
+                name="password"
+                bind:value={$data.password}
+                type="password"
+            />
+            <Btn>Inregistrare</Btn>
+            <Btn
+                type="button"
+                color="tertiary"
+                on:click={() => navigate('login')}
+            >
+                Intra in cont
+            </Btn>
             <div class="Register__error">
                 {$status.error?.message ?? ''}
             </div>
@@ -56,14 +48,5 @@
         margin-top: var(--spacing-s);
         height: 2rem;
         color: var(--clr-secondary-10);
-    }
-
-    .inputs {
-        margin-bottom: var(--spacing-s);
-    }
-
-    .buttons {
-        display: flex;
-        flex-direction: column;
     }
 </style>

@@ -12,33 +12,32 @@
 
 <style>
     .btn {
-        color: var(--clr-txt) !important;
-        cursor: pointer;
-        padding: var(--spacing-s) var(--spacing-m);
-        margin: var(--spacing-xs);
+        color: var(--clr-txt);
         border: none;
-        border-radius: 8px;
         outline: none;
-        font-weight: 600;
+        border-radius: var(--rounded-l);
+        padding: var(--spacing-s) var(--spacing-m);
+        font-weight: var(--fw-semibold);
+        cursor: pointer;
+        max-width: 320px;
+        width: 160px;
+        min-width: none;
     }
 
     .circle {
-        cursor: pointer;
-        width: 56px;
-        height: 56px;
         border: none;
-        border-radius: 50%;
         outline: none;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
     }
 
     .primary {
         background: var(--clr-primary-50);
     }
-
     .primary:hover {
         background: var(--clr-primary-40);
     }
-
     .primary:active {
         background: var(--clr-primary-60);
     }
@@ -46,11 +45,9 @@
     .secondary {
         background: var(--clr-secondary-50);
     }
-
     .secondary:hover {
         background: var(--clr-secondary-30);
     }
-
     .secondary:active {
         background: var(--clr-secondary-60);
     }
@@ -58,11 +55,9 @@
     .tertiary {
         background: var(--clr-tertiary-50);
     }
-
     .tertiary:hover {
         background: var(--clr-tertiary-40);
     }
-
     .tertiary:active {
         background: var(--clr-tertiary-60);
     }

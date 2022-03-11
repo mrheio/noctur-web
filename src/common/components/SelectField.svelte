@@ -20,23 +20,23 @@
 
 <style>
     div {
+        width: 100%;
         text-align: start;
     }
 
     label {
         display: block;
-        font-size: var(--fs-h-s);
         margin-bottom: var(--spacing-xs);
     }
 
     select {
-        display: block;
-        width: 100%;
         background: var(--clr-primary-80);
         color: var(--clr-txt);
-        border: none;
-        border-radius: 4px;
-        outline: none;
+        display: block;
+        width: 100%;
         padding: var(--spacing-s);
+        border: none;
+        border-radius: var(--rounded-s);
+        outline: none;
     }
 </style>

@@ -14,33 +14,22 @@
 </script>
 
 {#if $overlayStore}
-    <div id="overlay" class="wrapper">
-        <div class="wtransition centered content">
+    <div id="overlay">
+        <div class="fullscreen centered">
             <slot />
         </div>
     </div>
 {/if}
 
 <style global>
-    .wrapper {
-        padding-top: var(--size-s);
-        background-color: rgba(0, 0, 0, 0.6);
-        height: 100%;
-        width: 100%;
-        overflow-x: hidden;
+    #overlay {
+        background: rgba(0, 0, 0, 0.8);
         position: fixed;
-        left: 0;
         top: 0;
-        z-index: 10;
-    }
-
-    .wrapper > * {
-        z-index: 20;
-    }
-
-    .content {
+        left: 0;
+        width: 100%;
         height: 100%;
-        position: relative;
-        margin: 0 var(--spacing-m);
+        z-index: var(--z-index-over-4);
+        overflow-x: hidden;
     }
 </style>

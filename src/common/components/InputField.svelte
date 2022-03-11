@@ -11,7 +11,7 @@
     };
 </script>
 
-<div class="InputField">
+<div>
     <label class="InputField__label" for={name}>{label}</label>
     <input
         class="InputField__input"
@@ -24,35 +24,34 @@
 </div>
 
 <style>
-    .InputField {
+    div {
+        width: 100%;
         text-align: start;
     }
 
-    .InputField__label {
+    label {
         display: block;
-        font-size: var(--fs-h-s);
-        margin-bottom: var(--spacing-s);
+        margin-bottom: var(--spacing-xs);
     }
 
-    .InputField__input {
-        display: block;
-        width: 100%;
+    input {
         background: var(--clr-primary-80);
         color: var(--clr-txt);
-        border: none;
-        border-radius: 4px;
-        outline: none;
+        display: block;
+        width: 100%;
         padding: var(--spacing-s);
+        border: none;
+        border-radius: var(--rounded-s);
+        outline: none;
     }
-
-    .InputField__input:active {
+    input:focus,
+    input:active {
         background: var(--clr-primary-70);
     }
-
-    .InputField__input:-webkit-autofill,
-    .InputField__input:-webkit-autofill:hover,
-    .InputField__input:-webkit-autofill:focus,
-    .InputField__input:-webkit-autofill:active {
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
         -webkit-text-fill-color: var(--clr-txt);
         -webkit-box-shadow: 0 0 0px 1000px var(--clr-primary-80) inset !important;
         box-shadow: 0 0 0px 1000px var(--clr-primary-80) inset !important;

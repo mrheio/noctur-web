@@ -27,55 +27,67 @@
         --clr-primary-70: #340094;
         --clr-primary-80: #220063;
         --clr-primary-90: #110031;
-        --clr-primary-100: #090019;
+        --clr-primary-100: #070013;
 
-        --clr-secondary-0: #fcf0f4;
-        --clr-secondary-10: #f5d2df;
-        --clr-secondary-20: #eeb5c9;
-        --clr-secondary-30: #e797b3;
-        --clr-secondary-40: #e0799e;
-        --clr-secondary-50: #dd6a93;
-        --clr-secondary-60: #b15576;
-        --clr-secondary-70: #854058;
-        --clr-secondary-80: #582a3b;
-        --clr-secondary-90: #2c151d;
-        --clr-secondary-100: #160b0f;
+        --clr-secondary-0: #f5e6f9;
+        --clr-secondary-10: #e2b4ee;
+        --clr-secondary-20: #cf82e2;
+        --clr-secondary-30: #bc50d6;
+        --clr-secondary-40: #b237d1;
+        --clr-secondary-50: #9f05c5;
+        --clr-secondary-60: #8f05b1;
+        --clr-secondary-70: #6f048a;
+        --clr-secondary-80: #500363;
+        --clr-secondary-90: #30013b;
+        --clr-secondary-100: #200127;
 
-        --clr-tertiary-0: #f5e6f9;
-        --clr-tertiary-10: #e2b4ee;
-        --clr-tertiary-20: #cf82e2;
-        --clr-tertiary-30: #bc50d6;
-        --clr-tertiary-40: #b237d1;
-        --clr-tertiary-50: #9f05c5;
-        --clr-tertiary-60: #8f05b1;
-        --clr-tertiary-70: #6f048a;
-        --clr-tertiary-80: #500363;
-        --clr-tertiary-90: #30013b;
-        --clr-tertiary-100: #200127;
+        --clr-tertiary-0: #e9fbfa;
+        --clr-tertiary-10: #bdf2f0;
+        --clr-tertiary-20: #91eae7;
+        --clr-tertiary-30: #64e1dd;
+        --clr-tertiary-40: #38d8d3;
+        --clr-tertiary-50: #22d4ce;
+        --clr-tertiary-60: #1baaa5;
+        --clr-tertiary-70: #147f7c;
+        --clr-tertiary-80: #0e5552;
+        --clr-tertiary-90: #072a29;
+        --clr-tertiary-100: #031515;
 
         --clr-txt: #fff;
         --clr-txt-gray: #e0e0e0;
 
-        --spacing-xs: 0.25rem;
-        --spacing-s: 0.65rem;
-        --spacing-m: 1.5rem;
-        --spacing-l: 3.5rem;
-
-        --size-s: 56px;
-        --size-m: 320px;
-        --size-l: 576px;
-
-        --breakpoint-s: 576px;
-        --breakpoint-m: 1024px;
-        --breakpoint-l: 1280px;
+        --spacing: 1rem;
+        --spacing-xs: calc(0.35 * var(--spacing));
+        --spacing-s: calc(0.75 * var(--spacing));
+        --spacing-m: calc(1.5 * var(--spacing));
+        --spacing-l: calc(2.5 * var(--spacing));
 
         --fs-normal: 16px;
         --fs-h-s: calc(1.25 * var(--fs-normal));
         --fs-h-m: calc(2 * var(--fs-normal));
         --fs-h-l: calc(3.5 * var(--fs-normal));
+
+        --fw-normal: 500;
+        --fw-semibold: 600;
+        --fw-bold: 700;
+
+        --rounded-s: 4px;
+        --rounded-m: 8px;
+        --rounded-l: 20px;
+
+        --header-height: 60px;
+
+        --gap: var(--spacing);
+
+        --z-index-behind: -1;
+        --z-index-normal: 0;
+        --z-index-over-1: 10;
+        --z-index-over-2: 20;
+        --z-index-over-3: 30;
+        --z-index-over-4: 40;
     }
 
-    /* basics */
+    /* resets */
 
     html {
         box-sizing: border-box;
@@ -97,6 +109,37 @@
         color: var(--clr-txt);
     }
 
+    a,
+    a:visited,
+    .link,
+    .link:visited {
+        color: var(--clr-txt);
+        text-decoration: none;
+        font-weight: var(--fw-semibold);
+        cursor: pointer;
+        background: none;
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        user-select: none;
+    }
+
+    a:hover,
+    .link:hover,
+    .link:active {
+        color: var(--clr-tertiary-50);
+        text-decoration: none;
+        background: none;
+        border: none;
+        outline: none;
+        user-select: none;
+    }
+
+    .active-link {
+        color: var(--clr-tertiary-50) !important;
+    }
+
     ol,
     ul {
         list-style: none;
@@ -111,23 +154,26 @@
 
     h1 {
         font-size: var(--fs-h-l);
-        margin: var(--spacing-m) 0;
+        margin: 0;
+        margin-bottom: var(--spacing-l);
     }
 
     h2 {
         font-size: var(--fs-h-m);
-        margin: var(--spacing-s) 0;
+        margin: 0;
+        margin-bottom: var(--spacing-m);
     }
 
     h3 {
         font-size: var(--fs-h-s);
-        margin: var(--spacing-xs) 0;
+        margin: 0;
+        margin-bottom: var(--spacing-s);
     }
 
-    /* utility */
+    /* utils */
 
     .fullscreen {
-        height: 100vh;
+        min-height: 100vh;
     }
 
     .centered {
@@ -136,56 +182,7 @@
         align-items: center;
     }
 
-    a,
-    .link {
-        cursor: pointer;
-        color: var(--clr-txt) !important;
-        text-decoration: none;
-        background: none;
-        border: none;
-        outline: none;
-        font-weight: 600;
-        padding: 0;
-        margin: 0;
-    }
-
-    a:hover,
-    .link:hover {
-        text-decoration: none;
-        color: var(--clr-secondary-50) !important;
-    }
-
-    .link:active {
-        background: none !important;
-    }
-
-    .active-link {
-        color: var(--clr-secondary-50) !important;
-    }
-
-    .wtransition {
-        transition: all 225ms ease-in-out;
-    }
-
-    .gray-overlay {
-        position: relative;
-        z-index: 0;
-    }
-
-    .gray-overlay::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
+    .centered > * {
         width: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 1;
-        pointer-events: none;
-    }
-
-    .gray-overlay * {
-        position: relative;
-        z-index: 1;
     }
 </style>

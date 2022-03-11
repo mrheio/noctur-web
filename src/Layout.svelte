@@ -45,19 +45,16 @@
 
 <style>
     header {
-        background: var(--clr-primary-100);
-        display: block;
-        position: fixed;
+        position: sticky;
         top: 0;
-        left: 0;
-        right: 0;
-        z-index: 200;
-        height: var(--size-s);
-        padding: 0 var(--spacing-s);
+        z-index: var(--z-index-over-3);
+        padding-inline: var(--spacing-s);
     }
 
     nav {
-        height: 100%;
+        background: rgb(12, 7, 7);
+        height: var(--header-height);
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -65,16 +62,11 @@
 
     .nav-group {
         display: flex;
-        gap: 12px;
-    }
-
-    .username {
-        color: var(--clr-tertiary-50);
-        font-weight: bold;
+        gap: var(--spacing-s);
     }
 
     main {
-        padding-top: var(--size-s);
-        margin: 0 var(--spacing-m);
+        min-height: 100vh;
+        padding: 0 var(--spacing-s);
     }
 </style>

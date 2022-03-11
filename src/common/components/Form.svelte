@@ -4,14 +4,12 @@
 
 <style>
     .Form {
+        padding: var(--spacing-l) var(--spacing-m);
+        border-radius: var(--rounded-s);
+        max-width: 400px;
         display: flex;
         flex-direction: column;
-        gap: 4px;
-        text-align: center;
-        min-width: 0;
-        width: var(--breakpoint-s);
-        max-width: var(--breakpoint-s);
-        background: var(--clr-primary-90);
-        padding: var(--spacing-m);
+        align-items: center;
+        gap: 12px;
     }
 </style>

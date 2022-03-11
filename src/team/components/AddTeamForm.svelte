@@ -40,7 +40,7 @@
     <Form on:submit={submit}>
         <h2>Creeaza o echipa</h2>
         <InputField name="name" label="Nume echipa" bind:value={$data.name} />
-        <div>
+        <div style="width: 100%;">
             <SelectField
                 name="game"
                 label="Joc"
@@ -72,7 +72,9 @@
             optionDisplayTransformer={(option) => option.display}
         />
         <Btn>Creeaza echipa</Btn>
-        <Btn on:click={overlayComponent.closeOverlay}>Anuleaza</Btn>
+        <Btn color="secondary" on:click={overlayComponent.closeOverlay}>
+            Anuleaza
+        </Btn>
         <div>
             {$status.error?.message ?? ''}
         </div>

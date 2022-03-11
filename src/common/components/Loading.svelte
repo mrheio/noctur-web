@@ -5,7 +5,7 @@
 </script>
 
 {#if condition}
-    <div class="fullscreen centered">
+    <div class="centered">
         <LoadingIndicator />
     </div>
 {:else}

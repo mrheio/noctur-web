@@ -53,7 +53,7 @@
     nav {
         background: rgb(12, 7, 7);
         height: var(--header-height);
-        padding-inline: var(--spacing-s);
+        padding-inline: var(--spacing-m);
         width: 100%;
         display: flex;
         align-items: center;
@@ -72,6 +72,6 @@
 
     main {
         min-height: 100vh;
-        padding: 0 var(--spacing-s);
+        padding: 0 var(--spacing-m);
     }
 </style>

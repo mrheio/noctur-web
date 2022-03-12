@@ -1,4 +1,4 @@
-<div class="wtransition" on:click>
+<div class="transition-ease-in-out" on:click>
     <slot />
 </div>
 

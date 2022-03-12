@@ -17,7 +17,7 @@ const createTeamService = () => {
                 );
             }
             const user = await authService.getLoggedUser();
-            await teamRepo.add(createTeam({ ...team, uid: user.uid }));
+            await teamRepo.add(createTeam({ ...team, uid: user.id }));
         } catch (error) {
             if (error.code === 'already-exists') {
                 throw Err.alreadyExists(

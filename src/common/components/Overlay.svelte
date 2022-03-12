@@ -5,10 +5,14 @@
     const { set } = overlayStore;
 
     export const openOverlay = () => {
+        document.documentElement.style.overflow = 'hidden';
+        document.body.scroll = 'no';
         set(true);
     };
 
     export const closeOverlay = () => {
+        document.documentElement.style.overflow = 'auto';
+        document.body.scroll = 'yes';
         set(false);
     };
 </script>

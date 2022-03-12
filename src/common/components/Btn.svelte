@@ -8,7 +8,11 @@
     };
 </script>
 
-<button class={`${chooseClass()} ${color}`} {type} on:click><slot /></button>
+<button
+    class={`${chooseClass()} ${color} transition-ease-in-out`}
+    {type}
+    on:click><slot /></button
+>
 
 <style>
     .btn {

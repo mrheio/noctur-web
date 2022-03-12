@@ -48,12 +48,12 @@
         position: sticky;
         top: 0;
         z-index: var(--z-index-over-3);
-        padding-inline: var(--spacing-s);
     }
 
     nav {
         background: rgb(12, 7, 7);
         height: var(--header-height);
+        padding-inline: var(--spacing-s);
         width: 100%;
         display: flex;
         align-items: center;
@@ -63,6 +63,11 @@
     .nav-group {
         display: flex;
         gap: var(--spacing-s);
+    }
+
+    .username {
+        color: var(--clr-secondary-50);
+        font-weight: var(--fw-semibold);
     }
 
     main {

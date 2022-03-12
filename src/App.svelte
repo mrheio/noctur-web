@@ -123,6 +123,7 @@
         padding: 0;
         margin: 0;
         user-select: none;
+        transition: all 225ms ease-in-out;
     }
 
     a:hover,
@@ -161,13 +162,17 @@
     h2 {
         font-size: var(--fs-h-m);
         margin: 0;
-        margin-bottom: var(--spacing-m);
+        margin-bottom: var(--spacing-s);
     }
 
     h3 {
         font-size: var(--fs-h-s);
         margin: 0;
         margin-bottom: var(--spacing-s);
+    }
+
+    h4 {
+        margin: 0;
     }
 
     /* utils */
@@ -184,5 +189,9 @@
 
     .centered > * {
         width: 100%;
+    }
+
+    .transition-ease-in-out {
+        transition: all 225ms ease-in-out;
     }
 </style>

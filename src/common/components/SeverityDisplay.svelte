@@ -11,5 +11,8 @@
 
 <style>
     .dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
     }
 </style>

@@ -44,7 +44,7 @@
     <h1>{team.name}</h1>
     <h2>Joc: {team.game}</h2>
     <PlayersDisplay filled={team.usids.length} capacity={team.capacity} />
-    <p>{team.description}</p>
+    <p class="description">{team.description}</p>
     <h3 class="players">Players:</h3>
     <div class="player-card-container">
         {#each team.users as user}
@@ -80,5 +80,9 @@
         max-width: 300px;
         border-radius: 4px;
         text-align: center;
+    }
+
+    .description {
+        word-break: break-all;
     }
 </style>

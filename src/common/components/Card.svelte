@@ -11,6 +11,7 @@
         max-width: 480px;
         width: 100%;
         min-width: 0;
+        cursor: pointer;
     }
 
     div:hover {

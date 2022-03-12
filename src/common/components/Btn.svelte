@@ -29,6 +29,7 @@
     }
 
     .circle {
+        cursor: pointer;
         border: none;
         outline: none;
         width: 64px;

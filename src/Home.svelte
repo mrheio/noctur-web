@@ -36,7 +36,7 @@
         background: url('../assets/imgs/gaming_bg_3.jpg') no-repeat center/cover;
         position: relative;
         margin-top: calc(var(--header-height) * -1);
-        margin-inline: calc(var(--spacing-s) * -1);
+        margin-inline: calc(var(--spacing-m) * -1);
     }
 
     .Home::before {

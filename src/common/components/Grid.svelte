@@ -5,6 +5,7 @@
 <style>
     div {
         display: grid;
+        justify-items: center;
         gap: 12px;
     }
 

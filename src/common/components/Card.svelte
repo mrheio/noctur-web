@@ -8,6 +8,9 @@
         background: var(--clr-primary-90);
         padding: var(--spacing-s) var(--spacing-m);
         border-radius: var(--rounded-m);
+        max-width: 480px;
+        width: 100%;
+        min-width: 0;
     }
 
     div:hover {

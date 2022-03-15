@@ -40,11 +40,19 @@ export default class FirestoreService {
     }
 
     async add(data) {
-        const docShot = await getDoc(doc(this.collection, data.id));
-        if (docShot.exists()) {
-            throw Err.alreadyExists(`A doc with id ${data.id} already exists`);
+        console.log(this.collection);
+        if (data.id) {
+            const docShot = await getDoc(doc(this.collection, data.id));
+            if (docShot.exists()) {
+                throw Err.alreadyExists(
+                    `A doc with id ${data.id} already exists`
+                );
+            }
+            await setDoc(doc(this.collection, data.id), data);
+        } else {
+            const docRef = doc(this.collection);
+            await setDoc(docRef, { ...data, id: docRef.id });
         }
-        await setDoc(doc(this.collection, data.id), data);
     }
 
     async deleteById(id) {

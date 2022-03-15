@@ -16,7 +16,7 @@ const createBaseRepo = (db) => {
     };
 
     const getWhere$ = (...where) => {
-        return db.getWhere$(where);
+        return db.getWhere$(...where);
     };
 
     const add = async (data) => {

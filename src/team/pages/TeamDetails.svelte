@@ -1,16 +1,19 @@
 <script>
     import { onDestroy } from 'svelte';
     import { navigate } from 'svelte-routing';
+    import { authStore } from '../../auth/authStore';
     import { Btn, Loading, PlayersDisplay } from '../../common/components';
     import teamService from '../data/teamService';
     import { isInTeam, isTeamFull, isTeamOwner } from '../data/teamUtils';
 
     export let id;
 
+    $: ({ user } = $authStore);
+
     let team = null;
     let isLoading = true;
 
-    const sub = teamService.getDetailedTeamById$(id).subscribe({
+    const teamSub = teamService.getDetailedTeamById$(id).subscribe({
         next: (t) => {
             team = t;
             isLoading = false;
@@ -21,7 +24,7 @@
     });
 
     onDestroy(() => {
-        sub.unsubscribe();
+        teamSub.unsubscribe();
     });
 
     const deleteTeam = async () => {
@@ -84,5 +87,9 @@
 
     .description {
         word-break: break-all;
+    }
+
+    .username {
+        font-weight: var(--fw-semibold);
     }
 </style>

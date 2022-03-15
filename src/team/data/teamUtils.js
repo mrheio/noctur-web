@@ -35,6 +35,15 @@ export const createTeam = ({
     };
 };
 
+export const createMessage = ({ uid, username, message }) => {
+    return {
+        uid,
+        username,
+        message,
+        createdAt: new Date().getTime(),
+    };
+};
+
 const validator = {
     name: new Validator().required('Nume echipa trebuie completat'),
     game: new Validator().required('Joc trebuie ales'),

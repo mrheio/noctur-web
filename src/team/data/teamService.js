@@ -1,4 +1,4 @@
-import { combineLatest, of, switchMap } from 'rxjs';
+import { map, switchMap } from 'rxjs';
 import authService from '../../auth/data/authService';
 import userRepo from '../../auth/data/userRepo';
 import { Err } from '../../common/utils';
@@ -34,7 +34,6 @@ const createTeamService = () => {
 
     const addLoggedUserToTeam = async (team) => {
         const user = await authService.getLoggedUser();
-        console.log(user);
         await addUserToTeam(user, team);
     };
 
@@ -50,32 +49,17 @@ const createTeamService = () => {
     };
 
     const getDetailedTeamById$ = (teamId) => {
-        const team$ = teamRepo.getById$(teamId);
-        const users$ = team$.pipe(
+        return teamRepo.getById$(teamId).pipe(
             switchMap((team) => {
                 if (team) {
-                    return userRepo.getByIds$(team.usids);
-                }
-                return of([]);
-            })
-        );
-        return combineLatest([team$, users$], (team, users) => {
-            if (team) {
-                return { ...team, users };
-            }
-            throw Err.notFound(`Nu exista echipa cu id ${teamId}`);
-        });
-    };
-
-    const getDetailedTeams$ = () => {
-        return teamRepo.getAll$().pipe(
-            switchMap((teams) => {
-                if (teams && teams.length) {
-                    return combineLatest(
-                        teams.map((team) => getDetailedTeamById$(team.id))
+                    const stream = userRepo.getByIds$(team.usids);
+                    return stream.pipe(
+                        map((users) => {
+                            return { ...team, users };
+                        })
                     );
                 }
-                return of([]);
+                throw Err.notFound(`Nu exista echipa cu id ${teamId}`);
             })
         );
     };
@@ -88,7 +72,6 @@ const createTeamService = () => {
         removeUserFromTeam,
         removeLoggedUserFromTeam,
         getDetailedTeamById$,
-        getDetailedTeams$,
     };
 };
 

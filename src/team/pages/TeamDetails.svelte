@@ -1,7 +1,13 @@
 <script>
     import { onDestroy } from 'svelte';
     import { navigate } from 'svelte-routing';
-    import { Btn, Loading, PlayersDisplay } from '../../common/components';
+    import {
+        Btn,
+        InputField,
+        Loading,
+        PlayersDisplay,
+    } from '../../common/components';
+    import messagesService from '../data/messagesService';
     import teamService from '../data/teamService';
     import { isInTeam, isTeamFull, isTeamOwner } from '../data/teamUtils';
 
@@ -9,8 +15,11 @@
 
     let team = null;
     let isLoading = true;
+    let chatSub = null;
+    let messages = [];
+    let message = '';
 
-    const sub = teamService.getDetailedTeamById$(id).subscribe({
+    const teamSub = teamService.getDetailedTeamById$(id).subscribe({
         next: (t) => {
             team = t;
             isLoading = false;
@@ -20,8 +29,26 @@
         },
     });
 
+    $: {
+        if (team && isInTeam(team)) {
+            chatSub = messagesService(id)
+                .getAll$()
+                .subscribe((ms) => {
+                    messages = ms;
+                });
+        } else {
+            if (chatSub) {
+                chatSub.unsubscribe();
+                chatSub = null;
+            }
+        }
+    }
+
     onDestroy(() => {
-        sub.unsubscribe();
+        if (chatSub) {
+            chatSub.unsubscribe();
+        }
+        teamSub.unsubscribe();
     });
 
     const deleteTeam = async () => {
@@ -37,6 +64,10 @@
     const quitTeam = async () => {
         isLoading = true;
         await teamService.removeLoggedUserFromTeam(team);
+    };
+
+    const sendMessage = async () => {
+        await messagesService(id).add({ message });
     };
 </script>
 
@@ -59,6 +90,26 @@
     {/if}
     {#if !isTeamOwner(team) && isInTeam(team)}
         <Btn on:click={quitTeam}>Iesi din echipa</Btn>
+    {/if}
+    {#if chatSub}
+        <div class="chat">
+            <div>
+                {#each messages as m}
+                    <div class="chat__message">
+                        <i class="username">{m.username}</i>
+                        {m.message}
+                    </div>
+                {/each}
+            </div>
+            <div class="chat__form">
+                <InputField
+                    placeholder="Mesaj"
+                    name="message"
+                    bind:value={message}
+                />
+                <Btn on:click={sendMessage}>Trimite</Btn>
+            </div>
+        </div>
     {/if}
 </Loading>
 
@@ -84,5 +135,32 @@
 
     .description {
         word-break: break-all;
+    }
+
+    .username {
+        font-weight: var(--fw-semibold);
+    }
+
+    .chat {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .chat > * {
+        min-width: 0;
+        width: 100%;
+        max-width: 576px;
+    }
+
+    .chat__message {
+        display: flex;
+        gap: 14px;
+    }
+
+    .chat__form {
+        display: flex;
+        gap: 6px;
     }
 </style>

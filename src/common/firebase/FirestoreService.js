@@ -4,11 +4,13 @@ import {
     doc,
     getDoc,
     getDocs,
+    onSnapshot,
     query,
     setDoc,
     updateDoc,
 } from 'firebase/firestore';
 import { collectionData, docData } from 'rxfire/firestore';
+import { map, Observable, tap } from 'rxjs';
 import { Err } from '../utils';
 import { firestore } from './firebase.config';
 
@@ -36,15 +38,34 @@ export default class FirestoreService {
     }
 
     getWhere$(...where) {
-        return collectionData(query(this.collection, ...where));
+        return new Observable((subscriber) => {
+            const q = query(this.collection, ...where);
+            const unsub = onSnapshot(q, {
+                next: subscriber.next.bind(subscriber),
+                error: subscriber.error.bind(subscriber),
+                complete: subscriber.complete.bind(subscriber),
+            });
+            return unsub;
+        }).pipe(
+            tap(console.log),
+            map((changes) => changes.docs.map((doc) => doc.data()))
+        );
     }
 
     async add(data) {
-        const docShot = await getDoc(doc(this.collection, data.id));
-        if (docShot.exists()) {
-            throw Err.alreadyExists(`A doc with id ${data.id} already exists`);
+        console.log(this.collection);
+        if (data.id) {
+            const docShot = await getDoc(doc(this.collection, data.id));
+            if (docShot.exists()) {
+                throw Err.alreadyExists(
+                    `A doc with id ${data.id} already exists`
+                );
+            }
+            await setDoc(doc(this.collection, data.id), data);
+        } else {
+            const docRef = doc(this.collection);
+            await setDoc(docRef, { ...data, id: docRef.id });
         }
-        await setDoc(doc(this.collection, data.id), data);
     }
 
     async deleteById(id) {

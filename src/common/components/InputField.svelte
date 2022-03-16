@@ -3,6 +3,7 @@
     export let name = '';
     export let label = '';
     export let value = '';
+    export let placeholder = '';
 
     const handleInput = (e) => {
         value = type.match(/^(number|range)$/)
@@ -17,6 +18,7 @@
         class="InputField__input"
         {name}
         title={label}
+        {placeholder}
         {type}
         {value}
         on:input={handleInput}

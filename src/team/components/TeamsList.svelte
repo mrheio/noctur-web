@@ -1,26 +1,26 @@
 <script>
     import { onDestroy } from 'svelte';
-    import { Grid, Loading } from '../../common/components';
-    import { getDetailedTeams$, teamsStore } from '../teamsStore';
+    import { Grid } from '../../common/components';
+    import teamService from '../data/teamService';
     import TeamCard from './TeamCard.svelte';
 
-    $: ({ isLoading, teams } = $teamsStore);
+    let teams = [];
 
-    const sub = getDetailedTeams$();
+    const sub = teamService.getAll$().subscribe((t) => {
+        console.log(t);
+        teams = t;
+    });
 
     onDestroy(() => {
-        console.log('destroyed');
         sub.unsubscribe();
     });
 </script>
 
-<Loading condition={isLoading}>
-    <Grid>
-        {#each teams as team}
-            <TeamCard {team} />
-        {/each}
-    </Grid>
-</Loading>
+<Grid>
+    {#each teams as team}
+        <TeamCard {team} />
+    {/each}
+</Grid>
 
 <style>
 </style>

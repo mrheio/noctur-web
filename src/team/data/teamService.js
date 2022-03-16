@@ -52,7 +52,8 @@ const createTeamService = () => {
         return teamRepo.getById$(teamId).pipe(
             switchMap((team) => {
                 if (team) {
-                    return userRepo.getByIds$(team.usids).pipe(
+                    const stream = userRepo.getByIds$(team.usids);
+                    return stream.pipe(
                         map((users) => {
                             return { ...team, users };
                         })

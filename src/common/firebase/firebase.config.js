@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { clearIndexedDbPersistence, getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyBUh8KT89MBBTdJqDsOUy8e8ngmBoloOps',
@@ -14,4 +14,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const firebaseAuth = getAuth(app);
+
 export const firestore = getFirestore(app);
+(async () => await clearIndexedDbPersistence(firestore))();

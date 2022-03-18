@@ -13,8 +13,8 @@
 </script>
 
 <Loading condition={$status.isLoading}>
-    <div class="fullscreen centered header-offset">
-        <Form on:submit={submit}>
+    <div class="fullscreen centered">
+        <Form on:submit={submit} error={$status.error}>
             <h2>Inregistrare</h2>
             <InputField label="Email" name="email" bind:value={$data.email} />
             <InputField
@@ -36,17 +36,6 @@
             >
                 Intra in cont
             </Btn>
-            <div class="Register__error">
-                {$status.error?.message ?? ''}
-            </div>
         </Form>
     </div>
 </Loading>
-
-<style>
-    .Register__error {
-        margin-top: var(--spacing-s);
-        height: 2rem;
-        color: var(--clr-secondary-10);
-    }
-</style>

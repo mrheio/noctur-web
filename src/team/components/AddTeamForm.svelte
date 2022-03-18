@@ -37,7 +37,7 @@
 </script>
 
 <Loading condition={gamesLoading || $status.isLoading}>
-    <Form on:submit={submit}>
+    <Form on:submit={submit} error={$status.error}>
         <h2>Creeaza o echipa</h2>
         <InputField name="name" label="Nume echipa" bind:value={$data.name} />
         <div style="width: 100%;">
@@ -75,8 +75,5 @@
         <Btn color="secondary" on:click={overlayComponent.closeOverlay}>
             Anuleaza
         </Btn>
-        <div>
-            {$status.error?.message ?? ''}
-        </div>
     </Form>
 </Loading>

@@ -85,11 +85,19 @@
         --z-index-over-2: 20;
         --z-index-over-3: 30;
         --z-index-over-4: 40;
+        --z-index-over-5: 50;
+        --z-index-over-6: 60;
+        --z-index-over-7: 70;
+        --z-index-over-8: 80;
+        --z-index-over-9: 90;
+        --z-index-over-10: 100;
     }
 
     /* resets */
 
     html {
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
         font-size: var(--fs-normal);
     }
@@ -156,7 +164,7 @@
     h1 {
         font-size: var(--fs-h-l);
         margin: 0;
-        margin-bottom: var(--spacing-l);
+        margin-bottom: var(--spacing-m);
     }
 
     h2 {

@@ -11,17 +11,6 @@
         <h1>Iechipele</h1>
         <h3>Gaseste playeri rapid si simplu</h3>
 
-        <div class="">
-            <p>
-                Esti intr-o cautare disperata de oameni? Nu ai cu cine sa te
-                joci? Prietenii te-au abandonat?
-            </p>
-            <p>
-                Aici si acum poti sa te alaturi unor oameni alaturi de care sa
-                iti dai in cap.
-            </p>
-        </div>
-
         {#if !user}
             <div class="Home__buttons">
                 <Btn on:click={() => navigate('login')}>Intra in cont</Btn>
@@ -35,8 +24,7 @@
     .Home {
         background: url('../assets/imgs/gaming_bg_3.jpg') no-repeat center/cover;
         position: relative;
-        margin-top: calc(var(--header-height) * -1);
-        margin-inline: calc(var(--spacing-m) * -1);
+        margin: 0 calc(var(--spacing-m) * -1);
     }
 
     .Home::before {
@@ -54,12 +42,13 @@
         position: relative;
         z-index: var(--z-index-over-2);
         text-align: center;
-        padding-inline: var(--spacing-s);
+        margin: 0 var(--spacing-s);
     }
 
     .Home__buttons {
         display: flex;
         justify-content: center;
+        align-items: center;
         gap: var(--spacing-s);
     }
 </style>

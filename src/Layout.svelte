@@ -45,9 +45,10 @@
 
 <style>
     header {
-        position: sticky;
+        position: fixed;
+        width: 100%;
         top: 0;
-        z-index: var(--z-index-over-3);
+        z-index: var(--z-index-over-5);
     }
 
     nav {
@@ -71,7 +72,8 @@
     }
 
     main {
-        min-height: 100vh;
+        height: 100vh;
         padding: 0 var(--spacing-m);
+        margin-top: var(--header-height);
     }
 </style>

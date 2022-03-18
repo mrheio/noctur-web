@@ -33,7 +33,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: var(--z-index-over-4);
+        z-index: var(--z-index-over-6);
         overflow-x: hidden;
     }
 </style>

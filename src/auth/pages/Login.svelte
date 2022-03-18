@@ -15,7 +15,7 @@
 
 <Loading condition={$status.isLoading}>
     <div class="fullscreen centered">
-        <Form on:submit={submit}>
+        <Form on:submit={submit} error={$status.error}>
             <h2>Autentificare</h2>
             <InputField label="Email" name="email" bind:value={$data.email} />
             <InputField
@@ -28,9 +28,6 @@
             <Btn color="tertiary" on:click={() => navigate('register')}>
                 Creeaza cont
             </Btn>
-            <div>
-                {$status.error?.message ?? ''}
-            </div>
         </Form>
     </div>
 </Loading>

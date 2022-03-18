@@ -14,7 +14,7 @@
 </script>
 
 <Loading condition={$status.isLoading}>
-    <Form on:submit={submit}>
+    <Form on:submit={submit} error={$status.error}>
         <InputField name="name" label="Nume joc" bind:value={$data.name} />
         <InputField
             name="maxTeam"
@@ -29,8 +29,5 @@
         >
             Anuleaza
         </Btn>
-        <div>
-            {$status.error?.message || ''}
-        </div>
     </Form>
 </Loading>

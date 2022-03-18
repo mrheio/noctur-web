@@ -20,6 +20,7 @@
         border: none;
         outline: none;
         border-radius: var(--rounded-l);
+        margin: 0;
         padding: var(--spacing-s) var(--spacing-m);
         font-weight: var(--fw-semibold);
         cursor: pointer;

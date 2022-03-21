@@ -1,5 +1,5 @@
 import { get, writable } from 'svelte/store';
-import authService from './data/authService';
+import { authService } from './data/authService';
 
 export const authStore = writable({
     isLoading: false,

@@ -34,6 +34,7 @@
             chatSub = messagesService(id)
                 .getAll$()
                 .subscribe((ms) => {
+                    console.log(ms);
                     messages = ms;
                 });
         } else {
@@ -67,14 +68,24 @@
     };
 
     const sendMessage = async () => {
-        await messagesService(id).add({ message });
+        if (message.length) {
+            await messagesService(id).add({ message });
+            message = '';
+        }
+    };
+
+    const sendOnEnter = async (event) => {
+        console.log(event);
+        if (event.charCode === 13) {
+            await sendMessage();
+        }
     };
 </script>
 
 <Loading condition={isLoading}>
     <h1>{team.name}</h1>
     <h2>Joc: {team.game}</h2>
-    <PlayersDisplay filled={team.usids.length} capacity={team.capacity} />
+    <PlayersDisplay filled={team.playersIds.length} capacity={team.capacity} />
     <p class="description">{team.description}</p>
     <h3 class="players">Players:</h3>
     <div class="player-card-container">
@@ -96,7 +107,7 @@
             <div>
                 {#each messages as m}
                     <div class="chat__message">
-                        <i class="username">{m.username}</i>
+                        <i class="username">{m.user.username}</i>
                         {m.message}
                     </div>
                 {/each}
@@ -106,6 +117,7 @@
                     placeholder="Mesaj"
                     name="message"
                     bind:value={message}
+                    on:keypress={sendOnEnter}
                 />
                 <Btn on:click={sendMessage}>Trimite</Btn>
             </div>
@@ -142,6 +154,7 @@
     }
 
     .chat {
+        margin-top: var(--spacing-s);
         display: flex;
         flex-direction: column;
         justify-content: center;

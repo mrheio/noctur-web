@@ -23,7 +23,10 @@
         Joc: <span>{team.game}</span>
     </h3>
     <div class="TeamCard__bottom">
-        <PlayersDisplay filled={team.usids.length} capacity={team.capacity} />
+        <PlayersDisplay
+            filled={team.playersIds.length}
+            capacity={team.capacity}
+        />
         <SeverityDisplay need={team.need} />
     </div>
     {#if user?.isAdmin || team.uid === user?.id}

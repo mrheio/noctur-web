@@ -21,7 +21,7 @@ export const createTeam = ({
     description,
     need,
     uid,
-    usids,
+    playersIds,
 }) => {
     return {
         id: `${game}__${uid}`,
@@ -31,14 +31,13 @@ export const createTeam = ({
         description,
         need,
         uid,
-        usids: usids || [uid],
+        playersIds: playersIds || [uid],
     };
 };
 
-export const createMessage = ({ uid, username, message }) => {
+export const createMessage = ({ uid, message }) => {
     return {
         uid,
-        username,
         message,
         createdAt: new Date().getTime(),
     };
@@ -67,9 +66,9 @@ export const isTeamOwner = (team) => {
 
 export const isInTeam = (team) => {
     const { user } = get(authStore);
-    return team.usids.some((uid) => uid === user.id);
+    return team.playersIds.some((uid) => uid === user.id);
 };
 
 export const isTeamFull = (team) => {
-    return team.usids.length === team.capacity;
+    return team.playersIds.length === team.capacity;
 };

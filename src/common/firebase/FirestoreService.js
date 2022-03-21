@@ -10,7 +10,7 @@ import {
     updateDoc,
 } from 'firebase/firestore';
 import { collectionData, docData } from 'rxfire/firestore';
-import { map, Observable, tap } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Err } from '../utils';
 import { firestore } from './firebase.config';
 
@@ -46,14 +46,10 @@ export default class FirestoreService {
                 complete: subscriber.complete.bind(subscriber),
             });
             return unsub;
-        }).pipe(
-            tap(console.log),
-            map((changes) => changes.docs.map((doc) => doc.data()))
-        );
+        }).pipe(map((changes) => changes.docs.map((doc) => doc.data())));
     }
 
     async add(data) {
-        console.log(this.collection);
         if (data.id) {
             const docShot = await getDoc(doc(this.collection, data.id));
             if (docShot.exists()) {

@@ -49,6 +49,14 @@ export class Err extends Error {
 }
 
 export class AuthErr extends Err {
+    static userNotFound() {
+        return new Err(
+            STATUS_CODES.CLIENT_ERROR.NOT_FOUND,
+            'user-not-found',
+            'User not found'
+        );
+    }
+
     static maybeConvert(error) {
         if (error.code === 'auth/invalid-email') {
             return new Err(

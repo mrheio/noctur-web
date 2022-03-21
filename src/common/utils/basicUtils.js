@@ -23,6 +23,8 @@ export const resetObj = (obj, defaults = {}) => {
     return newObj;
 };
 
+export const isEmpty = (val) => !val || !val.length;
+
 // const getDefault = (val) => {
 //     if (typeof val === 'string') {
 //         return '';

@@ -1,10 +1,10 @@
+import { authService } from '../../auth/data/authService';
 import { Err } from '../../common/utils';
 import userRepo from './userRepo';
 import { createUser, validateUserData } from './userUtils';
 
 const createUserService = () => {
     const add = async (user) => {
-        console.log(user);
         try {
             validateUserData(user);
             await userRepo.add(createUser(user));
@@ -16,7 +16,12 @@ const createUserService = () => {
         }
     };
 
-    return { ...userRepo, add };
+    const updateLoggedUser = async (data) => {
+        const user = await authService.getLoggedUser();
+        await userRepo.update(user.id, data);
+    };
+
+    return { ...userRepo, add, updateLoggedUser };
 };
 
 export default createUserService();

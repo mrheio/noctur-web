@@ -11,8 +11,10 @@
 <button
     class={`${chooseClass()} ${color} transition-ease-in-out`}
     {type}
-    on:click><slot /></button
+    on:click
 >
+    <slot />
+</button>
 
 <style>
     .btn {

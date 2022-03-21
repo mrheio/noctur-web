@@ -7,7 +7,6 @@
     let teams = [];
 
     const sub = teamService.getAll$().subscribe((t) => {
-        console.log(t);
         teams = t;
     });
 

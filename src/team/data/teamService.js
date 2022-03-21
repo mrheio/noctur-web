@@ -1,8 +1,8 @@
 import { map, switchMap } from 'rxjs';
-import authService from '../../auth/data/authService';
-import userRepo from '../../auth/data/userRepo';
+import { authService } from '../../auth/data/authService';
 import { Err } from '../../common/utils';
 import gameRepo from '../../game/data/gameRepo';
+import userRepo from '../../user/data/userRepo';
 import teamRepo from './teamRepo';
 import { createTeam, validateTeamData } from './teamUtils';
 
@@ -29,7 +29,9 @@ const createTeamService = () => {
     };
 
     const addUserToTeam = async (user, team) => {
-        await teamRepo.update(team.id, { usids: [...team.usids, user.id] });
+        await teamRepo.update(team.id, {
+            playersIds: [...team.playersIds, user.id],
+        });
     };
 
     const addLoggedUserToTeam = async (team) => {
@@ -39,7 +41,7 @@ const createTeamService = () => {
 
     const removeUserFromTeam = async (user, team) => {
         await teamRepo.update(team.id, {
-            usids: team.usids.filter((uid) => uid !== user.id),
+            playersIds: team.playersIds.filter((uid) => uid !== user.id),
         });
     };
 
@@ -52,7 +54,7 @@ const createTeamService = () => {
         return teamRepo.getById$(teamId).pipe(
             switchMap((team) => {
                 if (team) {
-                    const stream = userRepo.getByIds$(team.usids);
+                    const stream = userRepo.getByIds$(team.playersIds);
                     return stream.pipe(
                         map((users) => {
                             return { ...team, users };

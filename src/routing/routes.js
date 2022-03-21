@@ -2,6 +2,7 @@ import { Login, Register } from '../auth/pages';
 import { GamesHome } from '../game/pages';
 import Home from '../Home.svelte';
 import { TeamDetails, TeamsHome } from '../team/pages';
+import { UserProfile } from '../user/pages';
 
 class Route {
     constructor({ path, access, component }) {
@@ -46,6 +47,12 @@ const gamesHomeRoute = new Route({
     component: GamesHome,
 });
 
+const editAccountRoute = new Route({
+    path: 'user/profile',
+    access: 'private',
+    component: UserProfile,
+});
+
 const routes = [
     homeRoute,
     loginRoute,
@@ -53,6 +60,7 @@ const routes = [
     teamsHomeRoute,
     teamDetailsRoute,
     gamesHomeRoute,
+    editAccountRoute,
 ];
 
 export default routes;

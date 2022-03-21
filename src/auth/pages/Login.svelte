@@ -2,8 +2,8 @@
     import { navigate } from 'svelte-routing';
     import { Btn, Form, InputField, Loading } from '../../common/components';
     import { createForm } from '../../common/utils';
-    import authService from '../data/authService';
-    import { validateLogin } from '../data/userUtils';
+    import { authService, googleAuthService } from '../data/authService';
+    import { validateLogin } from '../data/authUtils';
 
     let { data, status, submit } = createForm(
         { email: '', password: '' },
@@ -11,6 +11,10 @@
             authService.logInWithEmailAndPassword(data.email, data.password),
         validateLogin
     );
+
+    const logInWithGoogle = async () => {
+        await googleAuthService.logInWithGoogle();
+    };
 </script>
 
 <Loading condition={$status.isLoading}>
@@ -29,5 +33,6 @@
                 Creeaza cont
             </Btn>
         </Form>
+        <Btn color="secondary" on:click={logInWithGoogle}>Google</Btn>
     </div>
 </Loading>

@@ -22,6 +22,7 @@
         {type}
         {value}
         on:input={handleInput}
+        on:keypress
     />
 </div>
 

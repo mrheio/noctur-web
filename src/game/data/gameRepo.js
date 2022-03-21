@@ -7,7 +7,6 @@ const createGameRepo = (db) => {
 
     const getByName = async (name) => {
         const res = await db.getWhere(where('name', '==', name));
-        console.log(res);
         return res[0];
     };
 

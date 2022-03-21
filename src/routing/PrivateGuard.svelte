@@ -8,6 +8,9 @@
         if (!user) {
             navigate('/login', { replace: true });
         }
+        if (user?.username === '') {
+            navigate('/user/profile');
+        }
     }
 </script>
 

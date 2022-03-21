@@ -2,8 +2,8 @@
     import { navigate } from 'svelte-routing';
     import { Btn, Form, InputField, Loading } from '../../common/components';
     import { createForm } from '../../common/utils';
-    import authService from '../data/authService';
-    import { validateRegister } from '../data/userUtils';
+    import { authService } from '../data/authService';
+    import { validateRegister } from '../data/authUtils';
 
     let { data, status, submit } = createForm(
         { email: '', username: '', password: '' },

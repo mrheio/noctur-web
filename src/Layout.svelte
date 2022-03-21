@@ -28,7 +28,9 @@
         </div>
         <div class="nav-group">
             {#if user}
-                <span class="username margin-inline--s">{user.username}</span>
+                <Link to="user/profile" {getProps}>
+                    {user.username}
+                </Link>
                 <button class="link" type="button" on:click={handleLogOut}>
                     Iesi din cont
                 </button>
@@ -64,11 +66,6 @@
     .nav-group {
         display: flex;
         gap: var(--spacing-s);
-    }
-
-    .username {
-        color: var(--clr-secondary-50);
-        font-weight: var(--fw-semibold);
     }
 
     main {

@@ -75,7 +75,6 @@
     };
 
     const sendOnEnter = async (event) => {
-        console.log(event);
         if (event.charCode === 13) {
             await sendMessage();
         }
@@ -119,7 +118,6 @@
                     bind:value={message}
                     on:keypress={sendOnEnter}
                 />
-                <Btn on:click={sendMessage}>Trimite</Btn>
             </div>
         </div>
     {/if}

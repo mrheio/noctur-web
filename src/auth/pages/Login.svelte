@@ -32,7 +32,9 @@
             <Btn color="tertiary" on:click={() => navigate('register')}>
                 Creeaza cont
             </Btn>
+            <Btn type="button" color="secondary" on:click={logInWithGoogle}>
+                Google
+            </Btn>
         </Form>
-        <Btn color="secondary" on:click={logInWithGoogle}>Google</Btn>
     </div>
 </Loading>

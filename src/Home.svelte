@@ -6,14 +6,16 @@
     $: ({ user, isLoading } = $authStore);
 </script>
 
-<div class="fullscreen centered Home">
-    <div class="Home__content-wrapper">
+<div class="Home fullscreen fullscreen--faded flex-centered text-align-center">
+    <div class="Home__content-wrapper padding-inline-s">
         <h1>Iechipele</h1>
         <h3>Gaseste playeri rapid si simplu</h3>
 
         {#if !user}
             <div class="Home__buttons">
-                <Btn on:click={() => navigate('login')}>Intra in cont</Btn>
+                <Btn on:click={() => navigate('login')} color="secondary">
+                    Intra in cont
+                </Btn>
                 <Btn on:click={() => navigate('register')}>Creeaza cont</Btn>
             </div>
         {/if}
@@ -23,32 +25,22 @@
 <style>
     .Home {
         background: url('../assets/imgs/gaming_bg_3.jpg') no-repeat center/cover;
-        position: relative;
-        margin: 0 calc(var(--spacing-m) * -1);
-    }
-
-    .Home::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: var(--z-index-over-1);
     }
 
     .Home__content-wrapper {
-        position: relative;
-        z-index: var(--z-index-over-2);
-        text-align: center;
-        margin: 0 var(--spacing-s);
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-xl);
+        width: 100%;
+        max-width: 480px;
     }
 
-    .Home__buttons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: var(--spacing-s);
+    @media (max-width: 340px) {
+        .Home__buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--gap-l);
+        }
     }
 </style>

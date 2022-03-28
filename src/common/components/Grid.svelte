@@ -1,22 +1,21 @@
-<div>
+<div class="grid-wrapper">
     <slot />
 </div>
 
 <style>
-    div {
+    .grid-wrapper {
         display: grid;
-        justify-items: center;
-        gap: 12px;
+        gap: var(--gap-m);
     }
 
-    @media only screen and (min-width: 768px) {
-        div {
+    @media (min-width: 768px) {
+        .grid-wrapper {
             grid-template-columns: repeat(2, 1fr);
         }
     }
 
-    @media only screen and (min-width: 1280px) {
-        div {
+    @media (min-width: 1280px) {
+        .grid-wrapper {
             grid-template-columns: repeat(4, 1fr);
         }
     }

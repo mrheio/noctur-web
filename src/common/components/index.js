@@ -1,12 +1,13 @@
 export { default as Btn } from './Btn.svelte';
 export { default as Card } from './Card.svelte';
+export { default as FlexColumn } from './FlexColumn.svelte';
 export { default as Floating } from './Floating.svelte';
 export { default as Form } from './Form.svelte';
 export { default as Grid } from './Grid.svelte';
 export { default as InputField } from './InputField.svelte';
 export { default as Loading } from './Loading.svelte';
+export { default as NeedIcon } from './NeedIcon.svelte';
 export { default as Overlay } from './Overlay.svelte';
 export { default as PageWrapper } from './PageWrapper.svelte';
-export { default as PlayersDisplay } from './PlayersDisplay.svelte';
+export { default as Players } from './Players.svelte';
 export { default as SelectField } from './SelectField.svelte';
-export { default as SeverityDisplay } from './SeverityDisplay.svelte';

@@ -8,8 +8,8 @@
 </script>
 
 <div>
-    <label for={name}>{label}</label>
-    <select bind:value {name}>
+    <label class="select-label" for={name}>{label}</label>
+    <select class="select-field" bind:value {name}>
         {#each options as option}
             <option value={optionValueTransformer(option)}>
                 {optionDisplayTransformer(option)}
@@ -19,24 +19,4 @@
 </div>
 
 <style>
-    div {
-        width: 100%;
-        text-align: start;
-    }
-
-    label {
-        display: block;
-        margin-bottom: var(--spacing-xs);
-    }
-
-    select {
-        background: var(--clr-primary-80);
-        color: var(--clr-txt);
-        display: block;
-        width: 100%;
-        padding: var(--spacing-s);
-        border: none;
-        border-radius: var(--rounded-s);
-        outline: none;
-    }
 </style>

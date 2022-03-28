@@ -1,9 +1,9 @@
-<div>
+<div class="floating">
     <slot />
 </div>
 
 <style>
-    div {
+    .floating {
         position: fixed;
         bottom: 12px;
         right: 12px;

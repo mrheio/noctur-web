@@ -3,6 +3,7 @@
     import { navigate } from 'svelte-routing';
     import {
         Btn,
+        FlexColumn,
         Form,
         InputField,
         Loading,
@@ -49,7 +50,7 @@
                 optionValueTransformer={(option) => option.name}
                 optionDisplayTransformer={(option) => option.name}
             />
-            <span on:click={() => navigate('games')}>
+            <span class="link" on:click={() => navigate('games')}>
                 *Daca jocul dorit nu exista poti sa il adaugi
             </span>
         </div>
@@ -71,9 +72,11 @@
             optionValueTransformer={(option) => option.value}
             optionDisplayTransformer={(option) => option.display}
         />
-        <Btn>Creeaza echipa</Btn>
-        <Btn color="secondary" on:click={overlayComponent.closeOverlay}>
-            Anuleaza
-        </Btn>
+        <FlexColumn centered>
+            <Btn>Creeaza echipa</Btn>
+            <Btn color="secondary" on:click={overlayComponent.closeOverlay}>
+                Anuleaza
+            </Btn>
+        </FlexColumn>
     </Form>
 </Loading>

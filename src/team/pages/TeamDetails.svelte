@@ -1,12 +1,7 @@
 <script>
     import { onDestroy } from 'svelte';
     import { navigate } from 'svelte-routing';
-    import {
-        Btn,
-        InputField,
-        Loading,
-        PlayersDisplay,
-    } from '../../common/components';
+    import { Btn, InputField, Loading } from '../../common/components';
     import messagesService from '../data/messagesService';
     import teamService from '../data/teamService';
     import { isInTeam, isTeamFull, isTeamOwner } from '../data/teamUtils';
@@ -84,13 +79,16 @@
 <Loading condition={isLoading}>
     <h1>{team.name}</h1>
     <h2>Joc: {team.game}</h2>
-    <PlayersDisplay filled={team.playersIds.length} capacity={team.capacity} />
-    <p class="description">{team.description}</p>
-    <h3 class="players">Players:</h3>
-    <div class="player-card-container">
-        {#each team.users as user}
-            <div class="player-card bold">{user.username}</div>
-        {/each}
+    <p class="TeamDetails__description">{team.description}</p>
+    <div class="TeamDetails__players">
+        <h3>Players:</h3>
+        <ul class="TeamDetails__players-list text-align-center">
+            {#each team.users as user}
+                <li class="TeamDetails__players-list__player">
+                    {user.username}
+                </li>
+            {/each}
+        </ul>
     </div>
     {#if isTeamOwner(team)}
         <Btn on:click={deleteTeam}>Sterge echipa</Btn>
@@ -102,16 +100,18 @@
         <Btn on:click={quitTeam}>Iesi din echipa</Btn>
     {/if}
     {#if chatSub}
-        <div class="chat">
+        <div class="TeamDetails__chat">
             <div>
                 {#each messages as m}
-                    <div class="chat__message">
-                        <i class="username">{m.user.username}</i>
-                        {m.message}
+                    <div>
+                        <span class="TeamDetails__chat__username">
+                            {m.user.username}
+                        </span>
+                        <span>{m.message}</span>
                     </div>
                 {/each}
             </div>
-            <div class="chat__form">
+            <div class="TeamDetails__input-wrapper">
                 <InputField
                     placeholder="Mesaj"
                     name="message"
@@ -124,54 +124,48 @@
 </Loading>
 
 <style>
-    .players {
-        margin-bottom: var(--spacing-s);
+    .TeamDetails__description {
+        max-width: min(100%, 768px);
     }
 
-    .player-card-container {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        margin-bottom: var(--spacing-s);
+    .TeamDetails__players {
+        margin-top: var(--spacing-m);
     }
 
-    .player-card {
-        background: var(--clr-primary-90);
-        padding: var(--spacing-m);
-        max-width: 300px;
-        border-radius: 4px;
-        text-align: center;
+    .TeamDetails__players-list {
+        padding: 0;
     }
 
-    .description {
-        word-break: break-all;
-    }
-
-    .username {
-        font-weight: var(--fw-semibold);
-    }
-
-    .chat {
-        margin-top: var(--spacing-s);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .chat > * {
-        min-width: 0;
+    .TeamDetails__players-list__player {
+        background-color: var(--clr-primary-80);
+        padding: var(--spacing-s) var(--spacing-m);
         width: 100%;
-        max-width: 576px;
+        border-radius: var(--rounded-s);
+        margin-bottom: var(--spacing-xs);
     }
 
-    .chat__message {
-        display: flex;
-        gap: 14px;
+    .TeamDetails__chat {
+        margin-top: var(--spacing-xxl);
+        max-width: 100%;
     }
 
-    .chat__form {
-        display: flex;
-        gap: 6px;
+    .TeamDetails__chat > * + * {
+        margin-top: var(--spacing-s);
+    }
+
+    .TeamDetails__chat__username {
+        font-weight: var(--fw-semibold);
+        color: var(--clr-tertiary-20);
+        margin-inline-end: var(--spacing-xxs);
+    }
+
+    @media (min-width: 768px) {
+        .TeamDetails__players-list__player {
+            width: 480px;
+        }
+
+        .TeamDetails__chat {
+            max-width: 480px;
+        }
     }
 </style>

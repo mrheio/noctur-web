@@ -9,6 +9,28 @@ export const teamsStore = writable({
 });
 const { update } = teamsStore;
 
+export const getTeams$ = () => {
+    update((state) => ({
+        ...state,
+        isLoading: true,
+        error: null,
+        success: null,
+    }));
+    console.log('test');
+    const sub = teamService.getAll$().subscribe((teams) => {
+        console.log('inside');
+        update((state) => ({
+            ...state,
+            isLoading: false,
+            error: null,
+            success: 'yes',
+            teams,
+        }));
+    });
+    console.log(sub);
+    return sub;
+};
+
 export const deleteTeam = async (team) => {
     try {
         update((state) => ({

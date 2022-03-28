@@ -3,70 +3,72 @@
     export let circle = false;
     export let color = 'primary';
 
-    const chooseClass = () => {
-        return circle ? 'circle' : 'btn';
+    const chooseColor = () => {
+        if (color === 'primary') {
+            return '';
+        }
+        if (color === 'secondary') {
+            return 'btn--secondary';
+        }
+        if (color === 'tertiary') {
+            return 'btn--tertiary';
+        }
+    };
+
+    const classes = () => {
+        return `btn ${
+            circle ? 'circle flex-centered' : ''
+        } ${chooseColor()} wtransition`;
     };
 </script>
 
-<button
-    class={`${chooseClass()} ${color} transition-ease-in-out`}
-    {type}
-    on:click
->
+<button class={classes()} {type} on:click>
     <slot />
 </button>
 
 <style>
-    .btn {
+    .btn,
+    .btn:active {
+        cursor: pointer;
+        background-color: var(--clr-primary-50);
         color: var(--clr-txt);
         border: none;
         outline: none;
         border-radius: var(--rounded-l);
-        margin: 0;
-        padding: var(--spacing-s) var(--spacing-m);
         font-weight: var(--fw-semibold);
-        cursor: pointer;
-        max-width: 320px;
-        width: 160px;
-        min-width: none;
+        margin: 0;
+        padding: var(--spacing-s) var(--spacing-xxl);
+        max-width: 240px;
     }
 
-    .circle {
-        cursor: pointer;
-        border: none;
-        outline: none;
-        width: 64px;
-        height: 64px;
+    .circle,
+    .circle:active {
+        --size: 64px;
+        width: var(--size);
+        height: var(--size);
         border-radius: 50%;
+        padding: 0;
     }
 
-    .primary {
-        background: var(--clr-primary-50);
-    }
-    .primary:hover {
-        background: var(--clr-primary-40);
-    }
-    .primary:active {
-        background: var(--clr-primary-60);
+    .btn:hover {
+        background-color: var(--clr-primary-30);
     }
 
-    .secondary {
-        background: var(--clr-secondary-50);
-    }
-    .secondary:hover {
-        background: var(--clr-secondary-30);
-    }
-    .secondary:active {
-        background: var(--clr-secondary-60);
+    .btn--secondary,
+    .btn--secondary:active {
+        background-color: var(--clr-secondary-50);
     }
 
-    .tertiary {
-        background: var(--clr-tertiary-50);
+    .btn--secondary:hover {
+        background-color: var(--clr-secondary-30);
     }
-    .tertiary:hover {
-        background: var(--clr-tertiary-40);
+
+    .btn--tertiary,
+    .btn--tertiary:active {
+        background-color: var(--clr-tertiary-50);
     }
-    .tertiary:active {
-        background: var(--clr-tertiary-60);
+
+    .btn--tertiary:hover {
+        background-color: var(--clr-tertiary-30);
     }
 </style>

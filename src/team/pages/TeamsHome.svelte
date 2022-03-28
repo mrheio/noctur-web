@@ -1,16 +1,19 @@
 <script>
     import { Btn, Floating, Overlay } from '../../common/components';
     import { AddTeamForm, TeamsList } from '../components';
+    import { teamsStore } from '../teamsStore';
+
+    $: ({ isLoading } = $teamsStore);
 
     let overlayComponent;
 </script>
 
-<h2>Echipe in cautare de playeri</h2>
+<h1 class="text-align-center">Echipe in cautare de playeri</h1>
 <TeamsList />
 
 <Floating>
     <Btn circle on:click={overlayComponent.openOverlay}>
-        <i class="icon" />
+        <i class="team-icon" />
     </Btn>
 </Floating>
 
@@ -19,12 +22,13 @@
 </Overlay>
 
 <style>
-    .icon {
-        -webkit-mask: url('../assets/svg/team.svg') no-repeat center/cover;
-        mask: url('../assets/svg/team.svg') no-repeat center/cover;
+    .team-icon {
+        --size: 42px;
         display: inline-block;
-        width: 32px;
-        height: 32px;
-        background: var(--clr-primary-100);
+        width: var(--size);
+        height: var(--size);
+        background-color: var(--clr-tertiary-30);
+        mask: url('../assets/svg/team.svg') no-repeat center/cover;
+        -webkit-mask: url('../assets/svg/team.svg') no-repeat center/cover;
     }
 </style>

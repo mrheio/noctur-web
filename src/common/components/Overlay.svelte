@@ -19,7 +19,7 @@
 
 {#if $overlayStore}
     <div id="overlay">
-        <div class="fullscreen centered">
+        <div class="page flex-centered">
             <slot />
         </div>
     </div>

@@ -5,12 +5,12 @@
     let overlayComponent;
 </script>
 
-<h2>Jocuri disponibile</h2>
+<h1 class="text-align-center">Jocuri disponibile</h1>
 <GamesList />
 
 <Floating>
     <Btn circle on:click={overlayComponent.openOverlay}>
-        <i class="icon" />
+        <i class="add-game-icon" />
     </Btn>
 </Floating>
 
@@ -19,12 +19,13 @@
 </Overlay>
 
 <style>
-    .icon {
-        -webkit-mask: url('../assets/svg/add_game.svg') no-repeat center/cover;
-        mask: url('../assets/svg/add_game.svg') no-repeat center/cover;
+    .add-game-icon {
+        --size: 42px;
         display: inline-block;
-        width: 32px;
-        height: 32px;
-        background: var(--clr-primary-100);
+        width: var(--size);
+        height: var(--size);
+        background-color: var(--clr-tertiary-30);
+        mask: url('../assets/svg/add_game.svg') no-repeat center/cover;
+        -webkit-mask: url('../assets/svg/add_game.svg') no-repeat center/cover;
     }
 </style>

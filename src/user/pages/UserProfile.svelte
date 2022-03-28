@@ -2,4 +2,4 @@
     import UserForm from '../components/UserForm.svelte';
 </script>
 
-<UserForm />
+<div class="fullheight flex-centered"><UserForm /></div>

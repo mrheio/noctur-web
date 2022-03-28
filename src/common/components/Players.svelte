@@ -3,35 +3,34 @@
     export let capacity = 0;
 </script>
 
-<span class="PlayersDisplay">
+<span class="Players">
     {#each new Array(filled) as _}
-        <i class="icon filled-player" />
+        <i class="Players__icon Players__icon--filled" />
     {/each}
     {#each new Array(capacity - filled) as _}
-        <i class="icon notFilled-player" />
+        <i class="Players__icon Players__icon--clear" />
     {/each}
 </span>
 
 <style>
-    .PlayersDisplay {
+    .Players {
         display: flex;
-        flex-wrap: wrap;
-        gap: 4px;
+        gap: var(--gap-s);
     }
 
-    .icon {
-        display: inline-block;
-        width: 24px;
-        height: 24px;
-        background: var(--clr-primary-30);
+    .Players__icon {
+        --size: 24px;
+        width: var(--size);
+        height: var(--size);
+        background-color: var(--clr-tertiary-30);
     }
 
-    .filled-player {
+    .Players__icon--filled {
         -webkit-mask-image: url('../assets/svg/player.svg');
         mask-image: url('../assets/svg/player.svg');
     }
 
-    .notFilled-player {
+    .Players__icon--clear {
         -webkit-mask-image: url('../assets/svg/nofill_player.svg');
         mask-image: url('../assets/svg/nofill_player.svg');
     }

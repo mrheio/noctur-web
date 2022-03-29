@@ -4,40 +4,50 @@ service cloud.firestore {
   	match /users/{userId} {
     	allow read: if true;
       allow create: if true;
-      allow update, delete: if isOwner(userId);
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId);
     }
   
     match /games/{gameId} {
     	allow read: if true;
-    	allow create: if isSignedIn();
-      allow update, delete: if isAdmin();
+    	allow create: if isSignedIn() && isEmailVerified();
+      allow update: if isAdmin() && isEmailVerified();
+      allow delete: if isAdmin() && isEmailVerified();
     }   
     
     match /teams/{teamId} {
     	allow read: if true; 
-      allow create: if isSignedIn();
-      allow update: if isSignedIn();
-      allow delete: if isOwner(getTeamData(teamId).uid) || isAdmin();
+      allow create: if isSignedIn() && isEmailVerified();
+      allow update: if (isTeamOwner() || isAdmin()) && isEmailVerified();
+      allow delete: if (isTeamOwner() || isAdmin()) && isEmailVerified();
+    }
+
+    function getUserData() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
     }
     
     function isSignedIn() {
     	return request.auth != null;
     }
-    
-    function isOwner(userId) {
-    	return request.auth.uid == userId;
+
+    function isEmailVerified() {
+      return request.auth.token.email_verified;
     }
-    
-    function getUserData() {
-    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
-    }
-    
+
     function isAdmin() {
     	return getUserData().roles.admin;
     }
     
+    function isOwner(userId) {
+    	return request.auth.uid == userId;
+    }
+
     function getTeamData(teamId) {
     	return get(/databases/$(database)/documents/teams/$(teamId)).data; 
+    }
+
+    function isTeamOwner(teamId) {
+      return isOwner(getTeamData(teamId).uid);
     }
   }
 }

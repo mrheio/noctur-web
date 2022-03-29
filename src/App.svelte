@@ -303,12 +303,16 @@
     }
 
     a:hover,
+    a:active,
     .link:hover,
+    .link:active,
+    .link:not(:disabled):active,
     .link--active,
     .link--active:hover,
     .link--active:visited {
         text-decoration: none;
         color: var(--clr-tertiary-50);
+        background: transparent;
     }
 
     input,

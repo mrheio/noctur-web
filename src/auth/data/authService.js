@@ -1,6 +1,7 @@
 import {
     createUserWithEmailAndPassword,
     GoogleAuthProvider,
+    reload,
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
@@ -14,6 +15,14 @@ import { createUser } from '../../user/data/userUtils';
 import { validateLogin, validateRegister } from './authUtils';
 
 const createAuthService = (auth) => {
+    const refreshUser = async () => {
+        await reload(auth.currentUser);
+    };
+
+    const isEmailVerified = () => {
+        return auth.currentUser.emailVerified;
+    };
+
     const getLoggedUser$ = () => {
         return authState(auth).pipe(
             switchMap((user) => {
@@ -68,6 +77,8 @@ const createAuthService = (auth) => {
         logInWithEmailAndPassword,
         register,
         logOut,
+        isEmailVerified,
+        refreshUser,
     };
 };
 

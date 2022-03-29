@@ -2,7 +2,7 @@ import { Login, Register } from '../auth/pages';
 import { GamesHome } from '../game/pages';
 import Home from '../Home.svelte';
 import { TeamDetails, TeamsHome } from '../team/pages';
-import { UserProfile } from '../user/pages';
+import { EmailVerification, UserProfile } from '../user/pages';
 
 class Route {
     constructor({ path, access, component }) {
@@ -53,6 +53,12 @@ const editAccountRoute = new Route({
     component: UserProfile,
 });
 
+const emailVerificationRoute = new Route({
+    path: 'user/email-verification',
+    access: 'private',
+    component: EmailVerification,
+});
+
 const routes = [
     homeRoute,
     loginRoute,
@@ -61,6 +67,7 @@ const routes = [
     teamDetailsRoute,
     gamesHomeRoute,
     editAccountRoute,
+    emailVerificationRoute,
 ];
 
 export default routes;

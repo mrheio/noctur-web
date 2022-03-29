@@ -16,9 +16,7 @@ export const getTeams$ = () => {
         error: null,
         success: null,
     }));
-    console.log('test');
     const sub = teamService.getAll$().subscribe((teams) => {
-        console.log('inside');
         update((state) => ({
             ...state,
             isLoading: false,
@@ -27,7 +25,6 @@ export const getTeams$ = () => {
             teams,
         }));
     });
-    console.log(sub);
     return sub;
 };
 

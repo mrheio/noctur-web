@@ -1,12 +1,13 @@
 import { Validator } from '../../common/utils';
 
 export const createUser = (data) => {
-    const { id, email, username, roles } = data;
+    const { id, email, username, roles, emailVerified } = data;
     return {
         id,
         email,
         username: username ?? '',
         roles: roles ?? { admin: false },
+        emailVerified: emailVerified ?? false,
     };
 };
 

@@ -153,6 +153,19 @@
         color: var(--clr-txt);
     }
 
+    body::-webkit-scrollbar {
+        width: 0.35rem;
+    }
+
+    body::-webkit-scrollbar-track {
+        box-shadow: transparent;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: var(--clr-primary-70);
+        outline: none;
+    }
+
     /* A elements that don't have a class get default styles */
     a:not([class]) {
         text-decoration-skip-ink: auto;
@@ -336,5 +349,14 @@
     .select-field:active,
     .select-field:focus {
         border: 2px solid var(--clr-primary-30);
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px var(--clr-primary-80) inset;
+        box-shadow: 0 0 0 30px var(--clr-primary-80) inset;
+        -webkit-text-fill-color: var(--clr-txt);
     }
 </style>

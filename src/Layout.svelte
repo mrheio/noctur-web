@@ -20,7 +20,13 @@
 <header class="header">
     <nav class="navbar">
         <div class="navbar__group">
-            <Link to="/" {getProps}>Acasa</Link>
+            <Link to="/" {getProps}>
+                <img
+                    class="navbar__logo"
+                    src="../assets/imgs/logo.png"
+                    alt=""
+                />
+            </Link>
             {#if user}
                 <Link to="teams" {getProps}>Echipe</Link>
                 <Link to="games" {getProps}>Jocuri</Link>
@@ -61,6 +67,11 @@
         display: flex;
         gap: var(--gap);
         align-items: center;
+    }
+
+    .navbar__logo {
+        width: 48px;
+        margin-inline-end: var(--spacing-s);
     }
 
     .page {

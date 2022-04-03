@@ -18,8 +18,8 @@ service cloud.firestore {
     match /teams/{teamId} {
     	allow read: if true; 
       allow create: if isSignedIn() && isEmailVerified();
-      allow update: if (isTeamOwner() || isAdmin()) && isEmailVerified();
-      allow delete: if (isTeamOwner() || isAdmin()) && isEmailVerified();
+      allow update: if (isTeamOwner(teamId) || isAdmin()) && isEmailVerified();
+      allow delete: if (isTeamOwner(teamId) || isAdmin()) && isEmailVerified();
     }
 
     function getUserData() {

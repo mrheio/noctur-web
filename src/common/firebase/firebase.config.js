@@ -3,12 +3,12 @@ import { getAuth } from 'firebase/auth';
 import { clearIndexedDbPersistence, getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyDATCvIYHjnOrXYb--_aeo-qaZA2vVCtYw',
-    authDomain: 'deqlify.firebaseapp.com',
-    projectId: 'deqlify',
-    storageBucket: 'deqlify.appspot.com',
-    messagingSenderId: '774918295106',
-    appId: '1:774918295106:web:d5c3d9eb9c5612b31c27db',
+    apiKey: 'AIzaSyB7aIE_nkgCcIrHRDJ6uR-2sjVyrGEoZPc',
+    authDomain: 'iunity.firebaseapp.com',
+    projectId: 'iunity',
+    storageBucket: 'iunity.appspot.com',
+    messagingSenderId: '15959200778',
+    appId: '1:15959200778:web:117b7d836b958061d9fbf3',
 };
 
 const app = initializeApp(firebaseConfig);

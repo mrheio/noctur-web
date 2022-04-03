@@ -1,4 +1,8 @@
 {
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
   "hosting": {
     "public": "public",
     "ignore": [
@@ -12,17 +16,5 @@
         "destination": "/index.html"
       }
     ]
-  },
-  "emulators": {
-    "firestore": {
-      "port": 3000
-    },
-    "ui": {
-      "enabled": true
-    }
-  },
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
   }
 }

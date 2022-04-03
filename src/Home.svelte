@@ -8,8 +8,8 @@
 
 <div class="Home fullscreen fullscreen--faded flex-centered text-align-center">
     <div class="Home__content-wrapper padding-inline-s">
-        <h1>Iechipele</h1>
-        <h3>Gaseste playeri rapid si simplu</h3>
+        <h1>Juxtaposify</h1>
+        <h2>Gaseste playeri. Aici. Acum</h2>
 
         {#if !user}
             <div class="Home__buttons">

@@ -3,12 +3,12 @@ import { getAuth } from 'firebase/auth';
 import { clearIndexedDbPersistence, getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyDdwb_MM9Wcjl5USpMSTlC0pUwv4FYVymA',
-    authDomain: 'juxtaposify.firebaseapp.com',
-    projectId: 'juxtaposify',
-    storageBucket: 'juxtaposify.appspot.com',
-    messagingSenderId: '150158279519',
-    appId: '1:150158279519:web:7fca3175d945c5f4032cea',
+    apiKey: 'AIzaSyDATCvIYHjnOrXYb--_aeo-qaZA2vVCtYw',
+    authDomain: 'deqlify.firebaseapp.com',
+    projectId: 'deqlify',
+    storageBucket: 'deqlify.appspot.com',
+    messagingSenderId: '774918295106',
+    appId: '1:774918295106:web:d5c3d9eb9c5612b31c27db',
 };
 
 const app = initializeApp(firebaseConfig);

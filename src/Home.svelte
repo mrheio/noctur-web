@@ -8,7 +8,7 @@
 
 <div class="Home fullscreen fullscreen--faded flex-centered text-align-center">
     <div class="Home__content-wrapper padding-inline-s">
-        <h1>Juxtaposify</h1>
+        <h1>Deqlify</h1>
         <h2>Gaseste playeri. Aici. Acum</h2>
 
         {#if !user}

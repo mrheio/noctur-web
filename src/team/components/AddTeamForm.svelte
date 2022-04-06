@@ -39,7 +39,7 @@
 
 <Loading condition={gamesLoading || $status.isLoading}>
     <Form on:submit={submit} error={$status.error}>
-        <h2>Creeaza o echipa</h2>
+        <h1 class="text-center">Creeaza echipa</h1>
         <InputField name="name" label="Nume echipa" bind:value={$data.name} />
         <div style="width: 100%;">
             <SelectField

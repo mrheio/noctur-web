@@ -12,15 +12,21 @@
 
     export let overlayComponent;
 
+    const addGame = async (game) => {
+        await gameService.add(game);
+        overlayComponent.closeOverlay();
+    };
+
     let { data, status, submit } = createForm(
         { name: '', capacity: '' },
-        gameService.add,
+        addGame,
         validateGameData
     );
 </script>
 
 <Loading condition={$status.isLoading}>
     <Form on:submit={submit} error={$status.error}>
+        <h1 class="text-center">Adauga joc</h1>
         <InputField name="name" label="Nume joc" bind:value={$data.name} />
         <InputField
             name="maxTeam"

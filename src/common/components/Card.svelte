@@ -19,8 +19,9 @@
         background-color: var(--clr-primary-80);
         width: min(100%, 768px);
         border-radius: var(--rounded-m);
-        padding: var(--spacing-s) var(--spacing-l);
+        padding: var(--spacing-m) var(--spacing-l);
         position: relative;
+        border: 2px solid var(--clr-primary-90);
     }
 
     .card:hover {
@@ -30,8 +31,4 @@
     .card--small {
         width: min(90%, 320px);
     }
-
-    /* .card > :global(*:where(:not(:first-child))) {
-        margin-top: var(--spacing-s);
-    } */
 </style>

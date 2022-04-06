@@ -8,7 +8,7 @@
     let overlayComponent;
 </script>
 
-<h1 class="text-align-center">Echipe in cautare de playeri</h1>
+<h1 class="text-center">Echipe in cautare de playeri</h1>
 <TeamsList />
 
 <Floating>
@@ -27,7 +27,7 @@
         display: inline-block;
         width: var(--size);
         height: var(--size);
-        background-color: var(--clr-tertiary-30);
+        background-color: var(--clr-text);
         mask: url('../assets/svg/team.svg') no-repeat center/cover;
         -webkit-mask: url('../assets/svg/team.svg') no-repeat center/cover;
     }

@@ -8,23 +8,25 @@
 
     $: ({ user } = $authStore);
 
+    const { id, name, game, playersIds, capacity, need, uid } = team;
+
     const handleNavigateToDetails = () => {
-        navigate(`/teams/${team.id}`);
+        navigate(`/teams/${id}`);
     };
 </script>
 
 <Card on:click={user ? handleNavigateToDetails : null}>
-    <h2>{team.name}</h2>
+    <h2>{name}</h2>
     <h3>
-        Joc: <span>{team.game}</span>
+        Joc: <span>{game}</span>
     </h3>
     <div class="icons-wrapper">
-        <Players filled={team.playersIds.length} capacity={team.capacity} />
-        <NeedIcon need={team.need} />
+        <Players filled={playersIds.length} {capacity} />
+        <NeedIcon {need} />
     </div>
-    {#if user?.isAdmin || team.uid === user?.id}
+    {#if user?.isAdmin || uid === user?.id}
         <button
-            class="absolute-top-right btn--clear"
+            class="card-top-right btn--clear"
             on:click={() => deleteTeam(team)}
         >
             ❌

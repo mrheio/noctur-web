@@ -6,6 +6,7 @@
         Form,
         InputField,
         Loading,
+        Logo,
     } from '../../common/components';
     import { createForm } from '../../common/utils';
     import { authService } from '../data/authService';
@@ -19,9 +20,10 @@
 </script>
 
 <Loading condition={$status.isLoading}>
-    <div class="fullheight flex-centered">
+    <div class="fullheight flex-col flex-centered">
+        <Logo />
         <Form on:submit={submit} error={$status.error}>
-            <h2>Inregistrare</h2>
+            <h1 class="text-center">Baga date face contu</h1>
             <InputField label="Email" name="email" bind:value={$data.email} />
             <InputField
                 label="Username"

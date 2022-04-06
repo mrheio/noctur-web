@@ -15,7 +15,7 @@
 
     const sendEmail = async () => {
         await sendEmailVerification(firebaseAuth.currentUser, {
-            url: 'https://iechipele.web.app',
+            url: 'https://noctur.web.app',
         });
     };
 

@@ -1,6 +1,6 @@
 import { Login, Register } from '../auth/pages';
 import { GamesHome } from '../game/pages';
-import Home from '../Home.svelte';
+import Home from '../home';
 import { TeamDetails, TeamsHome } from '../team/pages';
 import { EmailVerification, UserProfile } from '../user/pages';
 

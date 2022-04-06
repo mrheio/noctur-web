@@ -7,18 +7,13 @@
 </script>
 
 <Card>
-    <h3>{game.name}</h3>
-    <h4>
+    <h3 class="header-s">{game.name}</h3>
+    <h4 class="text-faded">
         Capacitate maxima echipa: <span>
             {game.capacity}
         </span>
     </h4>
     {#if isAdmin()}
-        <button
-            class="absolute-top-right btn--clear"
-            on:click={() => deleteGame(game.id)}
-        >
-            ❌
-        </button>
+        <button on:click={() => deleteGame(game.id)}> ❌ </button>
     {/if}
 </Card>

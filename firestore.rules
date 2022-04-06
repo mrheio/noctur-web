@@ -11,15 +11,22 @@ service cloud.firestore {
     match /games/{gameId} {
     	allow read: if true;
     	allow create: if isSignedIn() && isEmailVerified();
-      allow update: if isAdmin() && isEmailVerified();
-      allow delete: if isAdmin() && isEmailVerified();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
     }   
     
     match /teams/{teamId} {
     	allow read: if true; 
       allow create: if isSignedIn() && isEmailVerified();
-      allow update: if (isTeamOwner(teamId) || isAdmin()) && isEmailVerified();
-      allow delete: if (isTeamOwner(teamId) || isAdmin()) && isEmailVerified();
+      allow update: if (isTeamOwner(teamId) && isEmailVerified()) || isAdmin();
+      allow delete: if (isTeamOwner(teamId) && isEmailVerified()) || isAdmin();
+
+      match /messages/{messageId} {
+        allow read: if isInTeam(teamId);
+        allow create: if isInTeam(teamId);
+        allow update: if false;
+        allow delete: if false;
+      }
     }
 
     function getUserData() {
@@ -48,6 +55,10 @@ service cloud.firestore {
 
     function isTeamOwner(teamId) {
       return isOwner(getTeamData(teamId).uid);
+    }
+
+    function isInTeam(teamId) {
+      return request.auth.uid in getTeamData(teamId).playersIds;
     }
   }
 }

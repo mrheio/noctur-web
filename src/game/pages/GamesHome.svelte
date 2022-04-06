@@ -5,7 +5,7 @@
     let overlayComponent;
 </script>
 
-<h1 class="text-align-center">Jocuri disponibile</h1>
+<h1 class="text-center">Jocuri disponibile</h1>
 <GamesList />
 
 <Floating>
@@ -24,7 +24,7 @@
         display: inline-block;
         width: var(--size);
         height: var(--size);
-        background-color: var(--clr-tertiary-30);
+        background-color: var(--clr-text);
         mask: url('../assets/svg/add_game.svg') no-repeat center/cover;
         -webkit-mask: url('../assets/svg/add_game.svg') no-repeat center/cover;
     }

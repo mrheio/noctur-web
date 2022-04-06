@@ -6,6 +6,7 @@ export { default as Form } from './Form.svelte';
 export { default as Grid } from './Grid.svelte';
 export { default as InputField } from './InputField.svelte';
 export { default as Loading } from './Loading.svelte';
+export { default as Logo } from './Logo.svelte';
 export { default as NeedIcon } from './NeedIcon.svelte';
 export { default as Overlay } from './Overlay.svelte';
 export { default as PageWrapper } from './PageWrapper.svelte';

@@ -2,6 +2,7 @@
     export let type = 'submit';
     export let circle = false;
     export let color = 'primary';
+    export let variant = 'basic';
 
     const chooseColor = () => {
         if (color === 'primary') {
@@ -10,21 +11,30 @@
         if (color === 'secondary') {
             return 'btn--secondary';
         }
-        if (color === 'tertiary') {
-            return 'btn--tertiary';
-        }
     };
 
     const classes = () => {
         return `btn ${
-            circle ? 'circle flex-centered' : ''
+            circle ? 'circle flex flex-centered' : ''
         } ${chooseColor()} wtransition`;
     };
 </script>
 
-<button class={classes()} {type} on:click>
-    <slot />
-</button>
+{#if variant === 'google'}
+    <button on:click type="button" class="btn btn--google">
+        <span>
+            <img
+                class="btn--google__logo"
+                src="../assets/imgs/logos/google_logo.png"
+                alt="Google"
+            />oogle
+        </span>
+    </button>
+{:else}
+    <button class={classes()} {type} on:click>
+        <slot />
+    </button>
+{/if}
 
 <style>
     .btn,
@@ -51,7 +61,7 @@
     }
 
     .btn:hover {
-        background-color: var(--clr-primary-30);
+        background-color: var(--clr-primary-40);
     }
 
     .btn--secondary,
@@ -60,15 +70,12 @@
     }
 
     .btn--secondary:hover {
-        background-color: var(--clr-secondary-30);
+        background-color: var(--clr-secondary-40);
     }
 
-    .btn--tertiary,
-    .btn--tertiary:active {
-        background-color: var(--clr-tertiary-50);
-    }
-
-    .btn--tertiary:hover {
-        background-color: var(--clr-tertiary-30);
+    .btn--google__logo {
+        display: inline-block;
+        width: 28px;
+        vertical-align: middle;
     }
 </style>

@@ -9,7 +9,7 @@ import {
     setDoc,
     updateDoc,
 } from 'firebase/firestore';
-import { collectionData, docData } from 'rxfire/firestore';
+import { docData } from 'rxfire/firestore';
 import { map, Observable } from 'rxjs';
 import { Err } from '../utils';
 import { firestore } from './firebase.config';
@@ -20,7 +20,16 @@ export default class FirestoreService {
     }
 
     getAll$() {
-        return collectionData(this.collection);
+        return new Observable((subscriber) => {
+            const q = query(this.collection);
+            // onSnapshot(q, console.log);
+            const unsub = onSnapshot(q, {
+                next: subscriber.next.bind(subscriber),
+                error: subscriber.error.bind(subscriber),
+                complete: subscriber.complete.bind(subscriber),
+            });
+            return unsub;
+        }).pipe(map((changes) => changes.docs.map((doc) => doc.data())));
     }
 
     async getById(id) {

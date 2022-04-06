@@ -19,7 +19,7 @@
 
 {#if $overlayStore}
     <div id="overlay">
-        <div class="page flex-centered">
+        <div class="page flex flex-centered">
             <slot />
         </div>
     </div>

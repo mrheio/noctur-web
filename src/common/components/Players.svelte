@@ -22,7 +22,7 @@
         --size: 24px;
         width: var(--size);
         height: var(--size);
-        background-color: var(--clr-tertiary-30);
+        background-color: var(--clr-primary-30);
     }
 
     .Players__icon--filled {

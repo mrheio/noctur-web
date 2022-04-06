@@ -1,6 +1,6 @@
 import { get } from 'svelte/store';
 import { authStore } from '../../auth/authStore';
-import { Validator } from '../../common/utils';
+import { replaceSpacesWithUnderscores, Validator } from '../../common/utils';
 
 export const needLevels = [
     { value: 'low', display: 'Nu e stres, nu ma grabesc' },
@@ -24,7 +24,7 @@ export const createTeam = ({
     playersIds,
 }) => {
     return {
-        id: `${game}__${uid}`,
+        id: `${replaceSpacesWithUnderscores(game)}--${uid}`,
         name,
         game,
         capacity: parseInt(capacity),

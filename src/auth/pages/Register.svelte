@@ -20,7 +20,7 @@
 </script>
 
 <Loading condition={$status.isLoading}>
-    <div class="fullheight flex-col flex-centered">
+    <div class="fullheight flex-col flex-center">
         <Logo />
         <Form on:submit={submit} error={$status.error}>
             <h1 class="text-center">Baga date face contu</h1>

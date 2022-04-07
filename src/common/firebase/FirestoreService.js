@@ -22,7 +22,7 @@ export default class FirestoreService {
     getAll$() {
         return new Observable((subscriber) => {
             const q = query(this.collection);
-            // onSnapshot(q, console.log);
+            onSnapshot(q, console.log);
             const unsub = onSnapshot(q, {
                 next: subscriber.next.bind(subscriber),
                 error: subscriber.error.bind(subscriber),

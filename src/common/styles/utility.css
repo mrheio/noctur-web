@@ -1,0 +1,103 @@
+@import './vars.css';
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.header-s {
+    font-size: var(--fs-h-s);
+}
+
+.header-m {
+    font-size: var(--fs-h-m);
+}
+
+.header-l {
+    font-size: var(--fs-h-l);
+}
+
+.text-faded {
+    color: var(--clr-text-faded);
+}
+
+.card-top-right {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.btn--clear,
+.btn--clear:hover,
+.btn--clear:active,
+.btn--clear:not(:disabled):active,
+.btn--clear:focus {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* elements */
+
+a,
+a:visited,
+.link,
+.link:visited {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-text);
+    font-weight: var(--fw-semibold);
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+a:hover,
+a:active,
+.link:hover,
+.link:active,
+.link:not(:disabled):active,
+.link--active,
+.link--active:hover,
+.link--active:visited {
+    text-decoration: none;
+    color: var(--clr-secondary-50);
+    background: transparent;
+}
+
+input,
+.input-field,
+select,
+.select-field {
+    background-color: var(--clr-primary-80);
+    color: var(--clr-text);
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: var(--spacing-s) var(--spacing-xs);
+}
+
+input:active,
+input:focus,
+.input-field:active,
+.input-field:focus,
+select:active,
+select:focus,
+.select-field:active,
+.select-field:focus {
+    border: 2px solid var(--clr-primary-40);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--clr-primary-80) inset;
+    box-shadow: 0 0 0 30px var(--clr-primary-80) inset;
+    -webkit-text-fill-color: var(--clr-txt);
+}

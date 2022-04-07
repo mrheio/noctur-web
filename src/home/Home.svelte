@@ -5,7 +5,7 @@
 
 <div class="sections-wrapper">
     <section
-        class="fullheight hero-bg bg--faded flex flex-centered text-center"
+        class="fullheight hero-bg bg-overlay bg-overlay--darken flex flex-center text-center"
     >
         <div>
             <h1 class="header-l">Noctur</h1>
@@ -23,5 +23,6 @@
     .hero-bg {
         background: url('../assets/imgs/gaming_bg_3.jpg') no-repeat center/cover;
         margin-inline: calc(-1 * var(--page-offset-inline));
+        margin-top: calc(-1 * var(--spacing-l));
     }
 </style>

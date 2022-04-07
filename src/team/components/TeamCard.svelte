@@ -6,9 +6,11 @@
 
     export let team;
 
+    let id, name, game, playersIds, capacity, need, uid;
+
     $: ({ user } = $authStore);
 
-    const { id, name, game, playersIds, capacity, need, uid } = team;
+    $: ({ id, name, game, playersIds, capacity, need, uid } = team);
 
     const handleNavigateToDetails = () => {
         navigate(`/teams/${id}`);

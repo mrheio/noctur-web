@@ -4,6 +4,7 @@
     export let label = '';
     export let value = '';
     export let placeholder = '';
+    export let disabled = false;
 
     const handleInput = (e) => {
         value = type.match(/^(number|range)$/)
@@ -23,5 +24,6 @@
         {value}
         on:input={handleInput}
         on:keypress
+        {disabled}
     />
 </div>

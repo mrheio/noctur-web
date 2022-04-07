@@ -29,7 +29,6 @@
             chatSub = messagesService(id)
                 .getAll$()
                 .subscribe((ms) => {
-                    console.log(ms);
                     messages = ms;
                 });
         } else {

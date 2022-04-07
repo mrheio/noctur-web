@@ -1,4 +1,4 @@
-<footer class="Footer flex-col-centered flex-centered">
+<footer class="Footer flex-col-centered flex-center">
     <span>Site facut de mine.</span>
     <a href="https://www.twitch.tv/heio0">Facem si Twitch</a>
 </footer>

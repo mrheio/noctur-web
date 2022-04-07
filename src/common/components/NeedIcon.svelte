@@ -1,25 +1,12 @@
 <script>
     export let need;
 
-    const chooseNeed = () => {
-        if (need === 'low') {
-            return 'NeedIcon--green';
-        }
-        if (need === 'medium') {
-            return 'NeedIcon--orange';
-        }
-        if (need === 'high') {
-            return 'NeedIcon--red';
-        }
-        return '';
-    };
+    let classes = '';
 
-    const classes = () => {
-        return `NeedIcon ${chooseNeed()}`;
-    };
+    $: classes = `NeedIcon NeedIcon--${need}`;
 </script>
 
-<i class={classes()} />
+<i class={classes} />
 
 <style>
     .NeedIcon {
@@ -29,15 +16,15 @@
         border-radius: 50%;
     }
 
-    .NeedIcon--green {
+    .NeedIcon--low {
         background-color: lime;
     }
 
-    .NeedIcon--orange {
+    .NeedIcon--medium {
         background-color: orange;
     }
 
-    .NeedIcon--red {
+    .NeedIcon--high {
         background-color: red;
     }
 </style>

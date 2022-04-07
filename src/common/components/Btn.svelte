@@ -15,7 +15,7 @@
 
     const classes = () => {
         return `btn ${
-            circle ? 'circle flex flex-centered' : ''
+            circle ? 'circle flex flex-center' : ''
         } ${chooseColor()} wtransition`;
     };
 </script>

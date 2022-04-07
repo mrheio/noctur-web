@@ -25,15 +25,19 @@
 </script>
 
 <Loading condition={$status.isLoading}>
-    <div>
-        <Form on:submit={submit} error={$status.error}>
-            <h2>Profilul tau</h2>
-            <InputField
-                label="Username"
-                name="username"
-                bind:value={$data.username}
-            />
-            <FlexColumn centered><Btn>Actualizeaza</Btn></FlexColumn>
-        </Form>
-    </div>
+    <Form on:submit={submit} error={$status.error}>
+        <h1 class="header-l text-center">Profilul tau</h1>
+        <InputField
+            label="Email"
+            name="email"
+            bind:value={user.email}
+            disabled
+        />
+        <InputField
+            label="Username"
+            name="username"
+            bind:value={$data.username}
+        />
+        <FlexColumn centered><Btn>Actualizeaza</Btn></FlexColumn>
+    </Form>
 </Loading>

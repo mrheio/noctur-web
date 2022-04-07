@@ -5,7 +5,7 @@
 </script>
 
 {#if condition}
-    <div class="fullheight flex-centered">
+    <div class="fullheight flex flex-center">
         <LoadingIndicator />
     </div>
 {:else}

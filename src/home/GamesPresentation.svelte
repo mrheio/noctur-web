@@ -25,4 +25,10 @@
         gap: var(--gap);
         grid-template-columns: repeat(2, 1fr);
     }
+
+    @media (min-width: 1280px) {
+        .GamesPresentation {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
 </style>

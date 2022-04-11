@@ -1,23 +1,20 @@
 <script>
-    import { writable } from 'svelte/store';
-
-    export const overlayStore = writable(false);
-    const { set } = overlayStore;
+    let opened = false;
 
     export const openOverlay = () => {
         document.documentElement.style.overflow = 'hidden';
         document.body.scroll = 'no';
-        set(true);
+        opened = true;
     };
 
     export const closeOverlay = () => {
         document.documentElement.style.overflow = 'auto';
         document.body.scroll = 'yes';
-        set(false);
+        opened = false;
     };
 </script>
 
-{#if $overlayStore}
+{#if opened}
     <div id="overlay">
         <div class="page flex flex-center">
             <slot />

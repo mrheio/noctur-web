@@ -12,3 +12,5 @@ export { default as Overlay } from './Overlay.svelte';
 export { default as PageWrapper } from './PageWrapper.svelte';
 export { default as Players } from './Players.svelte';
 export { default as SelectField } from './SelectField.svelte';
+export { default as Sidebar } from './Sidebar.svelte';
+export * from './svg';

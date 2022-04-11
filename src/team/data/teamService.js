@@ -57,7 +57,7 @@ const createTeamService = () => {
                     const stream = userRepo.getByIds$(team.playersIds);
                     return stream.pipe(
                         map((users) => {
-                            return { ...team, users };
+                            return { ...team, players: users };
                         })
                     );
                 }

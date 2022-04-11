@@ -1,7 +1,7 @@
 <script>
     export let type = 'text';
     export let name = '';
-    export let label = '';
+    export let label = undefined;
     export let value = '';
     export let placeholder = '';
     export let disabled = false;
@@ -14,7 +14,9 @@
 </script>
 
 <div>
-    <label class="input-label" for={name}>{label}</label>
+    {#if label}
+        <label class="input-label" for={name}>{label}</label>
+    {/if}
     <input
         class="input-field"
         {name}

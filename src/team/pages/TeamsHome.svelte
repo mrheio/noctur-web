@@ -1,34 +1,31 @@
 <script>
-    import { Btn, Floating, Overlay } from '../../common/components';
+    import {
+        AddTeamIcon,
+        Btn,
+        Floating,
+        Overlay,
+        UseSvg,
+    } from '../../common/components';
     import { AddTeamForm, TeamsList } from '../components';
-    import { teamsStore } from '../teamsStore';
 
-    $: ({ isLoading } = $teamsStore);
+    let overlayOpened = false;
 
-    let overlayComponent;
+    const openOverlay = () => {
+        overlayOpened = true;
+    };
 </script>
 
 <h1 class="text-center">Echipe in cautare de playeri</h1>
 <TeamsList />
 
 <Floating>
-    <Btn circle on:click={overlayComponent.openOverlay}>
-        <i class="team-icon" />
+    <Btn circle on:click={openOverlay}>
+        <UseSvg href="#add-team-icon" size="48" />
     </Btn>
 </Floating>
 
-<Overlay bind:this={overlayComponent}>
-    <AddTeamForm {overlayComponent} />
+<Overlay bind:open={overlayOpened}>
+    <AddTeamForm bind:opened={overlayOpened} />
 </Overlay>
 
-<style>
-    .team-icon {
-        --size: 42px;
-        display: inline-block;
-        width: var(--size);
-        height: var(--size);
-        background-color: var(--clr-text);
-        mask: url('../assets/svg/team.svg') no-repeat center/cover;
-        -webkit-mask: url('../assets/svg/team.svg') no-repeat center/cover;
-    }
-</style>
+<AddTeamIcon />

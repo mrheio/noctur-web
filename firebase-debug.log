@@ -1,0 +1,322 @@
+[debug] [2022-04-18T19:31:38.231Z] ----------------------------------------------------------------------
+[debug] [2022-04-18T19:31:38.235Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ASUS\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only firestore
+[debug] [2022-04-18T19:31:38.235Z] CLI Version:   10.2.2
+[debug] [2022-04-18T19:31:38.235Z] Platform:      win32
+[debug] [2022-04-18T19:31:38.236Z] Node Version:  v14.15.3
+[debug] [2022-04-18T19:31:38.237Z] Time:          Mon Apr 18 2022 22:31:38 GMT+0300 (Eastern European Summer Time)
+[debug] [2022-04-18T19:31:38.238Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-04-18T19:31:38.337Z] Field ".emulators.firestore.port" in "firebase.json" is possibly invalid: should be number
+[debug] [2022-04-18T19:31:38.343Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-04-18T19:31:38.344Z] > authorizing via signed-in user (drg.ov00@gmail.com)
+[info] i  emulators: Starting emulators: firestore {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: firestore"}}
+[debug] [2022-04-18T19:31:38.381Z] [hub] writing locator at C:\Users\ASUS\AppData\Local\Temp\hub-noctur.json
+[debug] [2022-04-18T19:31:38.416Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-04-18T19:31:38.417Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-04-18T19:31:38.417Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\ASUS\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.13.1.jar","--host","localhost","--port",5000,"--rules","F:\\web\\conex-svelte\\firestore.rules"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\ASUS\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.13.1.jar\",\"--host\",\"localhost\",\"--port\",5000,\"--rules\",\"F:\\\\web\\\\conex-svelte\\\\firestore.rules\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2022-04-18T19:31:39.948Z] Apr 18, 2022 10:31:39 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://localhost:54473
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 18, 2022 10:31:39 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\r\nINFO: Started WebSocket server on ws://localhost:54473\r\n"}}
+[debug] [2022-04-18T19:31:39.989Z] API endpoint: http://localhost {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://localhost"}}
+[debug] [2022-04-18T19:31:39.989Z] :5000
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:5000
+
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":":5000\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\r\n\n   export FIRESTORE_EMULATOR_HOST=localhost:5000\n\nDev App Server is now running.\n\r\n"}}
+[debug] [2022-04-18T19:31:40.220Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-04-18T19:31:40.220Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-04-18T19:31:40.220Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\ASUS\\.cache\\firebase\\emulators\\ui-v1.6.5\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\ASUS\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.6.5\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-04-18T19:31:40.411Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Firestore │ localhost:5000 │ http://localhost:4000/firestore │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2022-04-18T19:32:11.774Z] Apr 18, 2022 10:32:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 18, 2022 10:32:11 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2022-04-18T19:32:12.065Z] Apr 18, 2022 10:32:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 18, 2022 10:32:12 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected HTTP/2 connection.\r\n"}}
+[debug] [2022-04-18T19:32:12.552Z] Apr 18, 2022 10:32:12 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: Error compiling rules:
+L26:71 Unexpected ')'.
+com.google.cloud.datastore.core.exception.DatastoreException: Error compiling rules:
+L26:71 Unexpected ')'.
+	at com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$CompilerException.asDatastoreException(EmulatorRulesCompiler.java:115)
+	at com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$EmulatorCompilationResult.checkCompilationSucceeded(EmulatorRulesCompiler.java:74)
+	at com.google.cloud.datastore.emulator.impl.CloudFirestoreV1.setSecurityRules(CloudFirestoreV1.java:576)
+	at com.google.cloud.datastore.emulator.impl.CloudFirestoreV1Router.setSecurityRules(CloudFirestoreV1Router.java:187)
+	at com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter$1.lambda$setSecurityRules$0(EmulatorAuxiliaryGrpcAdapter.java:68)
+	at com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter.unary(EmulatorAuxiliaryGrpcAdapter.java:49)
+	at com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter.access$000(EmulatorAuxiliaryGrpcAdapter.java:28)
+	at com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter$1.setSecurityRules(EmulatorAuxiliaryGrpcAdapter.java:68)
+	at com.google.firestore.emulator.v1.FirestoreEmulatorGrpc$MethodHandlers.invoke(FirestoreEmulatorGrpc.java:619)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:866)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: com.google.cloud.datastore.emulator.impl.rules.AutoValue_EmulatorRulesCompiler_CompilerException
+	at com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$CompilerException.of(EmulatorRulesCompiler.java:101)
+	... 24 more
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 18, 2022 10:32:12 PM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError\r\nINFO: operation failed: Error compiling rules:\nL26:71 Unexpected ')'.\r\ncom.google.cloud.datastore.core.exception.DatastoreException: Error compiling rules:\nL26:71 Unexpected ')'.\r\n\tat com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$CompilerException.asDatastoreException(EmulatorRulesCompiler.java:115)\r\n\tat com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$EmulatorCompilationResult.checkCompilationSucceeded(EmulatorRulesCompiler.java:74)\r\n\tat com.google.cloud.datastore.emulator.impl.CloudFirestoreV1.setSecurityRules(CloudFirestoreV1.java:576)\r\n\tat com.google.cloud.datastore.emulator.impl.CloudFirestoreV1Router.setSecurityRules(CloudFirestoreV1Router.java:187)\r\n\tat com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter$1.lambda$setSecurityRules$0(EmulatorAuxiliaryGrpcAdapter.java:68)\r\n\tat com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter.unary(EmulatorAuxiliaryGrpcAdapter.java:49)\r\n\tat com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter.access$000(EmulatorAuxiliaryGrpcAdapter.java:28)\r\n\tat com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter$1.setSecurityRules(EmulatorAuxiliaryGrpcAdapter.java:68)\r\n\tat com.google.firestore.emulator.v1.FirestoreEmulatorGrpc$MethodHandlers.invoke(FirestoreEmulatorGrpc.java:619)\r\n\tat io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)\r\n\tat io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)\r\n\tat io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)\r\n\tat io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)\r\n\tat io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)\r\n\tat io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)\r\n\tat io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)\r\n\tat io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)\r\n\tat io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)\r\n\tat io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)\r\n\tat io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:866)\r\n\tat io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)\r\n\tat io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)\r\n\tat java.base/java.lang.Thread.run(Thread.java:832)\r\nCaused by: com.google.cloud.datastore.emulator.impl.rules.AutoValue_EmulatorRulesCompiler_CompilerException\r\n\tat com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$CompilerException.of(EmulatorRulesCompiler.java:101)\r\n\t... 24 more\r\n\r\n"}}
+[debug] [2022-04-18T19:32:12.563Z] Apr 18, 2022 10:32:12 PM io.gapi.emulators.netty.HttpHandler$1 onError
+INFO: Exception when handling request: INVALID_ARGUMENT: Error compiling rules:
+L26:71 Unexpected ')'.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 18, 2022 10:32:12 PM io.gapi.emulators.netty.HttpHandler$1 onError\r\nINFO: Exception when handling request: INVALID_ARGUMENT: Error compiling rules:\nL26:71 Unexpected ')'.\r\n"}}
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2022-04-18T19:32:30.503Z] >>> HTTP REQUEST PUT http://localhost:5000/emulator/v1/projects/noctur:securityRules  
+ {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\r\nservice cloud.firestore {\r\n  match /databases/{database}/documents {\r\n    match /{document=**} {\r\n      allow read: if false;\r\n      allow write: if false;\r\n    }\r\n\r\n  \tmatch /users/{userId} {\r\n    \tallow read: if true;\r\n      allow create: if true;\r\n      allow update: if isOwner(userId);\r\n      allow delete: if isOwner(userId);\r\n    }\r\n  \r\n    match /games/{gameId} {\r\n    \tallow read: if true;\r\n    \tallow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if isAdmin();\r\n      allow delete: if isAdmin();\r\n    }   \r\n    \r\n    match /teams/{teamId} {\r\n    \tallow read: if true; \r\n      allow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if (isTeamOwner(teamId) && isEmailVerified()) || () || isAdmin();\r\n      allow delete: if (isTeamOwner(teamId) && isEmailVerified()) || isAdmin();\r\n\r\n      match /messages/{messageId} {\r\n        allow read: if isInTeam(teamId);\r\n        allow create: if isInTeam(teamId);\r\n        allow update: if false;\r\n        allow delete: if false;\r\n      }\r\n    }\r\n\r\n    function getUserData() {\r\n    \treturn get(/databases/$(database)/documents/users/$(request.auth.uid)).data;\r\n    }\r\n    \r\n    function isSignedIn() {\r\n    \treturn request.auth != null;\r\n    }\r\n\r\n    function isEmailVerified() {\r\n      return request.auth.token.email_verified;\r\n    }\r\n\r\n    function isAdmin() {\r\n    \treturn getUserData().roles.admin;\r\n    }\r\n    \r\n    function isOwner(userId) {\r\n    \treturn request.auth.uid == userId;\r\n    }\r\n\r\n    function getTeamData(teamId) {\r\n    \treturn get(/databases/$(database)/documents/teams/$(teamId)).data; \r\n    }\r\n\r\n    function isTeamOwner(teamId) {\r\n      return isOwner(getTeamData(teamId).uid);\r\n    }\r\n\r\n    function isInTeam(teamId) {\r\n      return request.auth.uid in getTeamData(teamId).playersIds;\r\n    }\r\n  }\r\n}"}]}}
+[debug] [2022-04-18T19:32:30.525Z] Apr 18, 2022 10:32:30 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 18, 2022 10:32:30 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2022-04-18T19:32:30.656Z] <<< HTTP RESPONSE 200 {"content-type":"application/json","content-length":"242"}
+[warn] !  firestore.rules:26:71 - ERROR Unexpected ')'. 
+[info] +  firestore: Rules updated. 
+[debug] [2022-04-18T20:04:06.639Z] Received signal SIGHUP 1
+[debug] [2022-04-19T06:33:32.962Z] ----------------------------------------------------------------------
+[debug] [2022-04-19T06:33:32.965Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ASUS\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only firestore
+[debug] [2022-04-19T06:33:32.965Z] CLI Version:   10.2.2
+[debug] [2022-04-19T06:33:32.965Z] Platform:      win32
+[debug] [2022-04-19T06:33:32.965Z] Node Version:  v14.15.3
+[debug] [2022-04-19T06:33:32.967Z] Time:          Tue Apr 19 2022 09:33:32 GMT+0300 (Eastern European Summer Time)
+[debug] [2022-04-19T06:33:32.967Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-04-19T06:33:33.051Z] Field ".emulators.firestore.port" in "firebase.json" is possibly invalid: should be number
+[debug] [2022-04-19T06:33:33.074Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-04-19T06:33:33.074Z] > authorizing via signed-in user (drg.ov00@gmail.com)
+[info] i  emulators: Starting emulators: firestore {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: firestore"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project noctur. This may result in unexpected behavior. 
+[debug] [2022-04-19T06:33:33.100Z] [hub] writing locator at C:\Users\ASUS\AppData\Local\Temp\hub-noctur.json
+[debug] [2022-04-19T06:33:33.128Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-04-19T06:33:33.128Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-04-19T06:33:33.129Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\ASUS\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.13.1.jar","--host","localhost","--port",5000,"--rules","F:\\web\\conex-svelte\\firestore.rules"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\ASUS\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.13.1.jar\",\"--host\",\"localhost\",\"--port\",5000,\"--rules\",\"F:\\\\web\\\\conex-svelte\\\\firestore.rules\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2022-04-19T06:33:34.800Z] Apr 19, 2022 9:33:34 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://localhost:50272
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 9:33:34 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\r\nINFO: Started WebSocket server on ws://localhost:50272\r\n"}}
+[debug] [2022-04-19T06:33:34.842Z] API endpoint: http://localhost: {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://localhost:"}}
+[debug] [2022-04-19T06:33:34.843Z] 5000
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:5000
+
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"5000\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\r\n\n   export FIRESTORE_EMULATOR_HOST=localhost:5000\n\nDev App Server is now running.\n\r\n"}}
+[debug] [2022-04-19T06:33:34.929Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-04-19T06:33:34.930Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-04-19T06:33:34.930Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\ASUS\\.cache\\firebase\\emulators\\ui-v1.6.5\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\ASUS\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.6.5\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-04-19T06:33:35.168Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Firestore │ localhost:5000 │ http://localhost:4000/firestore │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2022-04-19T06:34:16.671Z] Apr 19, 2022 9:34:16 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 9:34:16 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2022-04-19T06:34:16.939Z] Apr 19, 2022 9:34:16 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 9:34:16 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected HTTP/2 connection.\r\n"}}
+[debug] [2022-04-19T06:34:17.441Z] Apr 19, 2022 9:34:17 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: Error compiling rules:
+L26:71 Unexpected ')'.
+com.google.cloud.datastore.core.exception.DatastoreException: Error compiling rules:
+L26:71 Unexpected ')'.
+	at com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$CompilerException.asDatastoreException(EmulatorRulesCompiler.java:115)
+	at com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$EmulatorCompilationResult.checkCompilationSucceeded(EmulatorRulesCompiler.java:74)
+	at com.google.cloud.datastore.emulator.impl.CloudFirestoreV1.setSecurityRules(CloudFirestoreV1.java:576)
+	at com.google.cloud.datastore.emulator.impl.CloudFirestoreV1Router.setSecurityRules(CloudFirestoreV1Router.java:187)
+	at com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter$1.lambda$setSecurityRules$0(EmulatorAuxiliaryGrpcAdapter.java:68)
+	at com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter.unary(EmulatorAuxiliaryGrpcAdapter.java:49)
+	at com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter.access$000(EmulatorAuxiliaryGrpcAdapter.java:28)
+	at com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter$1.setSecurityRules(EmulatorAuxiliaryGrpcAdapter.java:68)
+	at com.google.firestore.emulator.v1.FirestoreEmulatorGrpc$MethodHandlers.invoke(FirestoreEmulatorGrpc.java:619)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:866)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: com.google.cloud.datastore.emulator.impl.rules.AutoValue_EmulatorRulesCompiler_CompilerException
+	at com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$CompilerException.of(EmulatorRulesCompiler.java:101)
+	... 24 more
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 9:34:17 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError\r\nINFO: operation failed: Error compiling rules:\nL26:71 Unexpected ')'.\r\ncom.google.cloud.datastore.core.exception.DatastoreException: Error compiling rules:\nL26:71 Unexpected ')'.\r\n\tat com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$CompilerException.asDatastoreException(EmulatorRulesCompiler.java:115)\r\n\tat com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$EmulatorCompilationResult.checkCompilationSucceeded(EmulatorRulesCompiler.java:74)\r\n\tat com.google.cloud.datastore.emulator.impl.CloudFirestoreV1.setSecurityRules(CloudFirestoreV1.java:576)\r\n\tat com.google.cloud.datastore.emulator.impl.CloudFirestoreV1Router.setSecurityRules(CloudFirestoreV1Router.java:187)\r\n\tat com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter$1.lambda$setSecurityRules$0(EmulatorAuxiliaryGrpcAdapter.java:68)\r\n\tat com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter.unary(EmulatorAuxiliaryGrpcAdapter.java:49)\r\n\tat com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter.access$000(EmulatorAuxiliaryGrpcAdapter.java:28)\r\n\tat com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter$1.setSecurityRules(EmulatorAuxiliaryGrpcAdapter.java:68)\r\n\tat com.google.firestore.emulator.v1.FirestoreEmulatorGrpc$MethodHandlers.invoke(FirestoreEmulatorGrpc.java:619)\r\n\tat io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)\r\n\tat io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)\r\n\tat io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)\r\n\tat io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)\r\n\tat io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)\r\n\tat io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)\r\n\tat io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)\r\n\tat io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)\r\n\tat io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)\r\n\tat io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)\r\n\tat io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:866)\r\n\tat io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)\r\n\tat io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)\r\n\tat java.base/java.lang.Thread.run(Thread.java:832)\r\nCaused by: com.google.cloud.datastore.emulator.impl.rules.AutoValue_EmulatorRulesCompiler_CompilerException\r\n\tat com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$CompilerException.of(EmulatorRulesCompiler.java:101)\r\n\t... 24 more\r\n\r\n"}}
+[debug] [2022-04-19T06:34:17.451Z] Apr 19, 2022 9:34:17 AM io.gapi.emulators.netty.HttpHandler$1 onError
+INFO: Exception when handling request: INVALID_ARGUMENT: Error compiling rules:
+L26:71 Unexpected ')'.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 9:34:17 AM io.gapi.emulators.netty.HttpHandler$1 onError\r\nINFO: Exception when handling request: INVALID_ARGUMENT: Error compiling rules:\nL26:71 Unexpected ')'.\r\n"}}
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2022-04-19T06:34:44.936Z] >>> HTTP REQUEST PUT http://localhost:5000/emulator/v1/projects/noctur:securityRules  
+ {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\r\nservice cloud.firestore {\r\n  match /databases/{database}/documents {\r\n\r\n  \tmatch /users/{userId} {\r\n    \tallow read: if true;\r\n      allow create: if true;\r\n      allow update: if isOwner(userId);\r\n      allow delete: if isOwner(userId);\r\n    }\r\n  \r\n    match /games/{gameId} {\r\n    \tallow read: if true;\r\n    \tallow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if isAdmin();\r\n      allow delete: if isAdmin();\r\n    }   \r\n    \r\n    match /teams/{teamId} {\r\n    \tallow read: if true; \r\n      allow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if (isTeamOwner(teamId) && isEmailVerified()) || () || isAdmin();\r\n      allow delete: if (isTeamOwner(teamId) && isEmailVerified()) || isAdmin();\r\n\r\n      match /messages/{messageId} {\r\n        allow read: if isInTeam(teamId);\r\n        allow create: if isInTeam(teamId);\r\n        allow update: if false;\r\n        allow delete: if false;\r\n      }\r\n    }\r\n\r\n    function getUserData() {\r\n    \treturn get(/databases/$(database)/documents/users/$(request.auth.uid)).data;\r\n    }\r\n    \r\n    function isSignedIn() {\r\n    \treturn request.auth != null;\r\n    }\r\n\r\n    function isEmailVerified() {\r\n      return request.auth.token.email_verified;\r\n    }\r\n\r\n    function isAdmin() {\r\n    \treturn getUserData().roles.admin;\r\n    }\r\n    \r\n    function isOwner(userId) {\r\n    \treturn request.auth.uid == userId;\r\n    }\r\n\r\n    function getTeamData(teamId) {\r\n    \treturn get(/databases/$(database)/documents/teams/$(teamId)).data; \r\n    }\r\n\r\n    function isTeamOwner(teamId) {\r\n      return isOwner(getTeamData(teamId).uid);\r\n    }\r\n\r\n    function isInTeam(teamId) {\r\n      return request.auth.uid in getTeamData(teamId).playersIds;\r\n    }\r\n  }\r\n}"}]}}
+[debug] [2022-04-19T06:34:44.961Z] Apr 19, 2022 9:34:44 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 9:34:44 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2022-04-19T06:34:45.198Z] <<< HTTP RESPONSE 200 {"content-type":"application/json","content-length":"242"}
+[warn] !  firestore.rules:22:71 - ERROR Unexpected ')'. 
+[info] +  firestore: Rules updated. 
+[debug] [2022-04-19T06:34:51.449Z] Apr 19, 2022 9:34:51 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 9:34:51 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2022-04-19T06:34:51.505Z] Apr 19, 2022 9:34:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError
+INFO: operation failed: Error compiling rules:
+L22:71 Unexpected ')'.
+com.google.cloud.datastore.core.exception.DatastoreException: Error compiling rules:
+L22:71 Unexpected ')'.
+	at com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$CompilerException.asDatastoreException(EmulatorRulesCompiler.java:115)
+	at com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$EmulatorCompilationResult.checkCompilationSucceeded(EmulatorRulesCompiler.java:74)
+	at com.google.cloud.datastore.emulator.impl.CloudFirestoreV1.setSecurityRules(CloudFirestoreV1.java:576)
+	at com.google.cloud.datastore.emulator.impl.CloudFirestoreV1Router.setSecurityRules(CloudFirestoreV1Router.java:187)
+	at com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter$1.lambda$setSecurityRules$0(EmulatorAuxiliaryGrpcAdapter.java:68)
+	at com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter.unary(EmulatorAuxiliaryGrpcAdapter.java:49)
+	at com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter.access$000(EmulatorAuxiliaryGrpcAdapter.java:28)
+	at com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter$1.setSecurityRules(EmulatorAuxiliaryGrpcAdapter.java:68)
+	at com.google.firestore.emulator.v1.FirestoreEmulatorGrpc$MethodHandlers.invoke(FirestoreEmulatorGrpc.java:619)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:866)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: com.google.cloud.datastore.emulator.impl.rules.AutoValue_EmulatorRulesCompiler_CompilerException
+	at com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$CompilerException.of(EmulatorRulesCompiler.java:101)
+	... 24 more
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 9:34:51 AM com.google.cloud.datastore.emulator.impl.util.WrappedStreamObserver onError\r\nINFO: operation failed: Error compiling rules:\nL22:71 Unexpected ')'.\r\ncom.google.cloud.datastore.core.exception.DatastoreException: Error compiling rules:\nL22:71 Unexpected ')'.\r\n\tat com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$CompilerException.asDatastoreException(EmulatorRulesCompiler.java:115)\r\n\tat com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$EmulatorCompilationResult.checkCompilationSucceeded(EmulatorRulesCompiler.java:74)\r\n\tat com.google.cloud.datastore.emulator.impl.CloudFirestoreV1.setSecurityRules(CloudFirestoreV1.java:576)\r\n\tat com.google.cloud.datastore.emulator.impl.CloudFirestoreV1Router.setSecurityRules(CloudFirestoreV1Router.java:187)\r\n\tat com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter$1.lambda$setSecurityRules$0(EmulatorAuxiliaryGrpcAdapter.java:68)\r\n\tat com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter.unary(EmulatorAuxiliaryGrpcAdapter.java:49)\r\n\tat com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter.access$000(EmulatorAuxiliaryGrpcAdapter.java:28)\r\n\tat com.google.cloud.datastore.emulator.firestore.EmulatorAuxiliaryGrpcAdapter$1.setSecurityRules(EmulatorAuxiliaryGrpcAdapter.java:68)\r\n\tat com.google.firestore.emulator.v1.FirestoreEmulatorGrpc$MethodHandlers.invoke(FirestoreEmulatorGrpc.java:619)\r\n\tat io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)\r\n\tat io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)\r\n\tat io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)\r\n\tat io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)\r\n\tat io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)\r\n\tat io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)\r\n\tat io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)\r\n\tat io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)\r\n\tat io.grpc.Contexts$ContextualizedServerCallListener.onHalfClose(Contexts.java:86)\r\n\tat io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)\r\n\tat io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:866)\r\n\tat io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)\r\n\tat io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)\r\n\tat java.base/java.lang.Thread.run(Thread.java:832)\r\nCaused by: com.google.cloud.datastore.emulator.impl.rules.AutoValue_EmulatorRulesCompiler_CompilerException\r\n\tat com.google.cloud.datastore.emulator.impl.rules.EmulatorRulesCompiler$CompilerException.of(EmulatorRulesCompiler.java:101)\r\n\t... 24 more\r\n\r\n"}}
+[debug] [2022-04-19T06:34:51.507Z] Apr 19, 2022 9:34:51 AM io.gapi.emulators.netty.HttpHandler$1 onError
+INFO: Exception when handling request: INVALID_ARGUMENT: Error compiling rules:
+L22:71 Unexpected ')'.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 9:34:51 AM io.gapi.emulators.netty.HttpHandler$1 onError\r\nINFO: Exception when handling request: INVALID_ARGUMENT: Error compiling rules:\nL22:71 Unexpected ')'.\r\n"}}
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2022-04-19T06:35:07.894Z] >>> HTTP REQUEST PUT http://localhost:5000/emulator/v1/projects/noctur:securityRules  
+ {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\r\nservice cloud.firestore {\r\n  match /databases/{database}/documents {\r\n    match /{document=**} {\r\n      allow read: if false;\r\n      allow write: if false;\r\n    }\r\n\r\n  \tmatch /users/{userId} {\r\n    \tallow read: if true;\r\n      allow create: if true;\r\n      allow update: if isOwner(userId);\r\n      allow delete: if isOwner(userId);\r\n    }\r\n  \r\n    match /games/{gameId} {\r\n    \tallow read: if true;\r\n    \tallow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if isAdmin();\r\n      allow delete: if isAdmin();\r\n    }   \r\n    \r\n    match /teams/{teamId} {\r\n    \tallow read: if true; \r\n      allow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if (isTeamOwner(teamId) && isEmailVerified()) || isAdmin();\r\n      allow delete: if (isTeamOwner(teamId) && isEmailVerified()) || isAdmin();\r\n\r\n      match /messages/{messageId} {\r\n        allow read: if isInTeam(teamId);\r\n        allow create: if isInTeam(teamId);\r\n        allow update: if false;\r\n        allow delete: if false;\r\n      }\r\n    }\r\n\r\n    function getUserData() {\r\n    \treturn get(/databases/$(database)/documents/users/$(request.auth.uid)).data;\r\n    }\r\n    \r\n    function isSignedIn() {\r\n    \treturn request.auth != null;\r\n    }\r\n\r\n    function isEmailVerified() {\r\n      return request.auth.token.email_verified;\r\n    }\r\n\r\n    function isAdmin() {\r\n    \treturn getUserData().roles.admin;\r\n    }\r\n    \r\n    function isOwner(userId) {\r\n    \treturn request.auth.uid == userId;\r\n    }\r\n\r\n    function getTeamData(teamId) {\r\n    \treturn get(/databases/$(database)/documents/teams/$(teamId)).data; \r\n    }\r\n\r\n    function isTeamOwner(teamId) {\r\n      return isOwner(getTeamData(teamId).uid);\r\n    }\r\n\r\n    function isInTeam(teamId) {\r\n      return request.auth.uid in getTeamData(teamId).playersIds;\r\n    }\r\n  }\r\n}"}]}}
+[debug] [2022-04-19T06:35:07.907Z] Apr 19, 2022 9:35:07 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 9:35:07 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2022-04-19T06:35:08.431Z] <<< HTTP RESPONSE 200 {"content-type":"application/json","content-length":"4"}
+[info] +  firestore: Rules updated. 
+[debug] [2022-04-19T06:35:12.987Z] Apr 19, 2022 9:35:12 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 9:35:12 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2022-04-19T06:35:13.442Z] Apr 19, 2022 9:35:13 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 9:35:13 AM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected HTTP/2 connection.\r\n"}}
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2022-04-19T09:21:02.111Z] >>> HTTP REQUEST PUT http://localhost:5000/emulator/v1/projects/noctur:securityRules  
+ {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\r\nservice cloud.firestore {\r\n  match /databases/{database}/documents {\r\n  \tmatch /users/{userId} {\r\n    \tallow read: if true;\r\n      allow create: if true;\r\n      allow update: if isOwner(userId);\r\n      allow delete: if isOwner(userId);\r\n    }\r\n  \r\n    match /games/{gameId} {\r\n    \tallow read: if true;\r\n    \tallow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if isAdmin();\r\n      allow delete: if isAdmin();\r\n    }   \r\n    \r\n    match /teams/{teamId} {\r\n    \tallow read: if true; \r\n      allow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if \r\n      \t(isTeamOwner(teamId) && isEmailVerified()) || \r\n      \t(isPlayersIdsUpdate(teamId) && isEmailVerified()) || \r\n      \tisAdmin();\r\n      allow delete: if (isTeamOwner(teamId) && isEmailVerified()) || isAdmin();\r\n\r\n      match /messages/{messageId} {\r\n        allow read: if isInTeam(teamId);\r\n        allow create: if isInTeam(teamId);\r\n        allow update: if false;\r\n        allow delete: if false;\r\n      }\r\n    }\r\n\r\n    function getUserData() {\r\n    \treturn get(/databases/$(database)/documents/users/$(request.auth.uid)).data;\r\n    }\r\n    \r\n    function isSignedIn() {\r\n    \treturn request.auth != null;\r\n    }\r\n\r\n    function isEmailVerified() {\r\n      return request.auth.token.email_verified;\r\n    }\r\n\r\n    function isAdmin() {\r\n    \treturn getUserData().roles.admin;\r\n    }\r\n    \r\n    function isOwner(userId) {\r\n    \treturn request.auth.uid == userId;\r\n    }\r\n\r\n    function getTeamData(teamId) {\r\n    \treturn get(/databases/$(database)/documents/teams/$(teamId)).data; \r\n    }\r\n\r\n    function isTeamOwner(teamId) {\r\n      return isOwner(getTeamData(teamId).uid);\r\n    }\r\n\r\n    function isInTeam(teamId) {\r\n      return request.auth.uid in getTeamData(teamId).playersIds;\r\n    }\r\n    \r\n    function isPlayersIdsUpdate(teamId) {\r\n    \treturn request.resource.data.diff(getTeamData(teamId)).changedKeys().hasOnly(['playersIds']);\r\n    }\r\n  }\r\n}"}]}}
+[debug] [2022-04-19T09:21:02.158Z] Apr 19, 2022 12:21:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 12:21:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2022-04-19T09:21:02.221Z] Apr 19, 2022 12:21:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 12:21:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected HTTP/2 connection.\r\n"}}
+[debug] [2022-04-19T09:21:02.383Z] <<< HTTP RESPONSE 200 {"content-type":"application/json","content-length":"4"}
+[info] +  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2022-04-19T09:21:14.473Z] >>> HTTP REQUEST PUT http://localhost:5000/emulator/v1/projects/noctur:securityRules  
+ {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\r\nservice cloud.firestore {\r\n  match /databases/{database}/documents {\r\n  \tmatch /users/{userId} {\r\n    \tallow read: if true;\r\n      allow create: if true;\r\n      allow update: if isOwner(userId);\r\n      allow delete: if isOwner(userId);\r\n    }\r\n  \r\n    match /games/{gameId} {\r\n    \tallow read: if true;\r\n    \tallow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if isAdmin();\r\n      allow delete: if isAdmin();\r\n    }   \r\n    \r\n    match /teams/{teamId} {\r\n    \tallow read: if true; \r\n      allow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if (isTeamOwner(teamId) && isEmailVerified()) || \r\n      \t(isPlayersIdsUpdate(teamId) && isEmailVerified()) || \r\n      \tisAdmin();\r\n      allow delete: if (isTeamOwner(teamId) && isEmailVerified()) || isAdmin();\r\n\r\n      match /messages/{messageId} {\r\n        allow read: if isInTeam(teamId);\r\n        allow create: if isInTeam(teamId);\r\n        allow update: if false;\r\n        allow delete: if false;\r\n      }\r\n    }\r\n\r\n    function getUserData() {\r\n    \treturn get(/databases/$(database)/documents/users/$(request.auth.uid)).data;\r\n    }\r\n    \r\n    function isSignedIn() {\r\n    \treturn request.auth != null;\r\n    }\r\n\r\n    function isEmailVerified() {\r\n      return request.auth.token.email_verified;\r\n    }\r\n\r\n    function isAdmin() {\r\n    \treturn getUserData().roles.admin;\r\n    }\r\n    \r\n    function isOwner(userId) {\r\n    \treturn request.auth.uid == userId;\r\n    }\r\n\r\n    function getTeamData(teamId) {\r\n    \treturn get(/databases/$(database)/documents/teams/$(teamId)).data; \r\n    }\r\n\r\n    function isTeamOwner(teamId) {\r\n      return isOwner(getTeamData(teamId).uid);\r\n    }\r\n\r\n    function isInTeam(teamId) {\r\n      return request.auth.uid in getTeamData(teamId).playersIds;\r\n    }\r\n    \r\n    function isPlayersIdsUpdate(teamId) {\r\n    \treturn request.resource.data.diff(getTeamData(teamId)).changedKeys().hasOnly(['playersIds']);\r\n    }\r\n  }\r\n}"}]}}
+[debug] [2022-04-19T09:21:14.486Z] Apr 19, 2022 12:21:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 12:21:14 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2022-04-19T09:21:14.608Z] <<< HTTP RESPONSE 200 {"content-type":"application/json","content-length":"4"}
+[info] +  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2022-04-19T09:21:29.711Z] >>> HTTP REQUEST PUT http://localhost:5000/emulator/v1/projects/noctur:securityRules  
+ {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\r\nservice cloud.firestore {\r\n  match /databases/{database}/documents {\r\n  \tmatch /users/{userId} {\r\n    \tallow read: if true;\r\n      allow create: if true;\r\n      allow update: if isOwner(userId);\r\n      allow delete: if isOwner(userId);\r\n    }\r\n  \r\n    match /games/{gameId} {\r\n    \tallow read: if true;\r\n    \tallow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if isAdmin();\r\n      allow delete: if isAdmin();\r\n    }   \r\n    \r\n    match /teams/{teamId} {\r\n    \tallow read: if true; \r\n      allow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if (isTeamOwner(teamId) && isEmailVerified()) || \r\n      \t(isPlayersIdsUpdate(teamId) && isEmailVerified()) || \r\n      \tisAdmin();\r\n      allow delete: if (isTeamOwner(teamId) && isEmailVerified()) || isAdmin();\r\n\r\n      match /messages/{messageId} {\r\n        allow read: if isInTeam(teamId);\r\n        allow create: if isInTeam(teamId);\r\n        allow update: if false;\r\n        allow delete: if false;\r\n      }\r\n    }\r\n\r\n    function getUserData() {\r\n    \treturn get(/databases/$(database)/documents/users/$(request.auth.uid)).data;\r\n    }\r\n    \r\n    function isSignedIn() {\r\n    \treturn request.auth != null;\r\n    }\r\n\r\n    function isEmailVerified() {\r\n      return request.auth.token.email_verified;\r\n    }\r\n\r\n    function isAdmin() {\r\n    \treturn getUserData().roles.admin;\r\n    }\r\n    \r\n    function isOwner(userId) {\r\n    \treturn request.auth.uid == userId;\r\n    }\r\n\r\n    function getTeamData(teamId) {\r\n    \treturn get(/databases/$(database)/documents/teams/$(teamId)).data; \r\n    }\r\n\r\n    function isTeamOwner(teamId) {\r\n      return isOwner(getTeamData(teamId).uid);\r\n    }\r\n\r\n    function isInTeam(teamId) {\r\n      return request.auth.uid in getTeamData(teamId).playersIds;\r\n    }\r\n    \r\n    function isPlayersIdsUpdate(teamId) {\r\n    \treturn request.resource.data.diff(getTeamData(teamId)).changedKeys().hasOnly(['playersIds']);\r\n    }\r\n  }\r\n}"}]}}
+[debug] [2022-04-19T09:21:29.731Z] Apr 19, 2022 12:21:29 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 12:21:29 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2022-04-19T09:21:29.788Z] <<< HTTP RESPONSE 200 {"content-type":"application/json","content-length":"4"}
+[info] +  firestore: Rules updated. 
+[info] i  firestore: Change detected, updating rules... 
+[debug] [2022-04-19T09:22:13.250Z] >>> HTTP REQUEST PUT http://localhost:5000/emulator/v1/projects/noctur:securityRules  
+ {"ignore_errors":true,"rules":{"files":[{"name":"security.rules","content":"rules_version = '2';\r\nservice cloud.firestore {\r\n  match /databases/{database}/documents {\r\n    match /{document=**} {\r\n      allow read: if false;\r\n      allow write: if false;\r\n    }\r\n\r\n  \tmatch /users/{userId} {\r\n    \tallow read: if true;\r\n      allow create: if true;\r\n      allow update: if isOwner(userId);\r\n      allow delete: if isOwner(userId);\r\n    }\r\n  \r\n    match /games/{gameId} {\r\n    \tallow read: if true;\r\n    \tallow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if isAdmin();\r\n      allow delete: if isAdmin();\r\n    }   \r\n    \r\n    match /teams/{teamId} {\r\n    \tallow read: if true; \r\n      allow create: if isSignedIn() && isEmailVerified();\r\n      allow update: if (isTeamOwner(teamId) && isEmailVerified()) || \r\n      \t(isPlayersIdsUpdate(teamId) && isEmailVerified()) || \r\n      \tisAdmin();\r\n      allow delete: if (isTeamOwner(teamId) && isEmailVerified()) || isAdmin();\r\n\r\n      match /messages/{messageId} {\r\n        allow read: if isInTeam(teamId);\r\n        allow create: if isInTeam(teamId);\r\n        allow update: if false;\r\n        allow delete: if false;\r\n      }\r\n    }\r\n\r\n    function getUserData() {\r\n    \treturn get(/databases/$(database)/documents/users/$(request.auth.uid)).data;\r\n    }\r\n    \r\n    function isSignedIn() {\r\n    \treturn request.auth != null;\r\n    }\r\n\r\n    function isEmailVerified() {\r\n      return request.auth.token.email_verified;\r\n    }\r\n\r\n    function isAdmin() {\r\n    \treturn getUserData().roles.admin;\r\n    }\r\n    \r\n    function isOwner(userId) {\r\n    \treturn request.auth.uid == userId;\r\n    }\r\n\r\n    function getTeamData(teamId) {\r\n    \treturn get(/databases/$(database)/documents/teams/$(teamId)).data; \r\n    }\r\n\r\n    function isTeamOwner(teamId) {\r\n      return isOwner(getTeamData(teamId).uid);\r\n    }\r\n\r\n    function isInTeam(teamId) {\r\n      return request.auth.uid in getTeamData(teamId).playersIds;\r\n    }\r\n    \r\n    function isPlayersIdsUpdate(teamId) {\r\n    \treturn request.resource.data.diff(getTeamData(teamId)).changedKeys().hasOnly(['playersIds']);\r\n    }\r\n  }\r\n}"}]}}
+[debug] [2022-04-19T09:22:13.261Z] Apr 19, 2022 12:22:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 12:22:13 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\r\nINFO: Detected non-HTTP/2 connection.\r\n"}}
+[debug] [2022-04-19T09:22:13.339Z] <<< HTTP RESPONSE 200 {"content-type":"application/json","content-length":"4"}
+[info] +  firestore: Rules updated. 
+[debug] [2022-04-19T09:22:24.076Z] Apr 19, 2022 12:22:24 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException
+WARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:345)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:376)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 19, 2022 12:22:24 PM io.netty.channel.DefaultChannelPipeline onUnhandledInboundException\r\nWARNING: An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.\r\njava.net.SocketException: Connection reset\r\n\tat java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:345)\r\n\tat java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:376)\r\n\tat io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)\r\n\tat io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)\r\n\tat io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)\r\n\tat io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)\r\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)\r\n\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)\r\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)\r\n\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)\r\n\tat io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)\r\n\tat java.base/java.lang.Thread.run(Thread.java:832)\r\n\r\n"}}

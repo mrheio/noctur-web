@@ -1,6 +1,11 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    match /{document=**} {
+      allow read: if false;
+      allow write: if false;
+    }
+
   	match /users/{userId} {
     	allow read: if true;
       allow create: if true;
@@ -18,7 +23,9 @@ service cloud.firestore {
     match /teams/{teamId} {
     	allow read: if true; 
       allow create: if isSignedIn() && isEmailVerified();
-      allow update: if (isTeamOwner(teamId) && isEmailVerified()) || isAdmin();
+      allow update: if (isTeamOwner(teamId) && isEmailVerified()) || 
+      	(isPlayersIdsUpdate(teamId) && isEmailVerified()) || 
+      	isAdmin();
       allow delete: if (isTeamOwner(teamId) && isEmailVerified()) || isAdmin();
 
       match /messages/{messageId} {
@@ -59,6 +66,10 @@ service cloud.firestore {
 
     function isInTeam(teamId) {
       return request.auth.uid in getTeamData(teamId).playersIds;
+    }
+    
+    function isPlayersIdsUpdate(teamId) {
+    	return request.resource.data.diff(getTeamData(teamId)).changedKeys().hasOnly(['playersIds']);
     }
   }
 }

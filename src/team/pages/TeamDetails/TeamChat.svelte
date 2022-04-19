@@ -9,9 +9,7 @@
     let messages = [];
 
     const scrollIntoView = (ev) => {
-        console.log(ev);
         const el = document.querySelector('#bottom');
-        console.log(el);
         if (!el) {
             return;
         }
@@ -78,6 +76,10 @@
         overflow-y: auto;
         overflow-x: hidden;
         word-break: break-all;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: var(--spacing-s);
     }
 
     .TeamChat__username {

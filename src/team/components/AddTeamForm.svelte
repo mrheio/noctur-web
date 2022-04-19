@@ -3,7 +3,6 @@
     import { navigate } from 'svelte-routing';
     import {
         Btn,
-        FlexColumn,
         Form,
         InputField,
         Loading,
@@ -14,11 +13,16 @@
     import teamService from '../data/teamService';
     import { needLevels, validateTeamData } from '../data/teamUtils';
 
-    export let overlayComponent;
+    export let opened;
 
     $: ({ isLoading: gamesLoading, games } = $gamesStore);
 
     const gamesSub = getGames$();
+
+    const addTeam = async (team) => {
+        await teamService.add(team);
+        opened = false;
+    };
 
     let { data, status, submit } = createForm(
         {
@@ -28,7 +32,7 @@
             description: '',
             need: 'low',
         },
-        teamService.add,
+        addTeam,
         validateTeamData
     );
 
@@ -38,7 +42,7 @@
 </script>
 
 <Loading condition={gamesLoading || $status.isLoading}>
-    <Form on:submit={submit} error={$status.error}>
+    <Form on:submit={submit} error={$status.error} centered>
         <h1 class="text-center">Creeaza echipa</h1>
         <InputField name="name" label="Nume echipa" bind:value={$data.name} />
         <div style="width: 100%;">
@@ -72,11 +76,6 @@
             optionValueTransformer={(option) => option.value}
             optionDisplayTransformer={(option) => option.display}
         />
-        <FlexColumn centered>
-            <Btn>Creeaza echipa</Btn>
-            <Btn color="secondary" on:click={overlayComponent.closeOverlay}>
-                Anuleaza
-            </Btn>
-        </FlexColumn>
+        <Btn>Creeaza echipa</Btn>
     </Form>
 </Loading>

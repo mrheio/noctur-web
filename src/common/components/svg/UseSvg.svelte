@@ -18,7 +18,7 @@
     }
 
     .icon:hover {
-        fill: var(--clr-primary-20);
+        fill: var(--clr-primary-10);
     }
 
     .icon--24 {

@@ -3,7 +3,7 @@
 
     export let open = false;
 
-    let classes = 'sidebar';
+    let classes = 'Sidebar';
 
     $: classes = `Sidebar ${open ? 'Sidebar--opened' : 'Sidebar--closed'}`;
 </script>
@@ -23,10 +23,11 @@
         top: 0;
         right: 0;
         bottom: 0;
-        width: min(50vw, 320px);
+        width: min(55vw, 480px);
         height: 100%;
         z-index: var(--z-index-over-4);
-        padding: var(--navbar-height) var(--spacing-l) 0 var(--spacing-l);
+        padding-top: var(--navbar-height);
+        padding-inline: var(--spacing-l);
     }
 
     .Sidebar--closed {

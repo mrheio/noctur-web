@@ -1,29 +1,41 @@
 <script>
-    let opened = false;
+    import { CancelIcon, UseSvg } from './svg';
 
-    export const openOverlay = () => {
-        document.documentElement.style.overflow = 'hidden';
-        document.body.scroll = 'no';
-        opened = true;
-    };
+    export let open = false;
 
-    export const closeOverlay = () => {
-        document.documentElement.style.overflow = 'auto';
-        document.body.scroll = 'yes';
-        opened = false;
+    let classes = 'Overlay';
+
+    $: classes = `Overlay ${open ? 'Overlay--opened' : 'Overlay--closed'}`;
+
+    $: {
+        if (open) {
+            document.documentElement.style.overflow = 'hidden';
+            document.body.scroll = 'no';
+        }
+    }
+
+    const closeOverlay = () => {
+        open = false;
     };
 </script>
 
-{#if opened}
-    <div id="overlay">
-        <div class="page flex flex-center">
-            <slot />
-        </div>
+<div class={classes}>
+    <div class="page flex flex-center">
+        <slot />
+
+        <button
+            type="button"
+            class="btn--clear absolute-top-right"
+            on:click={closeOverlay}
+        >
+            <UseSvg href="#cancel-icon" size="36" />
+        </button>
     </div>
-{/if}
+</div>
+<CancelIcon />
 
 <style global>
-    #overlay {
+    .Overlay {
         background: rgba(0, 0, 0, 0.8);
         position: fixed;
         top: 0;
@@ -32,5 +44,19 @@
         height: 100%;
         z-index: var(--z-index-over-6);
         overflow-x: hidden;
+    }
+
+    .Overlay--closed {
+        display: none;
+    }
+
+    .Overlay--opened {
+        display: block;
+    }
+
+    .absolute-top-right {
+        position: absolute;
+        top: 8px;
+        right: 8px;
     }
 </style>

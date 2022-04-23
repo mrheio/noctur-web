@@ -58,7 +58,7 @@
     </div>
 
     {#if wideScreen()}
-        <TeamPlayers {team} open />
+        <TeamPlayers {team} open alwaysOpen />
     {:else}
         <TeamPlayers {team} bind:open={sidebarOpen} />
     {/if}

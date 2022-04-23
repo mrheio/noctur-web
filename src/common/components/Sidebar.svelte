@@ -2,6 +2,7 @@
     import { CancelIcon, UseSvg } from './svg';
 
     export let open = false;
+    export let alwaysOpen = false;
 
     let classes = 'Sidebar';
 
@@ -9,9 +10,15 @@
 </script>
 
 <aside class={classes}>
-    <button class="Sidebar__cancel btn--clear" on:click={() => (open = false)}>
-        <UseSvg href="#cancel-icon" />
-    </button>
+    {#if !alwaysOpen}
+        <button
+            class="Sidebar__cancel btn--clear"
+            on:click={() => (open = false)}
+        >
+            <UseSvg href="#cancel-icon" />
+        </button>
+    {/if}
+
     <slot />
 </aside>
 <CancelIcon />

@@ -5,6 +5,7 @@
 
     export let team;
     export let open = false;
+    export let alwaysOpen = false;
 
     const deleteTeam = async () => {
         await teamService.deleteById(team.id);
@@ -19,7 +20,7 @@
     };
 </script>
 
-<Sidebar bind:open>
+<Sidebar bind:open {alwaysOpen}>
     <h2>Joc: {team.game}</h2>
     <h2>Players:</h2>
     <div class="TeamPlayers__players-container">

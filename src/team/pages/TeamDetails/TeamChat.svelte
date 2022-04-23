@@ -56,39 +56,45 @@
         {/each}
         <div id="bottom" />
     </div>
-    <InputField
-        placeholder="Mesaj"
-        name="message"
-        bind:value={message}
-        on:keypress={sendOnEnter}
-    />
+    <div class="TeamChat__input">
+        <InputField
+            placeholder="Mesaj"
+            name="message"
+            bind:value={message}
+            on:keypress={sendOnEnter}
+        />
+    </div>
 </div>
 
 <style>
     .TeamChat {
-        flex: 1 1 auto;
-        min-height: 0;
+        padding-bottom: var(--spacing-s);
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     .TeamChat__messages {
-        height: 90%;
-        width: 100%;
         overflow-y: auto;
-        overflow-x: hidden;
-        word-break: break-all;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding-bottom: var(--spacing-s);
+        white-space: pre-wrap;
+        word-break: keep-all;
+        overflow-wrap: break-word;
     }
 
     .TeamChat__username {
-        font-size: 1.2rem;
-        margin-right: var(--spacing-xs);
         font-weight: var(--fw-semibold);
+        font-size: 1.1rem;
     }
 
     .TeamChat__message {
         color: var(--clr-text-faded);
+    }
+
+    .TeamChat__input {
+        flex: 1;
     }
 </style>

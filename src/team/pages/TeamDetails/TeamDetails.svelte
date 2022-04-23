@@ -26,42 +26,61 @@
     onDestroy(() => {
         teamSub.unsubscribe();
     });
+
+    const openSidebar = () => {
+        sidebarOpen = true;
+    };
+
+    const wideScreen = () => {
+        return screen.width > 1300;
+    };
 </script>
 
 <Loading condition={isLoading}>
     <div class="TeamDetails">
         <div class="TeamDetails__content">
-            <h1 class="header-m">{team.name}</h1>
-            {#if team}
+            <h1>{team.name}</h1>
+            <div class="TeamDetails__chat">
                 {#if isInTeam(team)}
                     <TeamChat teamId={id} />
                 {:else}
-                    <h3>Nu esti in echipa</h3>
+                    <h2>Nu esti in echipa</h2>
                 {/if}
-            {/if}
+            </div>
         </div>
-        <aside class="TeamDetails__menu">
-            <button class="btn--clear" on:click={() => (sidebarOpen = true)}>
-                <UseSvg href="#info-icon" size="36" />
-            </button>
-        </aside>
+        {#if !wideScreen()}
+            <aside>
+                <button type="button" class="btn--clear" on:click={openSidebar}>
+                    <UseSvg href="#info-icon" size="36" />
+                </button>
+            </aside>
+        {/if}
     </div>
 
-    <TeamPlayers {team} bind:open={sidebarOpen} />
+    {#if wideScreen()}
+        <TeamPlayers {team} open />
+    {:else}
+        <TeamPlayers {team} bind:open={sidebarOpen} />
+    {/if}
 </Loading>
+
 <InfoIcon />
 
 <style>
     .TeamDetails {
         height: calc(100vh - var(--navbar-height));
         display: flex;
-        width: min(800px, 100%);
-        margin-inline: auto;
     }
 
     .TeamDetails__content {
+        flex: 1;
         display: flex;
         flex-direction: column;
-        flex: 1;
+    }
+
+    .TeamDetails__chat {
+        height: 100%;
+        width: min(100%, 800px);
+        position: relative;
     }
 </style>

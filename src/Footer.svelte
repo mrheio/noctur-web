@@ -5,9 +5,7 @@
 
 <style>
     .Footer {
-        margin-top: var(--spacing-l);
-        padding: var(--spacing-m);
-        min-height: 64px;
+        padding: var(--spacing-s);
         background-color: var(--clr-primary-100);
         color: var(--clr-text-faded);
     }

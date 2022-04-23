@@ -23,7 +23,7 @@
         top: 0;
         right: 0;
         bottom: 0;
-        width: min(55vw, 480px);
+        width: min(75vw, 480px);
         height: 100%;
         z-index: var(--z-index-over-4);
         padding-top: var(--navbar-height);

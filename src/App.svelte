@@ -185,6 +185,7 @@
     *::before,
     *::after {
         box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
     }
 
     html,
@@ -409,6 +410,14 @@
 
     .text-clr-secondary {
         color: var(--clr-secondary-30);
+    }
+
+    .display-none {
+        display: none;
+    }
+
+    .display-block {
+        display: block;
     }
 
     /* elements */

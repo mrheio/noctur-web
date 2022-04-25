@@ -83,6 +83,7 @@
         white-space: pre-wrap;
         word-break: keep-all;
         overflow-wrap: break-word;
+        flex: 1;
     }
 
     .TeamChat__username {
@@ -92,9 +93,5 @@
 
     .TeamChat__message {
         color: var(--clr-text-faded);
-    }
-
-    .TeamChat__input {
-        flex: 1;
     }
 </style>

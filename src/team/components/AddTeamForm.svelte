@@ -11,7 +11,7 @@
     import { createForm } from '../../common/utils';
     import { gamesStore, getGames$ } from '../../game/gamesStore';
     import teamService from '../data/teamService';
-    import { needLevels, validateTeamData } from '../data/teamUtils';
+    import { validateTeamData } from '../data/teamUtils';
 
     export let opened;
 
@@ -30,7 +30,6 @@
             game: '',
             capacity: '',
             description: '',
-            need: 'low',
         },
         addTeam,
         validateTeamData
@@ -67,14 +66,6 @@
             name="description"
             label="Descriere"
             bind:value={$data.description}
-        />
-        <SelectField
-            name="severity"
-            label="Cat de disperat esti?"
-            bind:value={$data.need}
-            options={needLevels}
-            optionValueTransformer={(option) => option.value}
-            optionDisplayTransformer={(option) => option.display}
         />
         <Btn>Creeaza echipa</Btn>
     </Form>

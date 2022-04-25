@@ -1,16 +1,16 @@
 <script>
     import { navigate } from 'svelte-routing';
     import { authStore } from '../../auth/authStore';
-    import { Card, NeedIcon, Players } from '../../common/components';
+    import { Card, Players } from '../../common/components';
     import { deleteTeam } from '../teamsStore';
 
     export let team;
 
-    let id, name, game, playersIds, capacity, need, uid;
+    let id, name, game, playersIds, capacity, uid;
 
     $: ({ user } = $authStore);
 
-    $: ({ id, name, game, playersIds, capacity, need, uid } = team);
+    $: ({ id, name, game, playersIds, capacity, uid } = team);
 
     const handleNavigateToDetails = () => {
         navigate(`/teams/${id}`);
@@ -24,7 +24,6 @@
     </h3>
     <div class="icons-wrapper">
         <Players filled={playersIds.length} {capacity} />
-        <NeedIcon {need} />
     </div>
     {#if user?.isAdmin || uid === user?.id}
         <button

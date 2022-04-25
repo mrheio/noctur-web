@@ -2,22 +2,16 @@
     import { CancelIcon, UseSvg } from './svg';
 
     export let open = false;
-    export let alwaysOpen = false;
 
     let classes = 'Sidebar';
 
-    $: classes = `Sidebar ${open ? 'Sidebar--opened' : 'Sidebar--closed'}`;
+    $: classes = `Sidebar ${open ? 'display-block' : 'display-none'}`;
 </script>
 
 <aside class={classes}>
-    {#if !alwaysOpen}
-        <button
-            class="Sidebar__cancel btn--clear"
-            on:click={() => (open = false)}
-        >
-            <UseSvg href="#cancel-icon" />
-        </button>
-    {/if}
+    <button class="Sidebar__cancel btn--clear" on:click={() => (open = false)}>
+        <UseSvg href="#cancel-icon" />
+    </button>
 
     <slot />
 </aside>
@@ -35,14 +29,6 @@
         z-index: var(--z-index-over-4);
         padding-top: var(--navbar-height);
         padding-inline: var(--spacing-l);
-    }
-
-    .Sidebar--closed {
-        display: none;
-    }
-
-    .Sidebar--opened {
-        display: block;
     }
 
     .Sidebar__cancel {

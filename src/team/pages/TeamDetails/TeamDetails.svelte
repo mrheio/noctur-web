@@ -1,17 +1,19 @@
 <script>
-    import { onDestroy } from 'svelte';
+    import { onDestroy, onMount } from 'svelte';
     import { navigate } from 'svelte-routing';
     import { InfoIcon, Loading, UseSvg } from '../../../common/components';
     import teamService from '../../data/teamService';
     import { isInTeam } from '../../data/teamUtils';
+    import PlayersList from './PlayersList.svelte';
     import TeamChat from './TeamChat.svelte';
-    import TeamPlayers from './TeamPlayers.svelte';
+    import TeamSidebar from './TeamSidebar.svelte';
 
     export let id;
 
     let team = null;
     let isLoading = true;
     let sidebarOpen = false;
+    let wideScreen = false;
 
     const teamSub = teamService.getDetailedTeamById$(id).subscribe({
         next: (t) => {
@@ -31,36 +33,61 @@
         sidebarOpen = true;
     };
 
-    const wideScreen = () => {
-        return screen.width > 1300;
+    const isWideScreen = () => {
+        const { innerWidth } = window;
+        if (innerWidth > 1280) {
+            wideScreen = true;
+        } else {
+            wideScreen = false;
+        }
     };
+
+    onMount(() => {
+        isWideScreen();
+    });
 </script>
 
+<svelte:window on:resize={isWideScreen} />
+
 <Loading condition={isLoading}>
-    <div class="TeamDetails">
-        <div class="TeamDetails__content">
-            <h1>{team.name}</h1>
-            <div class="TeamDetails__chat">
-                {#if isInTeam(team)}
-                    <TeamChat teamId={id} />
-                {:else}
-                    <h2>Nu esti in echipa</h2>
-                {/if}
+    {#if wideScreen}
+        <div class="TeamDetails">
+            <div class="TeamDetails__content">
+                <h1>{team.name}</h1>
+                <div class="TeamDetails__chat">
+                    {#if isInTeam(team)}
+                        <TeamChat teamId={id} />
+                    {:else}
+                        <h2>Nu esti in echipa</h2>
+                    {/if}
+                </div>
+            </div>
+            <div class="TeamDetails__details">
+                <h2>Joc: {team.game}</h2>
+                <h2>Players:</h2>
+                <PlayersList {team} />
             </div>
         </div>
-        {#if !wideScreen()}
+    {:else}
+        <div class="TeamDetails">
+            <div class="TeamDetails__content">
+                <h1>{team.name}</h1>
+                <div class="TeamDetails__chat">
+                    {#if isInTeam(team)}
+                        <TeamChat teamId={id} />
+                    {:else}
+                        <h2>Nu esti in echipa</h2>
+                    {/if}
+                </div>
+            </div>
             <aside>
                 <button type="button" class="btn--clear" on:click={openSidebar}>
                     <UseSvg href="#info-icon" size="36" />
                 </button>
             </aside>
-        {/if}
-    </div>
+        </div>
 
-    {#if wideScreen()}
-        <TeamPlayers {team} open alwaysOpen />
-    {:else}
-        <TeamPlayers {team} bind:open={sidebarOpen} />
+        <TeamSidebar {team} bind:open={sidebarOpen} />
     {/if}
 </Loading>
 
@@ -76,11 +103,34 @@
         flex: 1;
         display: flex;
         flex-direction: column;
+        padding: var(--spacing-s);
     }
 
     .TeamDetails__chat {
         height: 100%;
-        width: min(100%, 800px);
+        width: 100%;
         position: relative;
+    }
+
+    .TeamDetails__details {
+        width: 30%;
+        overflow-y: auto;
+    }
+
+    @media (min-width: 1280px) {
+        .TeamDetails {
+            gap: var(--spacing-s);
+        }
+
+        .TeamDetails__content,
+        .TeamDetails__details {
+            background-color: var(--clr-primary-100);
+            margin: var(--spacing-s);
+            border-radius: var(--rounded-l);
+        }
+
+        .TeamDetails__details {
+            padding: var(--spacing-s);
+        }
     }
 </style>

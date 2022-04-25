@@ -10,7 +10,7 @@
 
 <style>
     .logo {
-        max-width: 160px;
+        max-width: 120px;
     }
 
     .logo--small {

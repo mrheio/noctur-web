@@ -28,7 +28,7 @@
     <div class="fullheight flex-col flex-center">
         <Logo />
         <Form on:submit={submit} error={$status.error}>
-            <h1 class="text-center">Baga date intra contu</h1>
+            <h1 class="text-center">Intra in cont</h1>
             <InputField label="Email" name="email" bind:value={$data.email} />
             <InputField
                 label="Parola"

@@ -8,5 +8,6 @@
         padding: var(--spacing-s);
         background-color: var(--clr-primary-100);
         color: var(--clr-text-faded);
+        margin-top: var(--spacing-xs);
     }
 </style>

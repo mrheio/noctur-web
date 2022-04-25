@@ -1,5 +1,6 @@
 <script>
     import { Btn } from '../../../common/components';
+    import teamService from '../../data/teamService';
     import { isInTeam, isTeamFull, isTeamOwner } from '../../data/teamUtils';
     import PlayerCard from './PlayerCard.svelte';
 

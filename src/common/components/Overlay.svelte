@@ -16,6 +16,8 @@
 
     const closeOverlay = () => {
         open = false;
+        document.documentElement.style.overflow = 'visible';
+        document.body.scroll = 'yes';
     };
 </script>
 

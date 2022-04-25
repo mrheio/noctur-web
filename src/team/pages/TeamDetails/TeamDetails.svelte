@@ -58,7 +58,7 @@
                     {#if isInTeam(team)}
                         <TeamChat teamId={id} />
                     {:else}
-                        <h2>Nu esti in echipa</h2>
+                        <h2>Nu esti in echipa.</h2>
                     {/if}
                 </div>
             </div>
@@ -76,7 +76,7 @@
                     {#if isInTeam(team)}
                         <TeamChat teamId={id} />
                     {:else}
-                        <h2>Nu esti in echipa</h2>
+                        <h2>Nu esti in echipa.</h2>
                     {/if}
                 </div>
             </div>

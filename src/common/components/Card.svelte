@@ -55,7 +55,7 @@
     }
 
     .card--primary {
-        background-color: var(--clr-primary-90);
+        background-color: var(--clr-primary-80);
     }
 
     .card--primary:hover {
@@ -67,7 +67,7 @@
     }
 
     .card--secondary {
-        background-color: var(--clr-secondary-90);
+        background-color: var(--clr-secondary-80);
     }
 
     .card--secondary:hover {

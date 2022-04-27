@@ -13,7 +13,6 @@
 <style>
     .Section {
         padding: var(--spacing-s);
-        width: 100vw;
         max-width: 100%;
     }
 

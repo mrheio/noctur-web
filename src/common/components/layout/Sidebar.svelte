@@ -1,5 +1,5 @@
 <script>
-    import { CancelIcon, UseSvg } from './svg';
+    import { CancelIcon, UseSvg } from '../svg';
 
     export let open = false;
 

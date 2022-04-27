@@ -6,7 +6,6 @@
         Form,
         InputField,
         Loading,
-        Logo,
     } from '../../common/components';
     import { createForm } from '../../common/utils';
     import { authService, googleAuthService } from '../data/authService';
@@ -28,7 +27,6 @@
     <div
         class="container container--fill container--centered section-flow full-height"
     >
-        <Logo />
         <Form on:submit={submit} error={$status.error}>
             <h1 class="text-center">Intra in cont</h1>
             <InputField label="Email" name="email" bind:value={$data.email} />
@@ -43,9 +41,9 @@
                 <Btn color="tertiary" on:click={() => navigate('register')}>
                     Creeaza cont
                 </Btn>
-                <h4 class="text-center">Intra cu cont de:</h4>
-                <Btn variant="google" on:click={logInWithGoogle} />
             </FlexColumn>
         </Form>
+        <h4 class="text-center">Intra cu cont de:</h4>
+        <Btn variant="google" on:click={logInWithGoogle} />
     </div>
 </Loading>

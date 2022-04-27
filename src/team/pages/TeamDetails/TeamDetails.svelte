@@ -1,12 +1,16 @@
 <script>
     import { onDestroy, onMount } from 'svelte';
     import { navigate } from 'svelte-routing';
-    import { InfoIcon, Loading, UseSvg } from '../../../common/components';
+    import {
+        InfoIcon,
+        Loading,
+        Sidebar,
+        UseSvg,
+    } from '../../../common/components';
     import teamService from '../../data/teamService';
     import { isInTeam } from '../../data/teamUtils';
     import PlayersList from './PlayersList.svelte';
     import TeamChat from './TeamChat.svelte';
-    import TeamSidebar from './TeamSidebar.svelte';
 
     export let id;
 
@@ -50,45 +54,39 @@
 <svelte:window on:resize={isWideScreen} />
 
 <Loading condition={isLoading}>
-    {#if wideScreen}
-        <div class="TeamDetails">
-            <div class="TeamDetails__content">
-                <h1>{team.name}</h1>
-                <div class="TeamDetails__chat">
-                    {#if isInTeam(team)}
-                        <TeamChat teamId={id} />
-                    {:else}
-                        <h2>Nu esti in echipa.</h2>
-                    {/if}
-                </div>
+    <div class="TeamDetails container container--fill">
+        <div class="TeamDetails__content">
+            <h1>{team.name}</h1>
+            <div class="TeamDetails__chat">
+                {#if isInTeam(team)}
+                    <TeamChat teamId={id} />
+                {:else}
+                    <div class="container container--fill container--centered">
+                        <h3>Nu esti in echipa.</h3>
+                    </div>
+                {/if}
             </div>
+        </div>
+        {#if wideScreen}
             <div class="TeamDetails__aside">
                 <h2>Joc: {team.game}</h2>
                 <h2>Players:</h2>
                 <PlayersList {team} />
             </div>
-        </div>
-    {:else}
-        <div class="TeamDetails">
-            <div class="TeamDetails__content">
-                <h1>{team.name}</h1>
-                <div class="TeamDetails__chat">
-                    {#if isInTeam(team)}
-                        <TeamChat teamId={id} />
-                    {:else}
-                        <h2>Nu esti in echipa.</h2>
-                    {/if}
-                </div>
-            </div>
+        {:else}
             <aside>
                 <button type="button" class="btn--clear" on:click={openSidebar}>
                     <UseSvg href="#info-icon" size="36" />
                 </button>
             </aside>
-        </div>
 
-        <TeamSidebar {team} bind:open={sidebarOpen} />
-    {/if}
+            <Sidebar bind:open={sidebarOpen}>
+                <h2>Joc: {team.game}</h2>
+                <h2>Players:</h2>
+                <PlayersList {team} />
+            </Sidebar>
+        {/if}
+    </div>
 </Loading>
 
 <InfoIcon />
@@ -97,6 +95,12 @@
     .TeamDetails {
         height: calc(100vh - var(--navbar-height));
         display: flex;
+    }
+
+    .TeamDetails :global(*)::-webkit-scrollbar-track {
+        margin-block: 2rem;
+        opacity: 0.3;
+        background-color: var(--clr-primary-80);
     }
 
     .TeamDetails__content {

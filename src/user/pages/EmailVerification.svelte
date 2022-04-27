@@ -35,15 +35,13 @@
     }
 </script>
 
-{#if !verified}
-    <div class="fullheight flex-center">
+<div class="full-height container container--fill container--centered">
+    {#if !verified}
         <FlexColumn centered>
             <h1>Trebuie sa iti verifici emailul</h1>
             <Btn type="button" on:click={sendEmail}>Retrimite verificare</Btn>
         </FlexColumn>
-    </div>
-{:else}
-    <div class="fullheight flex-center">
+    {:else}
         <h1>Email verificat. Da refresh la pagina.</h1>
-    </div>
-{/if}
+    {/if}
+</div>

@@ -6,7 +6,6 @@
         Form,
         InputField,
         Loading,
-        Logo,
     } from '../../common/components';
     import { createForm } from '../../common/utils';
     import { authService } from '../data/authService';
@@ -23,7 +22,6 @@
     <div
         class="container container--fill container--centered section-flow full-height"
     >
-        <Logo />
         <Form on:submit={submit} error={$status.error}>
             <h1 class="text-center">Creeaza cont</h1>
             <InputField label="Email" name="email" bind:value={$data.email} />

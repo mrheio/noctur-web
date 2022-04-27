@@ -4,6 +4,7 @@
         Btn,
         Floating,
         Overlay,
+        Section,
         UseSvg,
     } from '../../common/components';
     import { AddGameForm, GamesList } from '../components';
@@ -15,7 +16,7 @@
     };
 </script>
 
-<h1 class="text-center">Jocuri disponibile</h1>
+<Section><h1 class="text-center">Jocuri disponibile</h1></Section>
 <GamesList />
 
 <Floating>

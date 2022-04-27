@@ -4,7 +4,7 @@
     export let color = 'primary';
     export let variant = 'basic';
 
-    const chooseColor = () => {
+    const pickColor = () => {
         if (color === 'primary') {
             return '';
         }
@@ -14,9 +14,7 @@
     };
 
     const classes = () => {
-        return `btn ${
-            circle ? 'circle flex flex-center' : ''
-        } ${chooseColor()} wtransition`;
+        return `btn ${circle ? 'circle' : ''} ${pickColor()} wtransition`;
     };
 </script>
 
@@ -44,20 +42,10 @@
         color: var(--clr-txt);
         border: none;
         outline: none;
-        border-radius: var(--rounded-l);
-        font-weight: var(--fw-semibold);
-        margin: 0;
-        padding: var(--spacing-s) var(--spacing-xxl);
         max-width: 240px;
-    }
-
-    .circle,
-    .circle:active {
-        --size: 64px;
-        width: var(--size);
-        height: var(--size);
-        border-radius: 50%;
-        padding: 0;
+        border-radius: var(--rounded-s);
+        padding: var(--spacing-s) var(--spacing-m);
+        font-weight: var(--fw-semibold);
     }
 
     .btn:hover {
@@ -77,5 +65,17 @@
         display: inline-block;
         width: 28px;
         vertical-align: middle;
+    }
+
+    .circle,
+    .circle:active {
+        --size: 64px;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>

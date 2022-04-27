@@ -11,28 +11,31 @@
         if (open) {
             document.documentElement.style.overflow = 'hidden';
             document.body.scroll = 'no';
+        } else {
+            document.documentElement.style.overflow = 'visible';
+            document.body.scroll = 'yes';
         }
     }
 
     const closeOverlay = () => {
         open = false;
-        document.documentElement.style.overflow = 'visible';
-        document.body.scroll = 'yes';
     };
 </script>
 
 <div class={classes}>
-    <div class="page flex flex-center">
+    <div
+        class="page container container--fill container--centered section-flow"
+    >
         <slot />
-
-        <button
-            type="button"
-            class="btn--clear absolute-top-right"
-            on:click={closeOverlay}
-        >
-            <UseSvg href="#cancel-icon" size="36" />
-        </button>
     </div>
+
+    <button
+        type="button"
+        class="btn--clear absolute-top-right"
+        on:click={closeOverlay}
+    >
+        <UseSvg href="#cancel-icon" size="36" />
+    </button>
 </div>
 <CancelIcon />
 

@@ -1,6 +1,7 @@
 <script>
     import { Link } from 'svelte-routing';
     import { authStore, logOut } from './auth/authStore';
+    import { Logo } from './common/components';
 
     $: ({ user } = $authStore);
 
@@ -16,11 +17,7 @@
     <nav class="navbar">
         <div class="navbar__group">
             <Link to="/" {getProps}>
-                <img
-                    class="navbar__logo wtransition"
-                    src="../assets/imgs/logos/logo.png"
-                    alt=""
-                />
+                <Logo size="small" />
             </Link>
             {#if user}
                 <Link to="teams" {getProps}>Echipe</Link>
@@ -44,6 +41,10 @@
 </header>
 
 <style>
+    .header {
+        width: 100%;
+    }
+
     .navbar {
         position: fixed;
         inset: 0 0 auto 0;
@@ -57,15 +58,7 @@
 
     .navbar__group {
         display: flex;
-        gap: var(--gap-l);
+        gap: var(--gap-m);
         align-items: center;
-    }
-
-    .navbar__logo {
-        width: 40px;
-    }
-
-    .navbar__logo:hover {
-        filter: saturate(2.5);
     }
 </style>

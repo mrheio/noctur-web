@@ -14,9 +14,11 @@
 </script>
 
 <Loading condition={isLoading}>
-    <Grid>
-        {#each games as game}
-            <GameCard {game} />
-        {/each}
-    </Grid>
+    <div class="container container--fill">
+        <Grid>
+            {#each games as game}
+                <GameCard {game} />
+            {/each}
+        </Grid>
+    </div>
 </Loading>

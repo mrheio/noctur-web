@@ -2,7 +2,7 @@
     export let player;
 </script>
 
-<div class="PlayerCard">{player.username}</div>
+<div class="PlayerCard"><span class="header-s">{player.username}</span></div>
 
 <style>
     .PlayerCard {
@@ -10,6 +10,6 @@
         border: 2px solid var(--clr-primary-90);
         padding: var(--spacing-l);
         text-align: center;
-        border-radius: var(--rounded-m);
+        border-radius: 18px;
     }
 </style>

@@ -6,7 +6,7 @@
     export let game;
 </script>
 
-<Card>
+<Card size="fill" outlined="primary">
     <h3 class="header-s">{game.name}</h3>
     <h4 class="text-faded">
         Capacitate maxima echipa: <span>

@@ -1,8 +1,8 @@
 <script>
-    export let variant = undefined;
+    export let size = undefined;
 
     const classes = () => {
-        return `logo ${variant ? `logo--${variant}` : ''}`;
+        return `logo ${size ? `logo--${size}` : ''}`;
     };
 </script>
 
@@ -14,6 +14,6 @@
     }
 
     .logo--small {
-        width: 48px;
+        width: 42px;
     }
 </style>

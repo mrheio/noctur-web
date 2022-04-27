@@ -28,7 +28,7 @@
         height: 100%;
         z-index: var(--z-index-over-4);
         padding-top: var(--navbar-height);
-        padding-inline: var(--spacing-l);
+        padding-inline: var(--spacing-s);
     }
 
     .Sidebar__cancel {

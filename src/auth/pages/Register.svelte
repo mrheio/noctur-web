@@ -20,7 +20,9 @@
 </script>
 
 <Loading condition={$status.isLoading}>
-    <div class="fullheight flex-col flex-center">
+    <div
+        class="container container--fill container--centered section-flow full-height"
+    >
         <Logo />
         <Form on:submit={submit} error={$status.error}>
             <h1 class="text-center">Creeaza cont</h1>

@@ -62,7 +62,7 @@
                     {/if}
                 </div>
             </div>
-            <div class="TeamDetails__details">
+            <div class="TeamDetails__aside">
                 <h2>Joc: {team.game}</h2>
                 <h2>Players:</h2>
                 <PlayersList {team} />
@@ -112,7 +112,7 @@
         position: relative;
     }
 
-    .TeamDetails__details {
+    .TeamDetails__aside {
         width: 30%;
         overflow-y: auto;
     }
@@ -123,13 +123,13 @@
         }
 
         .TeamDetails__content,
-        .TeamDetails__details {
+        .TeamDetails__aside {
             background-color: var(--clr-primary-100);
             margin: var(--spacing-s);
-            border-radius: var(--rounded-l);
+            border-radius: 8px;
         }
 
-        .TeamDetails__details {
+        .TeamDetails__aside {
             padding: var(--spacing-s);
         }
     }

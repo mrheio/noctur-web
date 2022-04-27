@@ -22,11 +22,11 @@
 <style>
     .GamesPresentation {
         display: grid;
-        gap: var(--gap);
+        gap: 12px;
         grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (min-width: 1280px) {
+    @media (min-width: 1024px) {
         .GamesPresentation {
             grid-template-columns: repeat(4, 1fr);
         }

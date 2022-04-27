@@ -4,6 +4,7 @@
         Btn,
         Floating,
         Overlay,
+        Section,
         UseSvg,
     } from '../../common/components';
     import { AddTeamForm, TeamsList } from '../components';
@@ -15,12 +16,12 @@
     };
 </script>
 
-<h1 class="text-center">Echipe in cautare de playeri</h1>
+<Section><h1 class="text-center">Echipe in cautare de playeri</h1></Section>
 <TeamsList />
 
 <Floating>
     <Btn circle on:click={openOverlay}>
-        <UseSvg href="#add-team-icon" size="48" />
+        <UseSvg href="#add-team-icon" size="36" />
     </Btn>
 </Floating>
 

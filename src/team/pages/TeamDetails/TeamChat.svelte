@@ -58,6 +58,7 @@
     </div>
     <div class="TeamChat__input">
         <InputField
+            fill
             placeholder="Mesaj"
             name="message"
             bind:value={message}

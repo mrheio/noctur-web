@@ -4,7 +4,7 @@
 
     let classes = 'Form';
 
-    $: classes = `Form ${centered ? 'Form--centered' : ''}`;
+    $: classes = `container list-flow ${centered ? 'container--centered' : ''}`;
 </script>
 
 <form class={classes} on:submit|preventDefault>
@@ -22,7 +22,6 @@
         flex-direction: column;
         gap: var(--gap-xxl);
         width: min(420px, 90vw);
-        padding: var(--spacing-s) var(--spacing-xs);
     }
 
     .Form--centered {
